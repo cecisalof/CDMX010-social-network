@@ -3,20 +3,18 @@
 const homePage = `
 
 <div id="header">
-    <img src="" alt="logo">
-    <img src="" alt="genericAvatar">
-    <img src="" alt "searchIcon">
+    <img id="snipple" src="resources/garabato.png" alt="logo">
+    <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
+    <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
 </div>
 
-<h1>¡Hola Karina!</h1>
+<h1>¡Hola Elena!</h1>
 
 <div>
     <textarea>Crear publicación</textarea>
-    <img src="" alt="plusIcon">
+    <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
 </div>
-`;
 
-const creadCard = `
 <div>
     <div>
     <h2>Seres de luz</h2>
