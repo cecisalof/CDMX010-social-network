@@ -1,13 +1,13 @@
 // Este es el punto de entrada de tu aplicacion
-import about from './about.js'
+import login from './login.js'
 import home from './home.js'
-import contact from './contact.js'
+import post from './post.js'
 
 
 const routes = {
   '/': home,
-  '/contact': contact,
-  '/about': about,
+  '/login': login,
+  '/post': post,
 };
 
 
