@@ -1,15 +1,15 @@
 // Este es el punto de entrada de tu aplicacion
-import about from './about.js';
+import post from './post.js';
 // eslint-disable-next-line import/no-cycle
 import { home } from './home.js';
-import contact from './contact.js';
+import login from './login.js';
 
 export const rootDiv = document.getElementById('root');
 
 export const routes = {
   '/': home,
-  '/contact': contact,
-  '/about': about,
+  '/login': login,
+  '/post': post,
 };
 
 rootDiv.innerHTML = routes[window.location.pathname];
