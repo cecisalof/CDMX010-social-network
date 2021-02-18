@@ -2,13 +2,14 @@
 import post from './post.js';
 // eslint-disable-next-line import/no-cycle
 import { home } from './home.js';
-import login from './login.js';
+import logIn from './login.js';
+import post from './post.js';
 
 export const rootDiv = document.getElementById('root');
 
 export const routes = {
   '/': home,
-  '/login': login,
+  '/logIn': logIn,
   '/post': post,
 };
 

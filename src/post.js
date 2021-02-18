@@ -1,5 +1,5 @@
-const contact = `
-<h1> I am the Contact Page </h1>
+const post = `
+<h1> I am the Post Page </h1>
 `;
 
-export default contact;
+export default post;

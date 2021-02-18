@@ -2,8 +2,8 @@
 export const home = `
 
 <div id="header">
-    <img id="snipple" src="resources/garabato.png" alt="logo" class="link">
-    <img id="userAvatar" class="icons" src="resources/user.png" class="link" alt="genericAvatar">
+    <img id="snipple" src="resources/garabato.png" alt="logo">
+    <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
     <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
 </div>
 
@@ -11,16 +11,15 @@ export const home = `
 
 <div>
     <textarea>Crear publicación</textarea>
-    <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon" class="link">
+    <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
 </div>
 
 <div>
-    <div id="cardContainer" class="link">
+    <div id="cardContainer">
         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
         <h2>Seres de luz</h2>
         <h3>Apuntes sobre el papel de la iluminación 
         escénica en la coreografía.</h3>
-        <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">    
+        <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
     </div>
-   
 `;
