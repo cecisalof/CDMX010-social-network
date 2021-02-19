@@ -1,7 +1,5 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { home } from './home.js';
-
 const firebaseConfig = {
   apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
   authDomain: 'novaapp-67e15.firebaseapp.com',
@@ -22,7 +20,7 @@ const cardTitle = document.getElementById('title');
 const cardSubtitle = document.getElementById('subtitle');
 const button = document.getElementById('saveButton');
 
-button.addEventListener('click', (e) => {
+export const createPost = button.addEventListener('click', (e) => {
   e.preventDefault();
   const textToSave = cardTitle.value;
   console.log(`Im going to save ${textToSave} to Firestore`);
