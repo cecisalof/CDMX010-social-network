@@ -1,5 +1,4 @@
 // Este es el punto de entrada de tu aplicacion
-import post from './post.js';
 // eslint-disable-next-line import/no-cycle
 import { home } from './home.js';
 import logIn from './login.js';

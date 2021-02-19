@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-cycle AQUI LE MOVI
-export const home = `
+// eslint-disable-next-line import/no-cycle
 
+const homePage = `
 <div id="header">
     <img id="snipple" src="resources/garabato.png" alt="logo">
     <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
@@ -23,3 +23,12 @@ export const home = `
         <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
     </div>
 `;
+
+const createPost = `
+<div>
+    <input type="text" id="title"></input>
+    <button id="saveButton">Publicar</button>
+</div>
+`;
+
+export const home = (homePage + creadCard + createPost);
