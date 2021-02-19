@@ -13,7 +13,9 @@ const homePage = `
     <textarea>Crear publicación</textarea>
     <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
 </div>
+`;
 
+const createCard = `
 <div>
     <div id="cardContainer">
         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
@@ -31,4 +33,4 @@ const createPost = `
 </div>
 `;
 
-export const home = (homePage + creadCard + createPost);
+export const home = (homePage + createCard + createPost);
