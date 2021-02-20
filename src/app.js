@@ -14,17 +14,31 @@ firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 const db = firebase.firestore();
 
-const docRef = db.doc('newPost/Title');
-const cardContainer = document.getElementById('cardContainer');
+
 const cardTitle = document.getElementById('title');
-const cardSubtitle = document.getElementById('subtitle');
 const button = document.getElementById('saveButton');
 
 export const createPost = button.addEventListener('click', (e) => {
   e.preventDefault();
-  const textToSave = cardTitle.value;
-  console.log(`Im going to save ${textToSave} to Firestore`);
-  docRef.set({
-    Title: textToSave,
-  });
+  console.log(cardTitle.value);
+  
+  if(!cardTitle.value.trim()){
+    console.log("input vacio")
+    return
+  }
+
+firebase.firestore().collection("newPost").add({
+  title: cardTitle.value,
+  fecha: Date.now()
+})
+.then(res => {console.log("mensaje guardado")})
+.catch(e => console.log(e))
+
+cardTitle.value = ''
+
 });
+
+firebase.firestore().collection("newPost")
+.onSnapshot(query => {
+  
+})

@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 
-const homePage = `
+const homePage =/*html*/ `
 <div id="header">
     <img id="snipple" src="resources/garabato.png" alt="logo">
     <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
@@ -15,7 +15,7 @@ const homePage = `
 </div>
 `;
 
-const createCard = `
+const createCard =/*html*/ `
 <div>
     <div id="cardContainer">
         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
@@ -26,10 +26,13 @@ const createCard = `
     </div>
 `;
 
-const createPost = `
+const createPost =/*html*/ `
 <div>
     <input type="text" id="title"></input>
     <button id="saveButton">Publicar</button>
+</div>
+<div id="commentary">
+<textarea id="user-commentary"></textarea>
 </div>
 `;
 
