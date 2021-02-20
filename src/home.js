@@ -28,7 +28,9 @@ const createCard = `
 
 const createPost = `
 <div>
-    <input type="text" id="title"></input>
+    <input type="text" placeholder="Título de la publicación" id="title"></input>
+    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
+    <input type="text" placeholder="Cuerpo de la publicación" id="body"></input>
     <button id="saveButton">Publicar</button>
 </div>
 `;
