@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-cycle
+import { db } from "./firebase.js";
+import {createpost} from "./app.js"
 
-const homePage =/*html*/ `
+const homePage = /*html*/ `
 <div id="header">
     <img id="snipple" src="resources/garabato.png" alt="logo">
     <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
@@ -15,25 +17,27 @@ const homePage =/*html*/ `
 </div>
 `;
 
-const createCard =/*html*/ `
+const createCard = () => {
+  /*html*/ `
 <div>
     <div id="cardContainer">
         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
-        <h2>Seres de luz</h2>
-        <h3>Apuntes sobre el papel de la iluminación 
-        escénica en la coreografía.</h3>
+        <h2>${message.data().cardTitle}</h2>
+        <h3>${message.data().subtitleCard}</h3>
         <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
     </div>
 `;
+};
 
-const createPost =/*html*/ `
+const createPost = `
 <div>
-    <input type="text" id="title"></input>
+    <input type="text" placeholder="Título de la publicación" id="title"></input>
+    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
+    <input type="text" placeholder="Cuerpo de la publicación" id="body"></input>
     <button id="saveButton">Publicar</button>
 </div>
 <div id="commentary">
-<textarea id="user-commentary"></textarea>
 </div>
 `;
 
-export const home = (homePage + createCard + createPost);
+export const home = homePage + createCard + createPost;

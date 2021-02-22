@@ -1,44 +1,48 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
-  authDomain: 'novaapp-67e15.firebaseapp.com',
-  projectId: 'novaapp-67e15',
-  storageBucket: 'novaapp-67e15.appspot.com',
-  messagingSenderId: '282489634860',
-  appId: '1:282489634860:web:97a4ad5b81716f2b0f5189',
-  measurementId: 'G-N31JQDJTSM',
+import { db } from "./firebase.js";
+
+export function savePost() {
+  const cardTitle = document.getElementById("title");
+  const button = document.getElementById("saveButton");
+  const subtitleCard = document.getElementById("subtitle");
+  const bodyCard = document.getElementById("body");
+
+  const createPost = button.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(cardTitle.value);
+    console.log(subtitleCard.value);
+    console.log(bodyCard.value);
+
+    db.collection("newPost2")
+      .add({
+        Title: cardTitle.value,
+        Subtitle: subtitleCard.value,
+        Body: bodyCard.value,
+        Fecha: Date.now(),
+      })
+      .then((res) => {
+        console.log("mensaje guardado");
+        cardTitle.value = "";
+      })
+      .catch((e) => console.log(e));
+
+    cardTitle.value = "";
+  });
+}
+
+//Leer Data
+
+export const createpost = () => {
+  document.getElementById("commentary");
+
+  db.collection("newPost2")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((message) => {
+        createCard(message.data());
+        console.log(`${message.id} => ${message.data().title}`);
+        commentary.innerHTML += createCard();
+       
+      });
+    });
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-const db = firebase.firestore();
 
-
-const cardTitle = document.getElementById('title');
-const button = document.getElementById('saveButton');
-
-export const createPost = button.addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log(cardTitle.value);
-  
-  if(!cardTitle.value.trim()){
-    console.log("input vacio")
-    return
-  }
-
-firebase.firestore().collection("newPost").add({
-  title: cardTitle.value,
-  fecha: Date.now()
-})
-.then(res => {console.log("mensaje guardado")})
-.catch(e => console.log(e))
-
-cardTitle.value = ''
-
-});
-
-firebase.firestore().collection("newPost")
-.onSnapshot(query => {
-  
-})
