@@ -1,5 +1,6 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
   authDomain: 'novaapp-67e15.firebaseapp.com',
@@ -42,32 +43,19 @@ export const createPost = button.addEventListener('click', (e) => {
     fecha: Date.now(),
   })
   // lo anterior es una promesa por lo que debemos cachar el error si es que falla.
-    .then(result => { console.log('Publicación guardada con éxito!'); })
-    .catch(error => console.log(e));
+    .then((result) => { console.log('Publicación guardada con éxito!'); })
+    .catch((error) => console.log(e));
   // borramos campos del input al dar click en "Publicar"
   titleCard.value = '';
   subtitleCard.value = '';
   bodyCard.value = '';
 
-
-
-
-    // .onSnapshot(post => {
-    //   //console.log(post);
-    //   post.forEach(doc =>{
-    //     console.log(doc);
-    //   });
-    // });
-
-//   docRef.set({
-//     Title: textToSave,
-//   });
-// });
-
-// db.collection('newPost')
-//   .onSnapshot(post => {
-//     //console.log(post);
-//     post.forEach(doc =>{
-//       console.log(doc);
-//     });
+  db.collection('newPost').orderBy('fecha')
+    .onSnapshot((post) => {
+      // console.log(post);
+      post.forEach((doc) => { // recorre todo el array de documentos de la base de datos
+        console.log(doc.data());// .data() muestra los objetos con data más accesible
+        // aquí vendrían los condicionales para imprimir la info en el DOM.
+      });
+    });
 });
