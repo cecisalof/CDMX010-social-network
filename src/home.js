@@ -1,36 +1,65 @@
+/* eslint-disable no-param-reassign */
 // eslint-disable-next-line import/no-cycle
-
-const homePage = `
-<div id="header">
-    <img id="snipple" src="resources/garabato.png" alt="logo">
-    <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
-    <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
-</div>
-
-<h1>¡Hola Elena!</h1>
-
-<div>
-    <textarea>Crear publicación</textarea>
-    <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
-</div>
-`;
-
-const createCard = `
-<div>
-    <div id="cardContainer">
-        <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
-        <h2>Seres de luz</h2>
-        <h3>Apuntes sobre el papel de la iluminación 
-        escénica en la coreografía.</h3>
-        <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
-    </div>
-`;
+import { savePost } from './firebase.js';
 
 const createPost = `
-<div>
-    <input type="text" id="title"></input>
+<div></div>
+    <input type="text" placeholder="Título de la publicación" id="title"></input>
+    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
+    <input type="text" placeholder="Cuerpo de la publicación" id="body"></input>
     <button id="saveButton">Publicar</button>
+</div>
+
+<div id="commentary">
 </div>
 `;
 
-export const home = (homePage + createCard + createPost);
+export const home = (container) => {
+  const html = `
+    <div id="header">
+        <img id="snipple" src="resources/garabato.png" alt="logo">
+        <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
+        <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
+    </div>
+
+    <h1>¡Hola Elena!</h1>
+
+    <div>
+        <textarea>Crear publicación</textarea>
+        <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
+    </div>
+
+    ${createPost}
+    
+  `;
+
+  container.innerHTML = html;
+
+  const postbutton = document.getElementById('saveButton');
+  const titleCard = document.getElementById('title');
+  const subtitleCard = document.getElementById('subtitle');
+  const bodyCard = document.getElementById('body');
+
+  postbutton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(titleCard.value);
+    console.log(subtitleCard.value);
+    console.log(bodyCard.value);
+
+    if (!titleCard.trim() || !subtitleCard.trim() || !bodyCard.trim()) {
+      console.log('Input vacío!');
+      return;
+    }
+
+    const post = {
+      title: titleCard.value,
+      subtitle: subtitleCard.value,
+      body: bodyCard.value,
+    };
+
+    savePost(post)
+      .then((result) => { console.log('Publicación guardada con éxito!'); })
+      .catch((error) => console.log(e));
+    // renderCards(e);
+  });
+};
