@@ -1,4 +1,4 @@
-import { onNavigate, routes, rootDiv } from './routes.js';
+import { onNavigate, routes, rootDiv } from './views/routes.js';
 import { savePost } from './firebase.js';
 
 window.onpopstate = () => {

@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore();
 
 // GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS
-export const savePost = (post) => db.collection('newPost')
+export const savePost = (post) => db.collection('newPost/Title')
   .add({
     Title: post.title,
     Subtitle: post.subtitle,

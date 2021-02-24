@@ -1,4 +1,5 @@
-import { savePost } from './firebase.js';
+import { savePost } from '../firebase.js';
+import { rootDiv } from './routes.js';
 
 const createPost = `
 <div></div>
@@ -24,8 +25,7 @@ export const home = (container) => {
     
   `;
 
-  // eslint-disable-next-line no-param-reassign
-  container.innerHTML = html;
+  rootDiv.innerHTML = html;
 
   const postbutton = document.getElementById('saveButton');
   const titleCard = document.getElementById('title');
@@ -38,10 +38,10 @@ export const home = (container) => {
     console.log(subtitleCard.value);
     console.log(bodyCard.value);
 
-    if (!titleCard.trim() || !subtitleCard.trim() || !bodyCard.trim()) {
-      console.log('Input vacío!');
-      return;
-    }
+    // if (!titleCard.trim() || !subtitleCard.trim() || !bodyCard.trim()) {
+    //   console.log('Input vacío!');
+    //   return;
+    // }
 
     const post = {
       title: titleCard.value,

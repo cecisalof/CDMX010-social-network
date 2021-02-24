@@ -5,7 +5,7 @@ import post from './post.js';
 export const rootDiv = document.getElementById('root');
 
 export const routes = {
-  '/': home,
+  '/': home, // home is the default route. the firts view after the user has loged in.
   '/logIn': logIn,
   '/post': post,
 };
@@ -15,9 +15,7 @@ export const routes = {
 // });
 
 const homeView = routes[window.location.pathname];
-homeView();
-
-console.log(homeView);
+homeView(rootDiv);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -26,5 +24,5 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname,
   );
   const view = routes[pathname];
-  view();
+  view(rootDiv);
 };
