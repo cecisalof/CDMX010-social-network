@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { db } from "./firebase.js";
-import {createpost} from "./app.js"
+import { baseDatos } from "./app.js";
+
 
 const homePage = /*html*/ `
 <div id="header">
@@ -17,17 +18,17 @@ const homePage = /*html*/ `
 </div>
 `;
 
-const createCard = () => {
-  /*html*/ `
+const createCard = 
+
+    `
 <div>
     <div id="cardContainer">
         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
-        <h2>${message.data().cardTitle}</h2>
-        <h3>${message.data().subtitleCard}</h3>
+        <h2>Hola</h2>
+        <h3>Mundo</h3>
         <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
     </div>
 `;
-};
 
 const createPost = `
 <div>
