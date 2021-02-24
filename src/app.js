@@ -1,48 +1,23 @@
-import { db } from "./firebase.js";
+// eslint-disable-next-line import/no-cycle
+import { onNavigate, routes, rootDiv } from './routes.js';
 
-export function savePost() {
-  const cardTitle = document.getElementById("title");
-  const button = document.getElementById("saveButton");
-  const subtitleCard = document.getElementById("subtitle");
-  const bodyCard = document.getElementById("body");
-
-  const createPost = button.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log(cardTitle.value);
-    console.log(subtitleCard.value);
-    console.log(bodyCard.value);
-
-    db.collection("newPost2")
-      .add({
-        Title: cardTitle.value,
-        Subtitle: subtitleCard.value,
-        Body: bodyCard.value,
-        Fecha: Date.now(),
-      })
-      .then((res) => {
-        console.log("mensaje guardado");
-        cardTitle.value = "";
-      })
-      .catch((e) => console.log(e));
-
-    cardTitle.value = "";
-  });
-}
-
-//Leer Data
-
-export const createpost = () => {
-  document.getElementById("commentary");
-
-  db.collection("newPost2")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((message) => {
-        createCard(message.data());
-        console.log(`${message.id} => ${message.data().title}`);
-        commentary.innerHTML += createCard();
-       
-      });
-    });
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
 };
 
+window.onNavigate = onNavigate;
+
+// ESTA FU8NCIÓN SOLAMENTE CARGA LOS VALORES DE MI TEMPLATE QUE ESTA EN HOME
+
+// export const baseDatos = db.collection("newPost2").onSnapshot(query => {
+//  query.forEach(message => {
+//    let dataBase = message.data();
+//    console.log(dataBase);
+//  });
+// });
+
+/*
+const basedatos = db.collection('newPost2').onSnapshot(query => {
+  query.forEach(message => html += createCard(message))
+  });
+*/
