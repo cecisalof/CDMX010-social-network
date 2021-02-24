@@ -1,30 +1,23 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
-  authDomain: 'novaapp-67e15.firebaseapp.com',
-  projectId: 'novaapp-67e15',
-  storageBucket: 'novaapp-67e15.appspot.com',
-  messagingSenderId: '282489634860',
-  appId: '1:282489634860:web:97a4ad5b81716f2b0f5189',
-  measurementId: 'G-N31JQDJTSM',
+// eslint-disable-next-line import/no-cycle
+import { onNavigate, routes, rootDiv } from './routes.js';
+
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-const db = firebase.firestore();
 
-const docRef = db.doc('newPost/Title');
-const cardContainer = document.getElementById('cardContainer');
-const cardTitle = document.getElementById('title');
-const cardSubtitle = document.getElementById('subtitle');
-const button = document.getElementById('saveButton');
+window.onNavigate = onNavigate;
 
-export const createPost = button.addEventListener('click', (e) => {
-  e.preventDefault();
-  const textToSave = cardTitle.value;
-  console.log(`Im going to save ${textToSave} to Firestore`);
-  docRef.set({
-    Title: textToSave,
+// ESTA FU8NCIÓN SOLAMENTE CARGA LOS VALORES DE MI TEMPLATE QUE ESTA EN HOME
+
+// export const baseDatos = db.collection("newPost2").onSnapshot(query => {
+//  query.forEach(message => {
+//    let dataBase = message.data();
+//    console.log(dataBase);
+//  });
+// });
+
+/*
+const basedatos = db.collection('newPost2').onSnapshot(query => {
+  query.forEach(message => html += createCard(message))
   });
-});
+*/
