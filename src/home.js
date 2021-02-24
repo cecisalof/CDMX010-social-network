@@ -1,6 +1,6 @@
-/* eslint-disable no-param-reassign */
-// eslint-disable-next-line import/no-cycle
-import { savePost } from './firebase.js';
+import { savePost, db } from './firebase.js';
+export const home2 = (param) => `<h1> ${param}I am the Home2 In Page </h1> `;
+
 
 const createPost = `
 <div></div>
@@ -42,24 +42,35 @@ export const home = (container) => {
 
   postbutton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(titleCard.value);
-    console.log(subtitleCard.value);
-    console.log(bodyCard.value);
-
-    if (!titleCard.trim() || !subtitleCard.trim() || !bodyCard.trim()) {
-      console.log('Input vacío!');
-      return;
-    }
-
     const post = {
       title: titleCard.value,
       subtitle: subtitleCard.value,
       body: bodyCard.value,
+      fecha: Date.now(),
     };
 
+    if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
+      console.log('Input vacío!');
+      return;
+    }
+
     savePost(post)
-      .then((result) => { console.log('Publicación guardada con éxito!'); })
-      .catch((error) => console.log(e));
+      .then((result) => { console.log('Publicación guardada con éxito!');})
+
+      .catch((error) => console.log(error));
+
+    titleCard.value = '';
+    subtitleCard.value = '';
+    bodyCard.value = '';
+
     // renderCards(e);
   });
 };
+
+const baseDatos = db.collection('newPost')// .orderBy('fecha')
+  .onSnapshot((query) => {
+    query.forEach((message) => {
+      let dataBase = message.data();
+      console.log(dataBase);
+    });
+  });

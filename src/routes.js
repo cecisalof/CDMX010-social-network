@@ -1,7 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home } from './home.js';
-import logIn from './login.js';
+import { home, home2 } from './home.js';
+import { logIn } from './logIn.js';
 import post from './post.js';
 
 export const rootDiv = document.getElementById('root');
@@ -12,14 +12,8 @@ export const routes = {
   '/post': post,
 };
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("DOM fully loaded and parsed");
-});
-
 const homeView = routes[window.location.pathname];
-homeView();
-
-console.log(homeView);
+homeView(rootDiv);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -28,5 +22,5 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname,
   );
   const view = routes[pathname];
-  view();
+  view(rootDiv);
 };

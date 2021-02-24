@@ -24,6 +24,11 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
-// cardTitle.value = '';
-// subtitleCard.value = '';
-// bodyCard.value = '';
+
+/*
+const prueba = (title) => { db.collection('newPost').doc(title).get();
+console.log(title);
+};
+
+prueba()
+*/
