@@ -5,8 +5,8 @@ export const home2 = (param) => `<h1> ${param}I am the Home2 In Page </h1> `;
 const createPost = `
 <div></div>
     <input type="text" placeholder="Título de la publicación" id="title"></input>
-    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
-    <input type="text" placeholder="Cuerpo de la publicación" id="body"></input>
+    <textarea placeholder="Subtítulo" id="subtitle"></textarea>
+    <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
     <button id="saveButton">Publicar</button>
 </div>
 
@@ -19,15 +19,11 @@ export const home = (container) => {
     <div id="header">
         <img id="snipple" src="resources/garabato.png" alt="logo">
         <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
-        <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
+        <!--<img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">-->
+
     </div>
 
     <h1>¡Hola Elena!</h1>
-
-    <div>
-        <textarea>Crear publicación</textarea>
-        <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
-    </div>
 
     ${createPost}
     

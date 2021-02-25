@@ -1,34 +1,17 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
-  authDomain: 'novaapp-67e15.firebaseapp.com',
-  projectId: 'novaapp-67e15',
-  storageBucket: 'novaapp-67e15.appspot.com',
-  messagingSenderId: '282489634860',
-  appId: '1:282489634860:web:97a4ad5b81716f2b0f5189',
-  measurementId: 'G-N31JQDJTSM',
-};
-  // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-// eslint-disable-next-line no-unused-vars
-export const db = firebase.firestore();
+/* Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebase from 'firebase/app';
+// If you are using v7 or any earlier version of the 
+//JS SDK, you should import firebase using namespace import
+// import * as firebase from "firebase/app"
 
-// GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS
-export const savePost = (post) => db.collection('newPost')
-  .add({
-    Title: post.title,
-    Subtitle: post.subtitle,
-    Body: post.body,
-    Fecha: Date.now(),
-  });
+// If you enabled Analytics in your project, add the Firebase SDK for Analytics
+import 'firebase/analytics';
 
+// Add the Firebase products that you want to use
+import 'firebase/auth';
+import 'firebase/firestore';
 
-/*
-const prueba = (title) => { db.collection('newPost').doc(title).get();
-console.log(title);
-};
-
-prueba()
+const firebaseRequire = require('firebase');
+// Required for side-effects
+require('firebase/firestore');
 */
