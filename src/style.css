@@ -37,12 +37,25 @@ textarea{
     font-family: "Lufga", sans-serif;
     font-size: 14px;
     margin-top: 25px;
-    margin-left: 25px;
+    margin-left: 36px;
     background-color: #C4C4C4;
     border: none;
     border-radius: 0.5em;
 }
 
+body > ul:nth-child(2) {
+    padding-left: 15px;
+}
+
+
+#header {
+    display: flex;
+    border-top-width: 0px;
+    border-top-style: solid;
+    margin-top: -55px;
+    margin-left: 60px;
+}
+   
 .icons {
     width: 20px;
   }
@@ -50,7 +63,7 @@ textarea{
 #snipple {
     width: 50px;
     height: 35px;
-    padding-left: 24px;
+    padding-left: 32px;
 }
 
 #searchIcon{
@@ -59,6 +72,7 @@ left: 75%;
 right: 13.42%;
 top: 14%;
 bottom: 27.38%;
+margin-top: -48px;
 }
 
 #userAvatar{
@@ -67,6 +81,7 @@ left: 85%;
 right: 0%;
 top: 13.97%;
 bottom: 30.17%;
+margin-top: -50px;
 }
 
 #plusIcon {
@@ -94,3 +109,29 @@ bottom: 30.17%;
     left: 290px;
     top: 395px;
 }
+
+#title {
+    margin-left: 36px;
+    border: none;
+}
+
+#subtitle {
+    height: 50px;
+    background: #f9f9f9;
+  }
+
+#body {
+    background: #f9f9f9;
+}
+#root > h1:nth-child(2) {
+    margin-left: 38px;
+}
+
+#saveButton {
+    margin-left: 38px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+
+   

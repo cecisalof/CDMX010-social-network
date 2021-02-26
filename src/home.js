@@ -10,27 +10,27 @@ const homePage = `
 <h1>¡Hola Elena!</h1>
 
 <div>
-    <textarea>Crear publicación</textarea>
-    <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon">
+<!--<textarea>Crear publicación</textarea>
+     <img id="plusIcon" class="icons" src="resources/plus.png" alt="plusIcon"> -->
 </div>
 `;
 
-const createCard = `
-<div>
-    <div id="cardContainer">
-        <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
-        <h2>Seres de luz</h2>
-        <h3>Apuntes sobre el papel de la iluminación 
-        escénica en la coreografía.</h3>
-        <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
-    </div>
+ const createCard = `
+ <!-- <div>
+     <div id="cardContainer">
+         <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
+         <h2>Seres de luz</h2>
+         <h3>Apuntes sobre el papel de la iluminación 
+         escénica en la coreografía.</h3>
+         <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
+     </div>-->
 `;
 
 const createPost = `
 <div>
     <input type="text" placeholder="Título de la publicación" id="title"></input>
-    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
-    <input type="text" placeholder="Cuerpo de la publicación" id="body"></input>
+    <textarea placeholder="Subtítulo" id="subtitle"></textarea>
+    <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
     <button id="saveButton">Publicar</button>
 </div>
 `;
