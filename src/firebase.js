@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 
-// import { renderPost } from "./home";
+import { renderPost } from './home.js';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -32,15 +32,17 @@ export const getData = db.collection('newPost')// .orderBy('fecha')
   .onSnapshot((query) => {
     query.forEach((message) => {
       const dataBase = message.data();
-      console.log(dataBase);
-      // renderPost(dataBase)
+      const html2 = ' ';
+
+       console.log(dataBase);
+
+      // renderPost(dataBase);
       // return dataBase;
 
       // renderPost(dataBase);
     });
   });
 
- 
 /*
 const prueba = (title) => { db.collection('newPost').doc(title).get();
 console.log(title);

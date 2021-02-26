@@ -1,6 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home, home2 } from './home.js';
+import { home } from './home.js';
 import { logIn } from './logIn.js';
 import post from './post.js';
 
@@ -11,7 +11,6 @@ export const routes = {
   '/logIn': logIn,
   '/post': post,
 };
-
 
 const homeView = routes[window.location.pathname];
 homeView(rootDiv);

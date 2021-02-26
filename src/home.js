@@ -1,7 +1,5 @@
 import { savePost, db, getData } from './firebase.js';
 
-export const home2 = (param) => `<h1> ${param}I am the Home2 In Page </h1> `;
-
 const createPost = `
 <div>
     <input type="text" placeholder="Título de la publicación" id="title"></input>
@@ -60,6 +58,8 @@ export const home = (container) => {
       fecha: Date.now(),
     };
 
+    console.log(post);
+
     if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
       console.log('Input vacío!');
       return;
@@ -97,10 +97,10 @@ getData(); */
       });
     }); */
 
+// ESTE VA A SER EL QUE DETONE
 const like = () => {
   const likebutton = document.getElementById('like');
   likebutton.addEventListener('click', () => {
     console.log('Yo voy a dar Like');
 });
 };
-
