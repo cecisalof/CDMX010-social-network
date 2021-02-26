@@ -12,6 +12,7 @@ export const routes = {
   '/post': post,
 };
 
+
 const homeView = routes[window.location.pathname];
 homeView(rootDiv);
 
