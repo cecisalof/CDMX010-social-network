@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link type="text/css" rel="stylesheet" href="style.css">
   <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
 </head>
 <body>
   <div id="app"></div>
@@ -15,13 +17,10 @@
     <li><a href="#" onclick="onNavigate('/post'); return false;">Post</a></li>
   </ul>
   <div id="root">
-    <div>
-      <input type="text" id="title">
+    <!-- <div>
       <button id="saveButton">Publicar</button>
-  </div>
+  </div> -->
   </div>
   <script src="app.js" type="module"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
 </body>
 </html>

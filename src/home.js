@@ -3,8 +3,10 @@ import { savePost, db, getData } from './firebase.js';
 const createPost = `
 <div>
     <input type="text" placeholder="Título de la publicación" id="title"></input>
-    <input type="text" placeholder="Subtítulo" id="subtitle"></input>
-    <textarea type="text" placeholder="Cuerpo de la publicación" id="body"></textarea>
+
+    <textarea placeholder="Subtítulo" id="subtitle"></textarea>
+    <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
+
     <button id="saveButton">Publicar</button>
 </div>
 
@@ -31,7 +33,8 @@ export const home = (container) => {
     <div id="header">
         <img id="snipple" src="resources/garabato.png" alt="logo">
         <img id="userAvatar" class="icons" src="resources/user.png" alt="genericAvatar">
-        <img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">
+        <!--<img id="searchIcon" class="icons" src="resources/search.png" alt "searchIcon">-->
+
     </div>
 
     <h1>¡Hola Elena!</h1>
