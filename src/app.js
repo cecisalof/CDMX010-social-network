@@ -48,26 +48,18 @@ export const createPost = button.addEventListener('click', (e) => {
   titleCard.value = '';
   subtitleCard.value = '';
   bodyCard.value = '';
-
-
-
-
-    // .onSnapshot(post => {
-    //   //console.log(post);
-    //   post.forEach(doc =>{
-    //     console.log(doc);
-    //   });
-    // });
-
-//   docRef.set({
-//     Title: textToSave,
-//   });
-// });
-
-// db.collection('newPost')
-//   .onSnapshot(post => {
-//     //console.log(post);
-//     post.forEach(doc =>{
-//       console.log(doc);
-//     });
 });
+
+const menuButton = document.getElementById('btn');
+// Hamburger Menu for mobile
+function showMenu() {
+  const menu = document.getElementById('opcs-menu');
+  if (menu.classList.contains('disabled-menu')) {
+    menu.classList.remove('disabled-menu');
+    menu.classList.add('enabled-menu');
+  } else {
+    menu.classList.remove('enabled-menu');
+    menu.classList.add('disabled-menu');
+  }
+}
+menuButton.addEventListener('click', showMenu);

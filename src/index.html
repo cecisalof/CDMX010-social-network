@@ -11,11 +11,20 @@
 </head>
 <body>
   <div id="app"></div>
-  <ul>
-    <li><a href="#" onclick="onNavigate('/'); return false;">Home</a></li>
-    <li><a href="#" onclick="onNavigate('/logIn'); return false;">Log in</a></li>
-    <li><a href="#" onclick="onNavigate('/post'); return false;">Post</a></li>
+  <div id="hamburgerMenu">
+    <button id="btn">
+      <hr>
+      <hr>
+      <hr>
+    </button>
+  </div>
+  <nav id="opcs-menu" class="disabled-menu">
+  <ul id="navBar">
+    <li class="navTittle" id="home"><a href="#" onclick="onNavigate('/'); return false;">Home</a></li>
+    <li class="navTittle" id="logIn"><a href="#" onclick="onNavigate('/logIn'); return false;">Log in</a></li>
+    <li class="navTittle" id="post"><a href="#" onclick="onNavigate('/post'); return false;">Post</a></li>
   </ul>
+  </nav>
   <div id="root">
     <!-- <div>
       <input type="text" id="title">
