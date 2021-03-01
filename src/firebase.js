@@ -1,5 +1,6 @@
 // Your web app's Firebase configuration
-
+import { renderPost } from "./home.js";
+// const printPost = document.getElementById('container2');
 // import { renderPost } from "./home";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -28,19 +29,28 @@ export const savePost = (post) => db.collection('newPost')
   });
 
 // TRAE LA DATA DE LA BASE DE DATOS.
-export const getData = db.collection('newPost')// .orderBy('fecha')
-  .onSnapshot((query) => {
-    query.forEach((message) => {
-      const dataBase = message.data();
-      console.log(dataBase);
-      // renderPost(dataBase)
-      // return dataBase;
+const postContainer = document.getElementById('printData');
 
-      // renderPost(dataBase);
+//export const getData = () => {
+  db.collection('newPost')// .orderBy('fecha')
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const dataBase = doc.data();
+        //postContainer.innerHTML += renderPost(dataBase);
+        console.log(dataBase);
+      });
     });
-  });
 
- 
+  
+/*
+  db.collection("posts").onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().titulo}`);
+      const dataPosts = doc.data();
+      postForm.innerHTML += postCard(dataPosts);
+    })
+  });
+  */
 /*
 const prueba = (title) => { db.collection('newPost').doc(title).get();
 console.log(title);
