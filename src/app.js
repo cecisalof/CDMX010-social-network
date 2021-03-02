@@ -8,6 +8,7 @@ const titleCard = document.getElementById('title');
 const subtitleCard = document.getElementById('subtitle');
 const bodyCard = document.getElementById('body');
 const postContainer = document.getElementById('printData');
+const links = document.querySelectorAll('IMG');
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
@@ -48,10 +49,8 @@ postButton.addEventListener('click', (e) => {
       titleCard.value = '';
       subtitleCard.value = '';
       bodyCard.value = '';
-      //like();
     })
     .catch((error) => console.log(error));
-
 });
 
 db.collection('newPost')// .orderBy('fecha')
@@ -59,14 +58,30 @@ db.collection('newPost')// .orderBy('fecha')
     querySnapshot.forEach((doc) => {
       const dataBase = doc.data();
       postContainer.innerHTML += renderPost(dataBase);
-             console.log(dataBase);
+      console.log(dataBase);
+    });
+  });
+// aqui abajo se encentran todas las pruebas del nuevo routing
+/*
+window.addEventListener('DOMContentLoaded', () => {
+  links.forEach((e) => {
+    e.addEventListener('click', () => {
+      console.log(e.id);
+    });
   });
 });
-
-// Esta función daría Like:
+*/
 
 /*
-window.addEventListener("DOMContentLoaded", (post) => {
-home()
-});
+function routingLinks(e) {
+  if (e.id === "sniple") {
+  }
+}
 */
+
+links.forEach((e) => {
+  e.addEventListener('click', () => {
+    console.log(e.id);
+    routingLinks(e.id);
+  });
+});
