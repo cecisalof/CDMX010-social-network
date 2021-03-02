@@ -1,4 +1,3 @@
-// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
@@ -15,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 // eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
 
-// GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS
+// GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS.
 export const savePost = (post) => db.collection('newPost')
   .add({
     Title: post.title,
@@ -24,6 +23,28 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
+// TRAE LA DATA DE LA BASE DE DATOS.
+/*
+//export const getData = () => {
+db.collection('newPost')// .orderBy('fecha')
+  .onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const dataBase = doc.data();
+      //postContainer.innerHTML += renderPost(dataBase);
+      console.log(dataBase);
+    });
+  });
+*/
+
+/*
+  db.collection("posts").onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().titulo}`);
+      const dataPosts = doc.data();
+      postForm.innerHTML += postCard(dataPosts);
+    })
+  });
+*/
 
 /*
 const prueba = (title) => { db.collection('newPost').doc(title).get();
