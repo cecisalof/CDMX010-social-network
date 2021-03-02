@@ -23,16 +23,16 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
-export const getPost = () => {
-  db.collection('newPost')// .orderBy('fecha')
-    .onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const dataBase = doc.data();
-        return dataBase;
-      });
-    });
-};
-getPost();
+// export const getPost = () => {
+//   db.collection('newPost')// .orderBy('fecha')
+//     .onSnapshot((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         const dataBase = doc.data();
+//         return dataBase;
+//       });
+//     });
+// };
+// getPost();
 
 // // eslint-disable-next-line no-unused-vars
 // const showingPosts = () => {

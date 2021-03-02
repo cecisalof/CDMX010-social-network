@@ -1,6 +1,5 @@
 import { db } from './firebase.js';
 
-
 const createPost = `
 <div>
   <div id="newPost">

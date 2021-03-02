@@ -8,7 +8,7 @@ const titleCard = document.getElementById('title');
 const subtitleCard = document.getElementById('subtitle');
 const bodyCard = document.getElementById('body');
 const postContainer = document.getElementById('printData');
-const links = document.querySelectorAll('img');
+// const links = document.querySelectorAll('IMG');
 const cardContainer = document.getElementById('link');
 
 window.onpopstate = () => {
@@ -67,29 +67,10 @@ postButton.addEventListener('click', (e) => {
 
 // aqui abajo se encentran todas las pruebas del nuevo routing
 
-window.addEventListener('DOMContentLoaded', () => {
-  links.forEach((e) => {
-    e.addEventListener('click', () => {
-      console.log(e.id);
-    });
-  });
-});
-
-// function routingLinks(links) {
-//   if (links.id === 'sniple') {
-//     onNavigate('/');
-//   } else if (links.id === 'userAvatar') {
-//     onNavigate('/login')
-//   } else if (links.id === 'cardContainer') {
-//     routes = '/post';
-//   } else {
-//     console.error('The link failed!');
-//   }
-// }
-
-// links.forEach((e) => {
-//   e.addEventListener('click', () => {
-//     // console.log(e.id);
-//     routingLinks(e);
+// window.addEventListener('DOMContentLoaded', () => {
+//   links.forEach((e) => {
+//     e.addEventListener('click', () => {
+//       console.log(e.id);
+//     });
 //   });
 // });
