@@ -11,13 +11,15 @@
 </head>
 <body>
   <ul>
-    <li  id="home"><a href="#" onclick="onNavigate('/'); return false;">Home</a></li>
-    <li  id="logIn"><a href="#" onclick="onNavigate('/logIn'); return false;">Log in</a></li>
-    <li  id="post"><a href="#" onclick="onNavigate('/post'); return false;">Post</a></li>
+    <li><a href="#" onclick="onNavigate('/'); return false;">Home</a></li>
+    <li><a href="#" onclick="onNavigate('/login'); return false;">Log in</a></li>
+    <li><a href="#" onclick="onNavigate('/post'); return false;">Post</a></li>
   </ul>
  
   <div id="root">
   </div>
   <script src="app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
 </body>
 </html>
