@@ -8,7 +8,8 @@ const titleCard = document.getElementById('title');
 const subtitleCard = document.getElementById('subtitle');
 const bodyCard = document.getElementById('body');
 const postContainer = document.getElementById('printData');
-const links = document.querySelectorAll('IMG');
+const links = document.querySelectorAll('img');
+const cardContainer = document.getElementById('link');
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
@@ -53,16 +54,19 @@ postButton.addEventListener('click', (e) => {
     .catch((error) => console.log(error));
 });
 
-db.collection('newPost')// .orderBy('fecha')
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const dataBase = doc.data();
-      postContainer.innerHTML += renderPost(dataBase);
-      console.log(dataBase);
-    });
-  });
+// const showingPost = () => {
+//   db.collection('newPost')// .orderBy('fecha')
+//     .onSnapshot((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         const dataBase = doc.data();
+//         postContainer.innerHTML += renderPost(dataBase);
+//         console.log(dataBase);
+//       });
+//     });
+// };
+
 // aqui abajo se encentran todas las pruebas del nuevo routing
-/*
+
 window.addEventListener('DOMContentLoaded', () => {
   links.forEach((e) => {
     e.addEventListener('click', () => {
@@ -70,56 +74,22 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-*/
 
-/*
-function routingLinks(e) {
-  if (e.id === "sniple") {
-  }
-}
-*/
+// function routingLinks(links) {
+//   if (links.id === 'sniple') {
+//     onNavigate('/');
+//   } else if (links.id === 'userAvatar') {
+//     onNavigate('/login')
+//   } else if (links.id === 'cardContainer') {
+//     routes = '/post';
+//   } else {
+//     console.error('The link failed!');
+//   }
+// }
 
-links.forEach((e) => {
-  e.addEventListener('click', () => {
-    console.log(e.id);
-    routingLinks(e.id);
-  });
-};
-
-postButton.addEventListener('click', (e) => {
-  e.preventDefault(); // Prevenimos que el navegador no se actualice y que no haga nada por defecto
-  const post = {
-    title: titleCard.value,
-    subtitle: subtitleCard.value,
-    body: bodyCard.value,
-    fecha: Date.now(),
-  };
-
-  if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
-    console.log('Input vacío!');
-    return;
-  }
-
-  savePost(post)
-    .then((docRef) => {
-      console.log('Document written whith ID: ', docRef.id);
-      titleCard.value = '';
-      subtitleCard.value = '';
-      bodyCard.value = '';
-      like();
-    })
-    .catch((error) => console.log(error));
-});
-
-db.collection('newPost')// .orderBy('fecha')
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const dataBase = doc.data();
-      postContainer.innerHTML += renderPost(dataBase);
-      console.log(dataBase);
-
-      // renderPost(dataBase)
-      // return dataBase;
-      // renderPost(dataBase);
-    });
-  });
+// links.forEach((e) => {
+//   e.addEventListener('click', () => {
+//     // console.log(e.id);
+//     routingLinks(e);
+//   });
+// });
