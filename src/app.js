@@ -1,65 +1,60 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
-  authDomain: 'novaapp-67e15.firebaseapp.com',
-  projectId: 'novaapp-67e15',
-  storageBucket: 'novaapp-67e15.appspot.com',
-  messagingSenderId: '282489634860',
-  appId: '1:282489634860:web:97a4ad5b81716f2b0f5189',
-  measurementId: 'G-N31JQDJTSM',
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-const db = firebase.firestore();
+import { onNavigate, routes, rootDiv } from './routes.js';
+import { createCard } from './home.js';
+import { getPost, savePost, db } from './firebase.js';
 
-const docRef = db.doc('newPost/Title');
-const cardContainer = document.getElementById('cardContainer');
 const titleCard = document.getElementById('title');
 const subtitleCard = document.getElementById('subtitle');
 const bodyCard = document.getElementById('body');
-const button = document.getElementById('saveButton');
+const postButton = document.getElementById('saveButton');
+const postContainer = document.getElementById('printData');
 
-export const createPost = button.addEventListener('click', (e) => {
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
+};
+
+window.onNavigate = onNavigate;
+
+const like = () => {
+  const likebutton = document.getElementById('like');
+  likebutton.addEventListener('click', () => {
+    console.log('Yo voy a dar Like');
+  });
+};
+
+postButton.addEventListener('click', (e) => {
   e.preventDefault(); // Prevenimos que el navegador no se actualice y que no haga nada por defecto
-  const textToSave = titleCard.value;
-  const subtitleToSave = subtitleCard.value;
-  const bodyToSave = bodyCard.value;
-  // console.log(`Im going to save ${textToSave} to Firestore`);
-  console.log(titleCard.value + subtitleCard.value + bodyCard.value);
-  // si no hay texto o manda un texto vacío:
-  if (!textToSave.trim()) {
+  const post = {
+    title: titleCard.value,
+    subtitle: subtitleCard.value,
+    body: bodyCard.value,
+    fecha: Date.now(),
+  };
+
+  if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
     console.log('Input vacío!');
     return;
   }
-  // Aquí empieza la promesa para guardar los datos de la publicación:
-  db.collection('newPost').add({
-    Title: titleCard.value,
-    Subtitle: subtitleCard.value,
-    Body: bodyCard.value,
-    // para que guarde la fecha de la publicación cuando el usuario de click en "publicar"
-    fecha: Date.now(),
-  })
-  // lo anterior es una promesa por lo que debemos cachar el error si es que falla.
-    .then(result => { console.log('Publicación guardada con éxito!'); })
-    .catch(error => console.log(e));
-  // borramos campos del input al dar click en "Publicar"
-  titleCard.value = '';
-  subtitleCard.value = '';
-  bodyCard.value = '';
+
+  savePost(post)
+    .then((docRef) => {
+      console.log('Document written whith ID: ', docRef.id);
+      titleCard.value = '';
+      subtitleCard.value = '';
+      bodyCard.value = '';
+      like();
+    })
+    .catch((error) => console.log(error));
 });
 
-const menuButton = document.getElementById('btn');
-// Hamburger Menu for mobile
-function showMenu() {
-  const menu = document.getElementById('opcs-menu');
-  if (menu.classList.contains('disabled-menu')) {
-    menu.classList.remove('disabled-menu');
-    menu.classList.add('enabled-menu');
-  } else {
-    menu.classList.remove('enabled-menu');
-    menu.classList.add('disabled-menu');
-  }
-}
-menuButton.addEventListener('click', showMenu);
+db.collection('newPost')// .orderBy('fecha')
+  .onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const dataBase = doc.data();
+      postContainer.innerHTML += renderPost(dataBase);
+      console.log(dataBase);
+
+      // renderPost(dataBase)
+      // return dataBase;
+      // renderPost(dataBase);
+    });
+  });

@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
   authDomain: 'novaapp-67e15.firebaseapp.com',
   projectId: 'novaapp-67e15',
@@ -29,9 +29,9 @@ export const savePost = (post) => db.collection('newPost')
 
 export const getPost = () => {
   db.collection('newPost')// .orderBy('fecha')
-    .onSnapshot((query) => {
-      query.forEach((message) => {
-        const dataBase = message.data();
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const dataBase = doc.data();
         return dataBase;
       });
     });
