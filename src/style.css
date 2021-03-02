@@ -1,3 +1,8 @@
+body{
+    background: #f9f9f9;
+}
+
+
 a{
     font-family: "Lufga", sans-serif;
     text-decoration: none;
@@ -13,11 +18,14 @@ li{
     list-style: none;
 }
 
-h1, h2, h3{
+h1, h2, h3, h6{
     font-family: "Lufga", sans-serif;
     padding-top: 20px;
     margin-left: 25px;
-    font-size: 25px;
+    font-size: 20px;
+    padding-top: 0px;
+    margin-top: 33.4px;
+    /*margin-bottom: 13.4px;*/
 }
 
 h2{
@@ -29,6 +37,20 @@ h3{
     font-size: 13px;
     font-weight: 200;
     padding-top: 0px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+h6{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-left: 38px;
+    padding-top: 0px;
+    font-weight: 400;
+    color: #FF009E;
+    margin-top: 24px;
 }
 
 textarea{
@@ -36,21 +58,112 @@ textarea{
     height: 98px;
     font-family: "Lufga", sans-serif;
     font-size: 14px;
-    margin-top: 25px;
-    margin-left: 25px;
-    background-color: #C4C4C4;
+    margin-top: 16px;
+    margin-left: 36px;
+    background-color: white;
     border: none;
     border-radius: 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
-.icons {
+body > ul:nth-child(2) {
+    padding-left: 15px;
+}
+
+
+
+/*HAMBURGER MENU*/
+.enabled-menu{
+    display: block;
+  }
+  
+  .disabled-menu{
+    display: none;
+  }
+
+ #btn{
+    width: 40px;
+    background-color: #e8e8e8;
+    border: none;
+    color: blue;
+    margin-top: 30px;
+    margin-left: 30px;
+    position: absolute;
+    border-radius: 5px;
+  }  
+
+  .navTittle {
+    position: absolute;
+    margin-top: 80px;
+    display: flex;
+    background: #e9e9;/* revisar posición*/
+  }
+
+  #logIn {
+    /*! margin-top: ; */
+    padding-top: 15px;
+  }
+
+  #post {
+    padding-top: 30px;
+  }
+
+  /*
+  
+header {
+    position: fixed;
+    width: 100%;
+    height: 91px;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #FEF741;
+    
+  }
+  
+  .nav {
+    font-size: 16px;
+  }
+   
+  #navBar{
+    position: absolute;
+    left: 5%;
+    right: 80%;
+    top: 20%;
+    padding: 50px;
+    list-style: none;
+    margin-top: 70px;
+    background-color: #ccc;
+    padding: 15px;  
+   
+  }
+  
+  .navTittle a {
+    color: blue;
+  }
+  
+  .navTittle a:hover {
+    color: white;
+  }
+#header {
+    display: flex;
+    border-top-width: 0px;
+    border-top-style: solid;
+    margin-top: -55px;
+    margin-left: 60px;
+}
+*/
+
+.link {
     width: 20px;
   }
 
 #snipple {
     width: 50px;
     height: 35px;
-    padding-left: 24px;
+    margin-left: 100px;
+    margin-top: 25px;
 }
 
 #searchIcon{
@@ -59,6 +172,7 @@ left: 75%;
 right: 13.42%;
 top: 14%;
 bottom: 27.38%;
+margin-top: -48px;
 }
 
 #userAvatar{
@@ -67,6 +181,7 @@ left: 85%;
 right: 0%;
 top: 13.97%;
 bottom: 30.17%;
+margin-top: -50px;
 }
 
 #plusIcon {
@@ -76,21 +191,84 @@ bottom: 30.17%;
 #cardContainer{
     height: 138px;
     width: 281px;
-    left: 40px;
-    top: 238px;
-    border-radius: 5px;
     background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.21);
+    /*border: 1px solid rgba(0, 0, 0, 0.21);*/
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    margin: 30px;
+    margin-left: 38px;
+    margin-top: 40px;  
+    display: flex; 
 }
+
+#cardTitle {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 24px;
+    /*! display: flex; */margin-left: 0px;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    color: #FF009E;
+   }
+   
+#cardSubtitle {
+    margin-top: 54px;
+    margin-left: -170px;
+    padding-right: 16px;
+  }
+
 
 #authorAvatar{
     position: absolute;
     width: 15px;
     height: 15px;
-    left: 290px;
-    top: 395px;
+    left: 293px;
+    top: 505px;
+}
+
+#readingTime{
+    width: 15PX;
+    height: 15px;
+    position: absolute;
+    float: ;
+    top: 595px;
+    left: 293px;
+}
+
+#title {
+    margin-left: 38px;
+    border: none;
+    font-family: "Lufga", sans-serif;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    border-radius: 0.5em;
+}
+
+#subtitle {
+    height: 50px;
+    /*background: #f9f9f9;*/
+  }
+
+#body {
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 16px;
+}
+
+#root > h1:nth-child(2) {
+    margin-left: 38px;
+}
+
+#saveButton {
+    margin-left: 38px;
+    border-radius: 3px;
+    margin-top: 16px;
+    background: #56F89A;
+    font-family: "Lufga", sans-serif;
+    border: 1px solid #56F89A;
+    font-size: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
