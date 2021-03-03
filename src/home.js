@@ -8,7 +8,6 @@ const createPost = `
       <button id="saveButton">Publicar</button>
   </div>
 </div>
-
 <div id="printData">
 </div>
 `;
@@ -16,10 +15,10 @@ const createPost = `
 export const renderPost = (param) => `
 <div>
   <div id="cardContainer" class= "link">
-    <h2 id="cardTitle">${param.Title}</h2><img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
-    <h3 id"cardSubtitle">${param.Subtitle}</h3>
+    <h2 id="cardTitle" class="link" data-action = "post">${param.Title}</h2><!--<img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">-->
+    <h3 id="cardSubtitle">${param.Subtitle}</h3>
     <p id="renderBody">${param.Body}</p>
-    <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
+    <!--<img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">-->
     </div>
 </div>
 `;
@@ -39,18 +38,19 @@ export const createCard = (post) => {
 
 export const home = (container) => {
   const html = `
+  <div id="app">
     <div id="header">
-        <img id="snipple" src="resources/garabato.png" alt="logo" class= "link">
-        <img id="userAvatar" class="link" src="resources/user.png" alt="genericAvatar">
-        <img id="searchIcon" class="link" src="resources/search.png" alt "searchIcon">
+          <img id="snipple" src="resources/garabato.png" alt="logo" class= "link" data-action ="home">
+          <img id="userAvatar" class="link" src="resources/user.png" alt="genericAvatar"  data-action ="login">
+          <!-- <img id="searchIcon" class="link" src="resources/search.png" alt "searchIcon"> -->
+      </div>
+      <h1>¡Hola Elena!</h1>
+      ${createPost}
+      
+      <div id="container2" ></div>
     </div>
-
-    <h1>¡Hola Elena!</h1>
-
-    ${createPost}
-    
-    <div id="container2"></div>
+  </div>
   `;
-
+  // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
 };
