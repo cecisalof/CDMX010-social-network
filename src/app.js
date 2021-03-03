@@ -55,6 +55,7 @@ postButton.addEventListener('click', (e) => {
 
 db.collection('newPost')// .orderBy('fecha')
   .onSnapshot((querySnapshot) => {
+    postContainer.innerHTML = "";
     querySnapshot.forEach((doc) => {
       const dataBase = doc.data();
       postContainer.innerHTML += renderPost(dataBase);

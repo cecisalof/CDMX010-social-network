@@ -1,3 +1,4 @@
+  
 const createPost = `
 <div>
   <div id="newPost">
@@ -8,7 +9,6 @@ const createPost = `
       <button id="saveButton">Publicar</button>
   </div>
 </div>
-
 <div id="printData">
 </div>
 `;
@@ -31,9 +31,7 @@ export const home = (container) => {
         <img id="userAvatar" class="link" src="resources/user.png" alt="genericAvatar">
         <img id="searchIcon" class="link" src="resources/search.png" alt "searchIcon">
     </div>
-
     <h1>¡Hola Elena!</h1>
-
     ${createPost}
     
     <div id="container2"></div>
