@@ -25,6 +25,27 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
+export const getPost = () => {
+  db.collection('newPost')// .orderBy('fecha')
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const dataBase = doc.data();
+        return dataBase;
+      });
+    });
+};
+getPost();
+
+// // eslint-disable-next-line no-unused-vars
+// const showingPosts = () => {
+//   // eslint-disable-next-line prefer-const
+//   let post = [];
+//   for (const i in db.collection('newPost')) {
+//     post.push(db.title[i].newPost);
+//   }
+//   console.log(post);
+// };
+// showingPosts();
 // TRAE LA DATA DE LA BASE DE DATOS.
 const postContainer = document.getElementById('printData');
 export const getData = () => {

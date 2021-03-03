@@ -16,12 +16,25 @@ export const renderPost = (param) => `
 <div>
   <div id="cardContainer" class= "link">
     <h2 id="cardTitle" class="link" data-action = "post">${param.Title}</h2><!--<img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">-->
-    <h3 id"cardSubtitle">${param.Subtitle}</h3>
+    <h3 id="cardSubtitle">${param.Subtitle}</h3>
     <p id="renderBody">${param.Body}</p>
     <!--<img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">-->
     </div>
 </div>
 `;
+// Renderiza la tarjeta de la publicación en el muro.
+export const createCard = (post) => {
+  // eslint-disable-next-line no-unused-expressions
+  `
+    <div>
+        <div id="cardContainer">
+            <h2 id="cardTitle">${post.titulo}</h2> <img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">
+            <h3 id="cardSubtitle">${post.descripcion}</h3>
+            <p>${post.texto}</p>
+            <img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">
+        </div>
+  `;
+};
 
 export const home = (container) => {
   const html = `
