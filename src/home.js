@@ -1,5 +1,3 @@
-import { db } from './firebase.js';
-
 const createPost = `
 <div>
   <div id="newPost">
@@ -26,17 +24,17 @@ export const renderPost = (param) => `
 </div>
 `;
 
-const showingPost = (postContainer) => {
-  db.collection('newPost')// .orderBy('fecha')
-    .onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const dataBase = doc.data();
-        // eslint-disable-next-line no-param-reassign
-        postContainer.innerHTML += renderPost(dataBase);
-        console.log(dataBase);
-      });
-    });
-};
+// const showingPost = (postContainer) => {
+//   db.collection('newPost')// .orderBy('fecha')
+//     .onSnapshot((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         const dataBase = doc.data();
+//         // eslint-disable-next-line no-param-reassign
+//         postContainer.innerHTML += renderPost(dataBase);
+//         console.log(dataBase);
+//       });
+//     });
+// };
 
 export const home = (container) => {
   const html = `
@@ -55,5 +53,5 @@ export const home = (container) => {
   `;
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
-  showingPost(container);
+  // showingPost(container);
 };
