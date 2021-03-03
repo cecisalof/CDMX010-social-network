@@ -1,4 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { renderPost } from './home.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCE3V_6hn_oiPhJAvfRLJLygBVct9fIZRg',
   authDomain: 'novaapp-67e15.firebaseapp.com',
@@ -23,18 +25,40 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
-// TRAE LA DATA DE LA BASE DE DATOS.
-/*
-//export const getData = () => {
-db.collection('newPost')// .orderBy('fecha')
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const dataBase = doc.data();
-      //postContainer.innerHTML += renderPost(dataBase);
-      console.log(dataBase);
+export const getPost = () => {
+  db.collection('newPost')// .orderBy('fecha')
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const dataBase = doc.data();
+        return dataBase;
+      });
     });
-  });
-*/
+};
+getPost();
+
+// // eslint-disable-next-line no-unused-vars
+// const showingPosts = () => {
+//   // eslint-disable-next-line prefer-const
+//   let post = [];
+//   for (const i in db.collection('newPost')) {
+//     post.push(db.title[i].newPost);
+//   }
+//   console.log(post);
+// };
+// showingPosts();
+// TRAE LA DATA DE LA BASE DE DATOS.
+const postContainer = document.getElementById('printData');
+export const getData = () => {
+  db.collection('newPost').orderBy('Fecha')
+    .onSnapshot((querySnapshot) => {
+      postContainer.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const dataBase = doc.data();
+        postContainer.innerHTML += renderPost(dataBase);
+        console.log(dataBase);
+      });
+    });
+};
 
 /*
   db.collection("posts").onSnapshot((querySnapshot) => {
@@ -44,12 +68,4 @@ db.collection('newPost')// .orderBy('fecha')
       postForm.innerHTML += postCard(dataPosts);
     })
   });
-*/
-
-/*
-const prueba = (title) => { db.collection('newPost').doc(title).get();
-console.log(title);
-};
-
-prueba()
 */
