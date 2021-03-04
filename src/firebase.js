@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+export const auth = firebase.auth();
 // eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
 
@@ -50,3 +50,33 @@ export const getData = () => {
       });
     });
 };
+
+// AUTH FROM FIREBASE
+firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((user) => {
+    // Signed in
+    // ...
+  })
+  .catch((error) => {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    // ..
+  });
+
+// SIGN-IN
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((user) => {
+    // Signed in
+    // ...
+  })
+  .catch((error) => {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+  });
+
+// SIGN-OUT
+firebase.auth().signOut().then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});

@@ -7,6 +7,12 @@ export const login = (containner) => {
   </div>
   <div>
     <h1> I am the Log In Page </h1>
+    <form>
+      <input type="text" placeholder="Nombre completo"></input>
+      <input type="text" placeholder="Correo electrónico"></input>
+      <input type="text" placeholder="Contraseña"></input>
+      <button>Registrarme</button>
+    </form>
   </div>
   `;
   // eslint-disable-next-line no-param-reassign
