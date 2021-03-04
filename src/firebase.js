@@ -25,8 +25,9 @@ export const savePost = (post) => db.collection('newPost')
   });
 
 // TRAE LA DATA DE LA BASE DE DATOS.
-const postContainer = document.getElementById('printData');
+
 export const getData = () => {
+  const postContainer = document.getElementById('printData');
   db.collection('newPost').orderBy('Fecha', 'desc')
     .onSnapshot((querySnapshot) => {
       postContainer.innerHTML = '';

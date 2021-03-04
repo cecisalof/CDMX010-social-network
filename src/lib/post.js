@@ -1,4 +1,4 @@
-export const post = (containner) => {
+export const post = (container) => {
   const html = `
   <div id="header">
     <img id="snipple" src="resources/garabato.png" alt="logo" class= "link">
@@ -10,5 +10,5 @@ export const post = (containner) => {
   </div>
 `;
   // eslint-disable-next-line no-param-reassign
-  containner.innerHTML = html;
+  container.innerHTML = html;
 };

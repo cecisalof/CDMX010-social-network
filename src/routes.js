@@ -10,6 +10,7 @@ export const routes = {
   '/': home,
   '/login': login,
   '/post': post,
+  '/home':home
 };
 
 const homeView = routes[window.location.pathname];
@@ -21,13 +22,20 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
+
   const view = routes[pathname];
   view(rootDiv);
+  // homeView(rootDiv);
 };
+
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
+};
+
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
 
-const botonLinks = () => {
+const addBotonEvents = () => {
   const links = document.querySelectorAll('#root');
   links.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -47,17 +55,14 @@ const routingLinks = (e) => {
   switch (e) {
     case 'home':
       onNavigate('/');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'login':
       onNavigate('/login');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'post':
       onNavigate('/post');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case '':
@@ -65,4 +70,4 @@ const routingLinks = (e) => {
   }
 };
 
-botonLinks();
+addBotonEvents();
