@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { getData } from '../firebase.js';
+import { nav } from './nav.js';
 
 export const renderPost = (param) => `
 <div>
@@ -15,11 +16,7 @@ export const renderPost = (param) => `
 export const home = (container) => {
   const html = `
   <div id="app">
-    <div id="header">
-          <img id="snipple" src="resources/garabato.png" alt="logo" class= "link" data-action ="home">
-          <img id="userAvatar" class="link" src="resources/user.png" alt="genericAvatar"  data-action ="login">
-          <!-- <img id="searchIcon" class="link" src="resources/search.png" alt "searchIcon"> -->
-      </div>
+    ${nav}
       <h1>¡Hola Elena!</h1>
       
     <div>

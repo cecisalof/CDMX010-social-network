@@ -10,7 +10,6 @@ export const routes = {
   '/': home,
   '/login': login,
   '/post': post,
-  '/home':home
 };
 
 const homeView = routes[window.location.pathname];
@@ -32,9 +31,7 @@ window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 };
 
-
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
-
 const addBotonEvents = () => {
   const links = document.querySelectorAll('#root');
   links.forEach((btn) => {
@@ -49,7 +46,6 @@ const addBotonEvents = () => {
 };
 
 // Esta es la aplicación que genera el routing
-
 const routingLinks = (e) => {
   // eslint-disable-next-line default-case
   switch (e) {
