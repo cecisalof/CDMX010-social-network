@@ -1,4 +1,5 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// eslint-disable-next-line import/no-cycle
 import { renderPost } from './lib/home.js';
 
 const firebaseConfig = {
@@ -25,7 +26,6 @@ export const savePost = (post) => db.collection('newPost')
   });
 
 // TRAE LA DATA DE LA BASE DE DATOS.
-
 export const getData = () => {
   const postContainer = document.getElementById('printData');
   db.collection('newPost').orderBy('Fecha', 'desc')
@@ -34,7 +34,7 @@ export const getData = () => {
       querySnapshot.forEach((doc) => {
         const dataBase = doc.data();
         postContainer.innerHTML += renderPost(dataBase);
-        console.log(dataBase);
+        // console.log(dataBase);
       });
     });
 };
