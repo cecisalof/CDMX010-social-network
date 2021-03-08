@@ -1,16 +1,5 @@
-const createPost = `
-<div>
-  <div id="newPost">
-    <h6>Comparte tus hallazgos:</h6>
-      <input type="text" placeholder="Título de la publicación" id="title"></input>
-      <textarea placeholder="Subtítulo" id="subtitle"></textarea>
-      <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
-      <button id="saveButton">Publicar</button>
-  </div>
-</div>
-<div id="printData">
-</div>
-`;
+// eslint-disable-next-line import/no-cycle
+import { getData } from '../lib/firebase.js';
 
 // Renderiza la tarjeta de la publicación en el muro.
 export const renderPost = (param) => `
@@ -24,18 +13,6 @@ export const renderPost = (param) => `
 </div>
 `;
 
-// const showingPost = (postContainer) => {
-//   db.collection('newPost')// .orderBy('fecha')
-//     .onSnapshot((querySnapshot) => {
-//       querySnapshot.forEach((doc) => {
-//         const dataBase = doc.data();
-//         // eslint-disable-next-line no-param-reassign
-//         postContainer.innerHTML += renderPost(dataBase);
-//         console.log(dataBase);
-//       });
-//     });
-// };
-
 export const home = (container) => {
   const html = `
   <div id="app">
@@ -45,13 +22,24 @@ export const home = (container) => {
           <!-- <img id="searchIcon" class="link" src="resources/search.png" alt "searchIcon"> -->
       </div>
       <h1>¡Hola Elena!</h1>
-      ${createPost}
       
+    <div>
+      <div id="newPost">
+        <h6>Comparte tus hallazgos:</h6>
+          <input type="text" placeholder="Título de la publicación" id="title"></input>
+          <textarea placeholder="Subtítulo" id="subtitle"></textarea>
+          <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
+          <button id="saveButton">Publicar</button>
+      </div>
+    </div>
+    <div id="printData">
+    </div>
+
       <div id="container2" ></div>
     </div>
   </div>
   `;
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
-  // showingPost(container);
+  getData();
 };

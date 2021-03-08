@@ -23,7 +23,7 @@ h1, h2, h3, h6{
     padding-top: 20px;
     margin-left: 25px;
     font-size: 20px;
-    padding-top: 0px;
+    /*padding-top: 0px;*/
     margin-top: 33.4px;
     /*margin-bottom: 13.4px;*/
 }
@@ -34,8 +34,8 @@ h2{
 
 h3{
     color: #9D9B9B;
-    font-size: 13px;
-    font-weight: 200;
+    
+    
     padding-top: 0px;
     font-size: 14px;
     font-weight: 300;
@@ -48,9 +48,9 @@ h6{
     margin-bottom: 16px;
     margin-left: 38px;
     padding-top: 0px;
-    font-weight: 400;
+   
     color: #FF009E;
-    margin-top: 24px;
+    
 }
 
 p{
@@ -165,11 +165,12 @@ header {
     width: 20px;
   }
 
+  
 #snipple {
     width: 50px;
     height: 35px;
     margin-left: 24px;
-    margin-top: 25px;
+    margin-top: 16px;
 }
 
 #searchIcon{
@@ -185,9 +186,9 @@ margin-top: -48px;
 position: absolute;
 left: 85%;
 right: 0%;
-top: 13.97%;
+top: 0%;
 bottom: 30.17%;
-margin-top: -50px;
+margin-top: 32px;
 }
 
 #plusIcon {
@@ -233,9 +234,9 @@ margin-top: -50px;
 #renderBody {
   padding-left: 24px;
   margin-top: 14px;
-  padding-left: 24px;
+  
   padding-right: 24px;
-  font-family: Lufga;
+  font-family: "Lufga", sans-serif;
   font-size: 14px;
 }
 
@@ -333,13 +334,12 @@ margin-top: -50px;
 }
 
 #readingTime{
-    width: 15PX;
+    width: 15px;
     height: 15px;
     position: absolute;
-    float: ;
     top: 700px;
     left: 293px;
-} */
+} 
 
 #title {
     margin-left: 38px;

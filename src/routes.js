@@ -1,8 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home } from './home.js';
-import { login } from './login.js';
-import { post } from './post.js';
+import { home } from './views/home.js';
+import { login } from './views/login.js';
+import { post } from './views/post.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -21,18 +21,25 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
+
   const view = routes[pathname];
   view(rootDiv);
+  // homeView(rootDiv);
+};
+
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
 };
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
 
-const botonLinks = () => {
+const addBotonEvents = () => {
   const links = document.querySelectorAll('#root');
   links.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const link = e.target.dataset.action;
+      // eslint-disable-next-line no-console
       console.log(link);
       // eslint-disable-next-line no-use-before-define
       routingLinks(link);
@@ -47,22 +54,20 @@ const routingLinks = (e) => {
   switch (e) {
     case 'home':
       onNavigate('/');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'login':
       onNavigate('/login');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'post':
       onNavigate('/post');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case '':
+      // eslint-disable-next-line no-console
       console.log('erro404');
   }
 };
 
-botonLinks();
+addBotonEvents();

@@ -1,8 +1,20 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { onNavigate } from '../src/routes.js';
+// // eslint-disable-next-line no-unused-vars
+// import { fire } from '../src/lib/firebase.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+// const test = require('firebase-functions-test')({
+//   projectId: 'novaapp-67e15',
+//   storageBucket: 'novaapp-67e15.appspot.com',
+// }, './test/credentials.json');
+
+// test.mockConfig({
+// // HAY QUE "MOCKEAR" LAS VARIABLES DE CONFIGURACI{ON DE ENTORNO?
+
+// });
+
+describe('onNavigate', () => {
+  it('should be a function', () => {
+    expect(typeof onNavigate).toBe('function');
   });
 });

@@ -1,5 +1,8 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { renderPost } from './home.js';
+// eslint-disable-next-line import/no-cycle
+import { renderPost } from '../views/home.js';
+
+// const firebase = require('firebase');
 
 const firebaseConfig = {
 
@@ -12,10 +15,10 @@ const firebaseConfig = {
   measurementId: 'G-N31JQDJTSM',
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-// eslint-disable-next-line no-unused-vars
+export const fire = firebase.initializeApp(firebaseConfig);
+
 export const db = firebase.firestore();
+// export const auth = firebase.auth();
 
 // GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS.
 export const savePost = (post) => db.collection('newPost')
@@ -26,26 +29,17 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
-export const getPost = () => {
-  db.collection('newPost')// .orderBy('fecha')
-    .onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const dataBase = doc.data();
-        return dataBase;
-      });
-    });
-};
-getPost();
-
 // TRAE LA DATA DE LA BASE DE DATOS.
-const postContainer = document.getElementById('printData');
+
 export const getData = () => {
-  db.collection('newPost').orderBy('Fecha')
+  const postContainer = document.getElementById('printData');
+  db.collection('newPost').orderBy('Fecha', 'desc')
     .onSnapshot((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const dataBase = doc.data();
         postContainer.innerHTML += renderPost(dataBase);
+        // eslint-disable-next-line no-console
         console.log(dataBase);
       });
     });
