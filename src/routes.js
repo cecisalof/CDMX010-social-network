@@ -5,6 +5,8 @@ import { login } from './lib/login.js';
 import { post } from './lib/post.js';
 // eslint-disable-next-line import/no-cycle
 import { makingPost } from './app.js';
+import { signIn } from './lib/signIn.js';
+import { signUp } from './lib/signUp.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -12,6 +14,8 @@ export const routes = {
   '/': home,
   '/login': login,
   '/post': post,
+  '/signIn': signIn,
+  '/signUp': signUp,
 };
 
 const homeView = routes[window.location.pathname];
@@ -62,6 +66,15 @@ const eventsController = (e) => {
     // eslint-disable-next-line no-fallthrough
     case 'saveButton':
       makingPost();
+      break;
+      // eslint-disable-next-line no-fallthrough
+    case 'signIn':
+      onNavigate('/signIn');
+      break;
+    // eslint-disable-next-line no-fallthrough
+    case 'signUp':
+      onNavigate('/signUp');
+      break;
   }
 };
 
