@@ -1,8 +1,19 @@
+/* eslint-disable no-unused-vars */
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
 import { home } from './lib/home.js';
 import { login } from './lib/login.js';
 import { post } from './lib/post.js';
+// eslint-disable-next-line import/no-cycle
+// import { makingPost } from './app.js';
+import { signIn } from './lib/signIn.js';
+import { signUp } from './lib/signUp.js';
+
+let firebase = null;
+
+export const loadDependencies = (firebaseFromApp) => {
+  firebase = firebaseFromApp;
+};
 
 export const rootDiv = document.getElementById('root');
 
@@ -10,6 +21,8 @@ export const routes = {
   '/': home,
   '/login': login,
   '/post': post,
+  '/signIn': signIn,
+  '/signUp': signUp,
 };
 
 const homeView = routes[window.location.pathname];
@@ -28,21 +41,53 @@ export const onNavigate = (pathname) => {
 };
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
-const addBotonEvents = () => {
-  const links = document.querySelectorAll('#root');
-  links.forEach((btn) => {
+const addButtonEvents = () => {
+  const parentContainer = document.querySelectorAll('#root');
+  parentContainer.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const link = e.target.dataset.action;
-      console.log(link);
+      const click = e.target.dataset.action;
+      // eslint-disable-next-line no-console
+      console.log(click);
       // eslint-disable-next-line no-use-before-define
-      routingLinks(link);
+      eventsController(click);
     });
   });
 };
 
+const makingPost = () => {
+  const titleCard = document.getElementById('title');
+  const subtitleCard = document.getElementById('subtitle');
+  const bodyCard = document.getElementById('body');
+
+  // postButton.addEventListener('click', (e) => {
+  //   e.preventDefault();
+
+  const postInfo = {
+    title: titleCard.value,
+    subtitle: subtitleCard.value,
+    body: bodyCard.value,
+    fecha: Date.now(),
+  };
+
+  if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
+    // eslint-disable-next-line no-alert
+    alert('Input vacío!');
+    return;
+  }
+
+  firebase.savePost(post)
+    .then((docRef) => {
+      console.log('Document written whith ID: ', docRef.id);
+      titleCard.value = '';
+      subtitleCard.value = '';
+      bodyCard.value = '';
+    })
+    .catch((error) => console.log(error));
+};
+
 // Esta es la aplicación que genera el routing
-const routingLinks = (e) => {
+export const eventsController = (e) => {
   // eslint-disable-next-line default-case
   switch (e) {
     case 'home':
@@ -58,7 +103,18 @@ const routingLinks = (e) => {
       onNavigate('/post');
       break;
     // eslint-disable-next-line no-fallthrough
+    case 'saveButton':
+      makingPost();
+      break;
+      // eslint-disable-next-line no-fallthrough
+    case 'signIn':
+      onNavigate('/signIn');
+      break;
+    // eslint-disable-next-line no-fallthrough
+    case 'signUp':
+      onNavigate('/signUp');
+      break;
   }
 };
 
-addBotonEvents();
+addButtonEvents();
