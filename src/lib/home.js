@@ -5,7 +5,8 @@ import { nav } from './components/nav.js';
 export const renderPost = (param) => `
 <div>
   <div id="cardContainer" class= "link">
-    <h2 id="cardTitle" class="link" data-action = "post">${param.Title}</h2><!--<img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">-->
+    <h2 id="cardTitle" class="link" data-action = "post">${param.Title}</h2>
+    <!--<img id="authorAvatar" class="icons" src="resources/user.png" alt="authorAvatar">-->
     <h3 id="cardSubtitle">${param.Subtitle}</h3>
     <p id="renderBody">${param.Body}</p>
     <!--<img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">-->
@@ -25,7 +26,7 @@ export const home = (container) => {
           <input type="text" placeholder="Título de la publicación" id="title"></input>
           <textarea placeholder="Subtítulo" id="subtitle"></textarea>
           <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
-          <button id="saveButton">Publicar</button>
+          <button id="saveButton" data-action="saveButton">Publicar</button>
       </div>
     </div>
     <div id="printData">

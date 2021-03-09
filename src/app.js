@@ -7,13 +7,14 @@ routes;
 // eslint-disable-next-line no-unused-expressions
 rootDiv;
 
-const postButton = document.getElementById('saveButton');
-const titleCard = document.getElementById('title');
-const subtitleCard = document.getElementById('subtitle');
-const bodyCard = document.getElementById('body');
+export const makingPost = () => {
+  const titleCard = document.getElementById('title');
+  const subtitleCard = document.getElementById('subtitle');
+  const bodyCard = document.getElementById('body');
 
-postButton.addEventListener('click', (e) => {
-  e.preventDefault();
+  // postButton.addEventListener('click', (e) => {
+  //   e.preventDefault();
+
   const post = {
     title: titleCard.value,
     subtitle: subtitleCard.value,
@@ -34,7 +35,7 @@ postButton.addEventListener('click', (e) => {
       bodyCard.value = '';
     })
     .catch((error) => console.log(error));
-});
+};
 
 /*
 export const makingPost = () => {

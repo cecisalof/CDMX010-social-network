@@ -3,6 +3,8 @@
 import { home } from './lib/home.js';
 import { login } from './lib/login.js';
 import { post } from './lib/post.js';
+// eslint-disable-next-line import/no-cycle
+import { makingPost } from './app.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -28,21 +30,21 @@ export const onNavigate = (pathname) => {
 };
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
-const addBotonEvents = () => {
-  const links = document.querySelectorAll('#root');
-  links.forEach((btn) => {
+const addButtonEvents = () => {
+  const parentContainer = document.querySelectorAll('#root');
+  parentContainer.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const link = e.target.dataset.action;
-      console.log(link);
+      const click = e.target.dataset.action;
+      console.log(click);
       // eslint-disable-next-line no-use-before-define
-      routingLinks(link);
+      eventsController(click);
     });
   });
 };
 
 // Esta es la aplicación que genera el routing
-const routingLinks = (e) => {
+const eventsController = (e) => {
   // eslint-disable-next-line default-case
   switch (e) {
     case 'home':
@@ -58,7 +60,9 @@ const routingLinks = (e) => {
       onNavigate('/post');
       break;
     // eslint-disable-next-line no-fallthrough
+    case 'saveButton':
+      makingPost();
   }
 };
 
-addBotonEvents();
+addButtonEvents();
