@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DOM render should show "sign In" view in the DOM 1`] = `
+"
+    <div>
+      <img id=\\"snipple\\" src=\\"resources/garabato.png\\" alt=\\"logo\\" class=\\"link\\" data-action=\\"home\\">
+      <hi1>Iniciar sesión
+      <form>
+          <input type=\\"text\\" placeholder=\\"Tu correo electrónico\\">
+          <input type=\\"password\\" placeholder=\\"Tu contraseña\\">
+          <button>Acceder</button>
+      </form>
+    </hi1></div>
+    
+    <div>
+    <button>Iniciar sesión con Google</button>
+    </div>
+    "
+`;

@@ -1,6 +1,5 @@
 export const signIn = (container) => {
   const html = `
-    
     <div>
       <img id="snipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
       <hi1>Iniciar sesión</h1>
