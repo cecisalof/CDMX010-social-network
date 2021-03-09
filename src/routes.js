@@ -55,7 +55,7 @@ const addButtonEvents = () => {
   });
 };
 
-export const makingPost = () => {
+const makingPost = () => {
   const titleCard = document.getElementById('title');
   const subtitleCard = document.getElementById('subtitle');
   const bodyCard = document.getElementById('body');
@@ -63,7 +63,7 @@ export const makingPost = () => {
   // postButton.addEventListener('click', (e) => {
   //   e.preventDefault();
 
-  const post = {
+  const postInfo = {
     title: titleCard.value,
     subtitle: subtitleCard.value,
     body: bodyCard.value,
@@ -76,7 +76,7 @@ export const makingPost = () => {
     return;
   }
 
-  savePost(post)
+  firebase.savePost(post)
     .then((docRef) => {
       console.log('Document written whith ID: ', docRef.id);
       titleCard.value = '';
