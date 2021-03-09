@@ -1,10 +1,14 @@
-import { nav } from './components/nav.js';
-
 export const login = (container) => {
   const html = `
-  ${nav}
+ 
   <div>
-    <h1> B I E N V E N I D O </h1>
+    <img id="snipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+    <button id='signIn' data-action = "signIn">Iniciar Sesión</button>
+    <button  data-action = "signUp">Registarse</button>
+  </div>
+  
+  <div>
+    <p>Al iniciar sesión aceptas nuestros términos de servicio y estás al tanto de nuestro aviso de privacidad.</p>
   </div>
   `;
   // eslint-disable-next-line no-param-reassign
