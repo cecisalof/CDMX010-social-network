@@ -1,5 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
+import { makingPost } from './app.js';
 import { home } from './lib/home.js';
 import { login } from './lib/login.js';
 import { post } from './lib/post.js';
@@ -57,6 +58,8 @@ const routingLinks = (e) => {
     case 'post':
       onNavigate('/post');
       break;
+    case 'saveButton':
+      makingPost();
     // eslint-disable-next-line no-fallthrough
   }
 };

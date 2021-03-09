@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { getData } from '../firebase.js';
 import { nav } from './components/nav.js';
+// eslint-disable-next-line import/no-cycle
 
 export const renderPost = (param) => `
 <div>
@@ -25,7 +26,7 @@ export const home = (container) => {
           <input type="text" placeholder="Título de la publicación" id="title"></input>
           <textarea placeholder="Subtítulo" id="subtitle"></textarea>
           <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
-          <button id="saveButton">Publicar</button>
+          <button id="saveButton" data-action="saveButton" >Publicar</button>
       </div>
     </div>
     <div id="printData">
