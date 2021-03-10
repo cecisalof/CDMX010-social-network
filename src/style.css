@@ -1,128 +1,165 @@
 body{
-    background: #f9f9f9;
+  background: #f9f9f9;
 }
 
-h1{
-    font-family: "Lufga", sans-serif;
-    padding-top: 20px;
-    margin-left: 25px;
-    font-size: 20px;
-    margin-top: 33.4px;
-    /*margin-bottom: 13.4px;*/
+a{
+  font-family: "Lufga", sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+}
+
+a:hover{
+  color: #56F89A;
+}
+
+li{
+  list-style: none;
+}
+
+h1, h2, h3, h6{
+  font-family: "Lufga", sans-serif;
+  padding-top: 20px;
+  margin-left: 25px;
+  font-size: 20px;
+  margin-top: 33.4px;
+  /*margin-bottom: 13.4px;*/
 }
 
 h2{
-    font-size: 16px;
+  font-size: 16px;
 }
 
 h3{
-    color: #9D9B9B;
-    font-size: 13px;
-    font-weight: 200;
-    padding-top: 0px;
-    padding-left: 15px;
+  color: #9D9B9B;
+  font-size: 13px;
+  font-weight: 200;
+  padding-top: 0px;
 }
 
 h6{
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 24px;
-    margin-bottom: 16px;
-    margin-left: 38px;
-    padding-top: 0px;
-    color: #FF009E;
-   
-}
-
-p{
-  font-family: "Lufga", sans-serif;
-  font-size: 14px;
-
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  margin-left: 38px;
+  padding-top: 0px;
+  color: #FF009E;
+ 
 }
 
 textarea{
-    width: 281px;
-    height: 98px;
-    font-family: "Lufga", sans-serif;
-    font-size: 14px;
-    margin-top: 16px;
-    margin-left: 36px;
-    background-color: white;
-    border: none;
-    border-radius: 0.5em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  width: 281px;
+  height: 98px;
+  font-family: "Lufga", sans-serif;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-left: 36px;
+  background-color: white;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* body > ul:nth-child(2) {
-    padding-left: 15px;
-} */
+body > ul:nth-child(2) {
+  padding-left: 15px;
+}
 
-  #logIn {
-    /*! margin-top: ; */
-    padding-top: 15px;
-  }
 
-  #post {
-    padding-top: 30px;
-  }
 
-  /*
-  
+/*HAMBURGER MENU*/
+.enabled-menu{
+  display: block;
+}
+
+.disabled-menu{
+  display: none;
+}
+
+#btn{
+  width: 40px;
+  background-color: #e8e8e8;
+  border: none;
+  color: blue;
+  margin-top: 30px;
+  margin-left: 30px;
+  position: absolute;
+  border-radius: 5px;
+}  
+
+.navTittle {
+  position: absolute;
+  margin-top: 80px;
+  display: flex;
+  background: #e9e9;/* revisar posición*/
+}
+
+#logIn {
+  /*! margin-top: ; */
+  padding-top: 15px;
+}
+
+#post {
+  padding-top: 30px;
+}
+
+/*
+
 header {
-    position: fixed;
-    width: 100%;
-    height: 91px;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    background: #FEF741;
-    
-  }
+  position: fixed;
+  width: 100%;
+  height: 91px;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #FEF741;
   
-  .nav {
-    font-size: 16px;
-  }
-   
-  #navBar{
-    position: absolute;
-    left: 5%;
-    right: 80%;
-    top: 20%;
-    padding: 50px;
-    list-style: none;
-    margin-top: 70px;
-    background-color: #ccc;
-    padding: 15px;  
-   
-  }
-  
-  .navTittle a {
-    color: blue;
-  }
-  
-  .navTittle a:hover {
-    color: white;
-  }
+}
+
+.nav {
+  font-size: 16px;
+}
+ 
+#navBar{
+  position: absolute;
+  left: 5%;
+  right: 80%;
+  top: 20%;
+  padding: 50px;
+  list-style: none;
+  margin-top: 70px;
+  background-color: #ccc;
+  padding: 15px;  
+ 
+}
+
+.navTittle a {
+  color: blue;
+}
+
+.navTittle a:hover {
+  color: white;
+}
 #header {
-    display: flex;
-    border-top-width: 0px;
-    border-top-style: solid;
-    margin-top: -55px;
-    margin-left: 60px;
+  display: flex;
+  border-top-width: 0px;
+  border-top-style: solid;
+  margin-top: -55px;
+  margin-left: 60px;
 }
 */
 
 .link {
-    width: 20px;
-  }
+  width: 20px;
+}
 
-  
+
 #snipple {
-    width: 50px;
-    height: 35px;
-    margin-left: 24px;
-    margin-top: 16px;
+  width: 50px;
+  height: 35px;
+  margin-left: 24px;
+  margin-top: 16px;
 }
 
 #searchIcon{
@@ -144,199 +181,164 @@ margin-top: 32px;
 }
 
 #plusIcon {
-    width: 15px; 
+  width: 15px; 
 }
 
 #app > h1:nth-child(2) {
-  margin-left: 0px;
-  padding-left: 38px;
- }
- 
+margin-left: 0px;
+padding-left: 38px;
+}
+
 #printData {
-  display: flex;
-  flex-wrap: wrap;
- }
- 
+display: flex;
+flex-wrap: wrap;
+}
+
 #cardContainer{
-    height: 160px;
-    width: 281px;
-    background: #FFFFFF;
-    /*border: 1px solid rgba(0, 0, 0, 0.21);*/
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    margin-left: 38px;
-    margin-top: 40px;  
-    display: flex; 
-    flex-wrap: wrap;
+  height: 160px;
+  width: 281px;
+  background: #FFFFFF;
+  /*border: 1px solid rgba(0, 0, 0, 0.21);*/
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-left: 38px;
+  margin-top: 40px;  
+  display: flex; 
+  flex-wrap: wrap;
+  /*justify-content: flex-start;*/
 }
 
 #cardTitle {
-  width: 100%;
-  margin-bottom: 0px;
-  margin-top: 24px;
-  padding-left: 15px;
-   }
+width: 100%;
+margin-bottom: 0px;
+margin-top: 24px;
+ }
 
 #cardSubtitle {
-  width: 100%;
-  margin-top: 0px;
-  margin-bottom: 0px;
+width: 100%;
+margin-top: 0px;
+margin-bottom: 0px;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url(../assets/Lufga-Bold.otf);
+font-family: "Lufga";
+src: url(../assets/Lufga-Bold.otf);
 }
- 
+
 #renderBody {
-  padding-left: 24px;
-  margin-top: 14px;
-  padding-right: 24px;
-  font-family: "Lufga", sans-serif;
-  font-size: 14px;
+padding-left: 24px;
+margin-top: 14px;
+padding-right: 24px;
+font-family: "Lufga", sans-serif;
+font-size: 14px;
 }
 
 /* 
 #cardTitle {
-    margin-top: 8px;
-    margin-bottom: 0px;
-
-    width: 100%;
-    height: 24px;
-    margin-left: 0px;
-    padding-left: 24px;
-    padding-top: 16px;
-    padding-right: 24px;
-    padding-bottom: 0px;
-    color: #000;
-   }
-   
-#cardSubtitle {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-bottom: 0px;
-    padding-left: 24px;
-    padding-right: 0px;
-}
-
-#root > div:nth-child(6) > div:nth-child(1) > h3:nth-child(3) {
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  padding-left: 24px;
- }
- 
-#renderBody {
-  padding-left: 24px;
-  margin-top: 0px;
-}
-
-/* AJUSTES CSS PARA LA DEMO 03/03/2021*/
-
-#root > div:nth-child(6) > div:nth-child(1) > img:nth-child(2) {
-  margin-right: 0px;
-  padding-right: 0px;
- }
- 
- #root > div:nth-child(6) > div:nth-child(1) > h2:nth-child(1) {
   margin-top: 8px;
- }
- 
- #root > div:nth-child(6) > div:nth-child(1) > h3:nth-child(3) {
-  margin-top: -16px;
- }
- 
- #root > div:nth-child(7) > div:nth-child(1) > h3:nth-child(3) {
-  margin-top: -16px;
-  margin-left: 0px;
-  /*! border-left-style: solid; */margin-bottom: 0px;
-  /*! border-left-width: 0px; */padding-left: 24px;
-  width: 100%;
- }
- 
- #root > div:nth-child(7) > div:nth-child(1) > p:nth-child(4) {
-  padding-left: 24px;
   margin-bottom: 0px;
- }
- 
- #root > div:nth-child(8) > div:nth-child(1) > p:nth-child(4) {
   width: 100%;
-  margin-bottom: 14px;
- }
- 
- #root > div:nth-child(8) > div:nth-child(1) > h3:nth-child(3) {
-  margin-bottom: 0px;
+  height: 24px;
   margin-left: 0px;
   padding-left: 24px;
-  margin-top: -16px;
+  padding-top: 16px;
+  padding-right: 24px;
+  padding-bottom: 16px;
+  color: #FF009E;
  }
-
- #root > div:nth-child(9) > div:nth-child(1) > p:nth-child(4) {
-  width: 250px;
- }
-
- #root > div:nth-child(9) > div:nth-child(1) > h3:nth-child(3) {
-  margin-top: -16px;
-  margin-bottom: 0px;
- }
-
- /*fin ajustes para demo*/
  
+#cardSubtitle {
+  margin-top: 54px;
+  margin-left: -170px;
+  padding-right: 16px;
+}
 #authorAvatar{
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: 293px;
-    top: 595px;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 293px;
+  top: 505px;
 }
-
 #readingTime{
-    width: 15PX;
-    height: 15px;
-    position: absolute;
-    
-    top: 700px;
-    left: 293px;
-}
+  width: 15PX;
+  height: 15px;
+  position: absolute;
+  float: ;
+  top: 595px;
+  left: 293px;
+} */
 
 #title {
   margin-left: 38px;
-  width: 281px;
-  /*! height: 98px; */
-  font-family: "Lufga", sans-serif;
-  font-size: 14px;
-  margin-top: 16px;
-  
-  background-color: white;
   border: none;
-  border-radius: 0.5em;
+  font-family: "Lufga", sans-serif;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
- }
- 
+  padding: 5px;
+  border-radius: 0.5em;
+}
 
 #subtitle {
-    height: 50px;
-    /*background: #f9f9f9;*/
-  }
+  height: 50px;
+  /*background: #f9f9f9;*/
+}
 
 #body {
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-    margin-top: 16px;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 16px;
 }
 
 #root > h1:nth-child(2) {
-    margin-left: 38px;
+  margin-left: 38px;
 }
 
 #saveButton {
-    margin-left: 38px;
-    border-radius: 3px;
-    margin-top: 16px;
-    background: #56F89A;
-    font-family: "Lufga", sans-serif;
-    border: 1px solid #56F89A;
-    font-size: 14px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-};
+  margin-left: 38px;
+  border-radius: 3px;
+  margin-top: 16px;
+  background: #56F89A;
+  font-family: "Lufga", sans-serif;
+  border: 1px solid #56F89A;
+  font-size: 14px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+/*CSS LogingPage*/
+
+/*Este le da estilo a todo el div que compone esta vista*/
+.logIng {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  align-items: center;
+  margin-top: 35%;
+}
+/*Este le da estilo a los botnone*/
+.logIng button{
+  padding: 3px 25px 3px 25px;
+  border-radius: 3px;
+  margin-top: 25px;
+  background: #56F89A;
+  font-family: "Lufga", sans-serif;
+  border: 2px solid #56F89A;
+  font-size: 14px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+/*Este le da estilo a los botnone*/
+.bottonSection{
+  margin-top: 5%;
+}
+/*Este le da estilo al texto de terminos y condiciones*/
+.terms{
+  padding: 3px 25px 3px 25px;
+  margin-top: 35%;
+  font-family: "Lufga", sans-serif;
+  color: black;
+  font-size: 10px;
+  text-align: center;
+}
+
+.signUpBotton{
+  margin-left: 8px;
+}
