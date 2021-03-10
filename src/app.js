@@ -9,33 +9,3 @@ routes;
 rootDiv;
 
 loadDependencies(firebase);
-
-/*
-export const makingPost = () => {
-  postButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const post = {
-      title: titleCard.value,
-      subtitle: subtitleCard.value,
-      body: bodyCard.value,
-      fecha: Date.now(),
-    };
-
-    if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
-      alert('Input vacío!');
-      return;
-    }
-
-    savePost(post)
-      .then((docRef) => {
-        console.log('Document written whith ID: ', docRef.id);
-        titleCard.value = '';
-        subtitleCard.value = '';
-        bodyCard.value = '';
-      })
-      .catch((error) => console.log(error));
-  });
-};
-
-makingPost();
-*/
