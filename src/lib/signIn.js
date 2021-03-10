@@ -1,17 +1,17 @@
 export const signIn = (container) => {
   const html = `
-    <div>
-      <img id="snipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
-      <hi1>Iniciar sesión</h1>
+    <div id="signInContainer">
+      <img id="bigSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+      <h1 id="signInTitle">Iniciar sesión</h1>
       <form>
           <input type= "text" placeholder="Tu correo electrónico"></input>
           <input type= "password" placeholder="Tu contraseña"></input>
-          <button>Acceder</button>
+          <button class="button" data-action="signIn">Acceder</button>
       </form>
     </div>
     
-    <div>
-    <button>Iniciar sesión con Google</button>
+    <div class="signInButton">
+    <button class="button" data-action="signInWithGoogle">Iniciar sesión con Google</button>
     </div>
     `;
     // eslint-disable-next-line no-param-reassign
