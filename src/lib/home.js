@@ -27,7 +27,7 @@ export const home = (container) => {
           <input type="text" placeholder="Título de la publicación" id="title"></input>
           <textarea placeholder="Subtítulo" id="subtitle"></textarea>
           <textarea placeholder="Cuerpo de la publicación" id="body"></textarea>
-          <button id="saveButton" data-action="saveButton">Publicar</button>
+          <button class="button" data-action="saveButton">Publicar</button>
       </div>
     </div>
     <div id="printData">

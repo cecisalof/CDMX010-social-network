@@ -3,6 +3,7 @@
 // eslint-disable-next-line import/no-cycle
 import { home } from './lib/home.js';
 import { login } from './lib/login.js';
+import { novaApp } from './lib/nova.js';
 import { post } from './lib/post.js';
 // eslint-disable-next-line import/no-cycle
 // import { makingPost } from './app.js';
@@ -18,7 +19,8 @@ export const loadDependencies = (firebaseFromApp) => {
 export const rootDiv = document.getElementById('root');
 
 export const routes = {
-  '/': home,
+  '/': novaApp,
+  '/home': home,
   '/login': login,
   '/post': post,
   '/signIn': signIn,
@@ -90,9 +92,12 @@ const makingPost = () => {
 export const eventsController = (e) => {
   // eslint-disable-next-line default-case
   switch (e) {
+    case 'novaApp':
+      onNavigate('/');
+      break;
     case 'home':
       // eslint-disable-next-line no-unused-expressions
-      onNavigate('/');
+      onNavigate('/home');
       break;
     // eslint-disable-next-line no-fallthrough
     case 'login':
