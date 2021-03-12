@@ -14,7 +14,7 @@ export const signUp = (container) => {
       </div>
       
       <div class="signUpButton">
-        <button class="button">Registrarse con Google</button>
+        <button  id="signUpWithGoogle" class="button" data-action="signUpWithGoogle">Registrarse con Google</button>
       </div>
     </div>
         `;

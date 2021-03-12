@@ -1,11 +1,13 @@
 // eslint-disable-next-line import/no-cycle
 import { routes, rootDiv } from './routes.js';
 import { savePost } from './firebase.js';
-
+import { userViewer } from './auth/auth.js';
 // eslint-disable-next-line no-unused-expressions
 routes;
 // eslint-disable-next-line no-unused-expressions
 rootDiv;
+
+userViewer();
 
 export const makingPost = () => {
   const titleCard = document.getElementById('title');

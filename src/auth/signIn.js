@@ -6,7 +6,7 @@ export const signIn = (container) => {
         <form>
           <input type= "text" placeholder="Tu correo electrónico"></input>
           <input type= "password" placeholder="Tu contraseña"></input>
-          <button class="button" data-action="home">Acceder</button>
+          <button id="signInButton"class="button" data-action="home">Acceder</button>
         </form>
       </div>
 

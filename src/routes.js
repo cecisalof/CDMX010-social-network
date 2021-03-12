@@ -8,6 +8,8 @@ import { novaApp } from './auth/nova.js';
 import { makingPost } from './app.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
+import { signOut } from './auth/signOut.js';
+import { signUpWithGoogle } from './auth/auth.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -18,6 +20,7 @@ export const routes = {
   '/post': post,
   '/signIn': signIn,
   '/signUp': signUp,
+  '/signOut': signOut,
 };
 
 const homeView = routes[window.location.pathname];
@@ -79,6 +82,12 @@ const eventsController = (e) => {
     // eslint-disable-next-line no-fallthrough
     case 'signUp':
       onNavigate('/signUp');
+      break;
+    case 'signUpWithGoogle':
+      signUpWithGoogle();
+      break;
+    case 'singOut':
+      onNavigate('/signOut');
       break;
   }
 };
