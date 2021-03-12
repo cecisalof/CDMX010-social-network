@@ -1,19 +1,14 @@
 /* eslint-disable no-unused-vars */
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home } from './lib/home.js';
-import { login } from './lib/login.js';
-import { novaApp } from './lib/nova.js';
-import { post } from './lib/post.js';
+import { home } from './home.js';
+import { login } from './login.js';
+import { post } from './post.js';
+import { novaApp } from './auth/nova.js';
 // eslint-disable-next-line import/no-cycle
-// import { makingPost } from './app.js';
-import { signIn } from './lib/signIn.js';
-import { signUp } from './lib/signUp.js';
-
-let firebase = null;
-export const loadDependencies = (firebaseFromApp) => {
-  firebase = firebaseFromApp;
-};
+import { makingPost } from './app.js';
+import { signIn } from './auth/signIn.js';
+import { signUp } from './auth/signUp.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -48,7 +43,10 @@ const addButtonEvents = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const click = e.target.dataset.action;
+<<<<<<< HEAD
       // eslint-disable-next-line no-console
+=======
+>>>>>>> 77e94ec4d982f2a9c24eda2a9dd7bcb5fe4fdf24
       console.log(click);
       // eslint-disable-next-line no-use-before-define
       eventsController(click);
@@ -56,6 +54,7 @@ const addButtonEvents = () => {
   });
 };
 
+<<<<<<< HEAD
 const makingPost = () => {
   const titleCard = document.getElementById('title');
   const subtitleCard = document.getElementById('subtitle');
@@ -89,6 +88,10 @@ const makingPost = () => {
 
 // Esta es la aplicación que genera el routing
 export const eventsController = (e) => {
+=======
+// Esta es la aplicación que genera el routing
+const eventsController = (e) => {
+>>>>>>> 77e94ec4d982f2a9c24eda2a9dd7bcb5fe4fdf24
   // eslint-disable-next-line default-case
   switch (e) {
     case 'novaApp':

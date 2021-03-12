@@ -59,6 +59,11 @@ textarea{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
+input[type="text"] {
+  font-family: "Lufga", sans-serif;
+}
+
+
 #snipple {
   width: 50px;
   height: 35px;
@@ -145,7 +150,6 @@ font-size: 14px;
   left: 293px;
   top: 505px;
 }
-
 #readingTime{
   width: 15PX;
   height: 15px;
