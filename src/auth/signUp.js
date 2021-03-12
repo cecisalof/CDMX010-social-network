@@ -3,13 +3,13 @@ export const signUp = (container) => {
         
     <div>
       <div id="signUpDiv">
-        <img id="signUpSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+        <ima id="signUpSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
           <h1 id="signUpTitle">Crear una cuenta</h1>
           <form>
-              <input type= "text" placeholder="Tu nombre completo"></input>
-              <input type= "text" placeholder="Tu correo electrónico"></input>
-              <input type= "password" placeholder="Tu contraseña"></input>
-              <button class="button" data-action="home">Crear cuenta</button>
+              <input id="userName" type= "text" placeholder="Tu nombre completo"></input>
+              <input id="userEmail" type= "email" placeholder="Tu correo electrónico"></input>
+              <input id="userPassword" type= "password" placeholder="Tu contraseña"></input>
+              <button class="button" data-action="signUpButton">Crear cuenta</button>
           </form>
       </div>
       
