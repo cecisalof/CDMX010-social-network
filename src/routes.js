@@ -3,13 +3,21 @@
 import { home } from './home.js';
 import { login } from './login.js';
 import { post } from './post.js';
+import { novaApp } from './auth/nova.js';
+// eslint-disable-next-line import/no-cycle
+import { makingPost } from './app.js';
+import { signIn } from './auth/signIn.js';
+import { signUp } from './auth/signUp.js';
 
 export const rootDiv = document.getElementById('root');
 
 export const routes = {
-  '/': home,
+  '/': novaApp,
+  '/home': home,
   '/login': login,
   '/post': post,
+  '/signIn': signIn,
+  '/signUp': signUp,
 };
 
 const homeView = routes[window.location.pathname];
@@ -21,48 +29,58 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
+
   const view = routes[pathname];
   view(rootDiv);
+  // homeView(rootDiv);
 };
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
-
-const botonLinks = () => {
-  const links = document.querySelectorAll('#root');
-  links.forEach((btn) => {
+const addButtonEvents = () => {
+  const parentContainer = document.querySelectorAll('#root');
+  parentContainer.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const link = e.target.dataset.action;
-      console.log(link);
+      const click = e.target.dataset.action;
+      console.log(click);
       // eslint-disable-next-line no-use-before-define
-      routingLinks(link);
+      eventsController(click);
     });
   });
 };
 
 // Esta es la aplicación que genera el routing
-
-const routingLinks = (e) => {
+const eventsController = (e) => {
   // eslint-disable-next-line default-case
   switch (e) {
-    case 'home':
+    case 'novaApp':
       onNavigate('/');
-      botonLinks();
+      break;
+    case 'home':
+      // eslint-disable-next-line no-unused-expressions
+      onNavigate('/home');
       break;
     // eslint-disable-next-line no-fallthrough
     case 'login':
       onNavigate('/login');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'post':
       onNavigate('/post');
-      botonLinks();
       break;
     // eslint-disable-next-line no-fallthrough
-    case '':
-      console.log('erro404');
+    case 'saveButton':
+      makingPost();
+      break;
+      // eslint-disable-next-line no-fallthrough
+    case 'signIn':
+      onNavigate('/signIn');
+      break;
+    // eslint-disable-next-line no-fallthrough
+    case 'signUp':
+      onNavigate('/signUp');
+      break;
   }
 };
 
-botonLinks();
+addButtonEvents();

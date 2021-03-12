@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
+// export const auth = firebase.auth();
 // eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
 
@@ -26,57 +26,46 @@ export const savePost = (post) => db.collection('newPost')
     Fecha: Date.now(),
   });
 
-export const getPost = () => {
-  db.collection('newPost')// .orderBy('fecha')
-    .onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const dataBase = doc.data();
-        return dataBase;
-      });
-    });
-};
-getPost();
-
 // TRAE LA DATA DE LA BASE DE DATOS.
-const postContainer = document.getElementById('printData');
 export const getData = () => {
-  db.collection('newPost').orderBy('Fecha')
+  const postContainer = document.getElementById('printData');
+  db.collection('newPost').orderBy('Fecha', 'desc')
     .onSnapshot((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const dataBase = doc.data();
         postContainer.innerHTML += renderPost(dataBase);
-        console.log(dataBase);
+        // console.log(dataBase);
       });
     });
 };
 
-// AUTH FROM FIREBASE
-firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in
-    // ...
-  })
-  .catch((error) => {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    // ..
-  });
+// // AUTH FROM FIREBASE
+// firebase.auth().createUserWithEmailAndPassword(email, password)
+//   .then((user) => {
+//     // Signed in
+//     // ...
+//   })
+//   .catch((error) => {
+//     let errorCode = error.code;
+//     let errorMessage = error.message;
+//     // ..
+//   });
 
-// SIGN-IN
-firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in
-    // ...
-  })
-  .catch((error) => {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-  });
+// // SIGN-IN
+// firebase.auth().signInWithEmailAndPassword(email, password)
+//   .then((user) => {
+//     // Signed in
+//     // ...
+//   })
+//   .catch((error) => {
+//     let errorCode = error.code;
+//     let errorMessage = error.message;
+//   });
 
-// SIGN-OUT
-firebase.auth().signOut().then(() => {
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
+// // SIGN-OUT
+// firebase.auth().signOut().then(() => {
+//   // Sign-out successful.
+// }).catch((error) => {
+//   // An error happened.
+// });

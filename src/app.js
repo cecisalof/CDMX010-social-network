@@ -1,18 +1,20 @@
 // eslint-disable-next-line import/no-cycle
 import { routes, rootDiv } from './routes.js';
-import { savePost, getData } from './firebase.js';
+import { savePost } from './firebase.js';
 
-const postButton = document.getElementById('saveButton');
-const titleCard = document.getElementById('title');
-const subtitleCard = document.getElementById('subtitle');
-const bodyCard = document.getElementById('body');
+// eslint-disable-next-line no-unused-expressions
+routes;
+// eslint-disable-next-line no-unused-expressions
+rootDiv;
 
-window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-};
+export const makingPost = () => {
+  const titleCard = document.getElementById('title');
+  const subtitleCard = document.getElementById('subtitle');
+  const bodyCard = document.getElementById('body');
 
-postButton.addEventListener('click', (e) => {
-  e.preventDefault();
+  // postButton.addEventListener('click', (e) => {
+  //   e.preventDefault();
+
   const post = {
     title: titleCard.value,
     subtitle: subtitleCard.value,
@@ -21,7 +23,7 @@ postButton.addEventListener('click', (e) => {
   };
 
   if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
-    console.log('Input vacío!');
+    alert('Input vacío!');
     return;
   }
 
@@ -33,6 +35,4 @@ postButton.addEventListener('click', (e) => {
       bodyCard.value = '';
     })
     .catch((error) => console.log(error));
-});
-
-getData();
+};
