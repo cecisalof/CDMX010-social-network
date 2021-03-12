@@ -41,6 +41,11 @@ export const getData = () => {
     });
 };
 
+export const userAuth = (userEmail, userPassword) => {
+  auth.createUserWithEmailAndPassword(userEmail, userPassword);
+};
+
+
 // // AUTH FROM FIREBASE
 // firebase.auth().createUserWithEmailAndPassword(email, password)
 //   .then((user) => {
