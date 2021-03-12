@@ -14,8 +14,8 @@ h1{
   padding-top: 20px;
   margin-left: 38px;
   font-size: 20px;
-  margin-top: 33.4px;
-  /*margin-bottom: 13.4px;*/
+  margin-top: 30px;
+  /*margin-bottom: 13.4px; */
 }
 
 h2, h3, h6{
@@ -59,9 +59,16 @@ textarea{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
+
+/* 11.03.21 */
 input[type="text"] {
   font-family: "Lufga", sans-serif;
 }
+
+img#inicialLogo{
+  width:50%;
+}
+/* */
 
 
 #snipple {
@@ -211,7 +218,7 @@ font-size: 14px;
   flex-direction: column;
   background: #f9f9f9;
   align-items: center;
-  margin-top: 50%;
+  margin-top: 40%;
 }
 /*Este le da estilo a los botnone*/
 .logIng button{
@@ -250,7 +257,7 @@ font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50%;
+  margin-top: 40%;
  background: #f9f9f9;
 
 }
@@ -286,14 +293,17 @@ form {
 /* SignUp Style */
 
 #signUpDiv {
-  
-  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40%;
+  background: #f9f9f9;
   }
   
   #signUpTitle {
     margin: 0px;
     text-align: center;
-    font-size: 20px;
+    margin-top: 30px;
   }
   
   .signUpButton {
@@ -305,7 +315,6 @@ form {
   
   #signUpSnipple {
     width: 100px;
-    margin-left: 110px;
-    margin-top: 50%;
+    margin-left: -30px
   }
   
