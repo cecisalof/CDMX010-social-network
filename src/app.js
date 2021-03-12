@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-cycle
-import { routes, rootDiv, loadDependencies } from './routes.js';
+import { routes, rootDiv, loadFirebase } from './routes.js';
 import * as firebase from './firebase.js';
 
-// eslint-disable-next-line no-unused-expressions
-routes;
-// eslint-disable-next-line no-unused-expressions
-rootDiv;
+loadFirebase(firebase);
+const homeView = routes[window.location.pathname];
+homeView(rootDiv, firebase);
 
-loadDependencies(firebase);
+
+
+

@@ -14,14 +14,13 @@ h1{
   padding-top: 20px;
   margin-left: 38px;
   font-size: 20px;
-  margin-top: 33.4px;
-  /*margin-bottom: 13.4px;*/
+  margin-top: 30px;
+  /*margin-bottom: 13.4px; */
 }
 
 h2, h3, h6{
-    padding-top: 20px;
-  margin-left: 24px;
-  font-size: 20px;
+  padding-top: 20px;
+    font-size: 20px;
   margin-top: 33.4px;
   /*margin-bottom: 13.4px;*/
 }
@@ -43,7 +42,6 @@ h6{
   font-weight: 400;
   margin-top: 24px;
   margin-bottom: 16px;
-  margin-left: 38px;
   padding-top: 0px;
   color: #FF009E;
  
@@ -55,12 +53,23 @@ textarea{
   font-family: "Lufga", sans-serif;
   font-size: 14px;
   margin-top: 16px;
-  margin-left: 36px;
   background-color: white;
   border: none;
   border-radius: 0.5em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
+
+
+/* 11.03.21 */
+input[type="text"] {
+  font-family: "Lufga", sans-serif;
+}
+
+img#inicialLogo{
+  width:50%;
+}
+/* */
+
 
 #snipple {
   width: 50px;
@@ -92,6 +101,12 @@ margin-top: 32px;
   width: 15px; 
 } */
 
+#newPost{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 38px;
+}
+
 #printData {
 display: flex;
 flex-wrap: wrap;
@@ -111,17 +126,21 @@ flex-wrap: wrap;
 }
 
 #cardTitle {
-width: 100%;
-margin-bottom: 0px;
-margin-top: 24px;
-margin-right: 24px;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 24px;
+  margin-right: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
  }
 
 #cardSubtitle {
-width: 100%;
-margin-top: 0px;
-margin-bottom: 0px;
-margin-right: 24px;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 #renderBody {
@@ -138,7 +157,6 @@ font-size: 14px;
   left: 293px;
   top: 505px;
 }
-
 #readingTime{
   width: 15PX;
   height: 15px;
@@ -149,7 +167,7 @@ font-size: 14px;
 } */ 
 
 #title {
-  margin-left: 38px;
+  
   border: none;
   font-family: "Lufga", sans-serif;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
@@ -166,8 +184,8 @@ font-size: 14px;
   margin-top: 16px;
 }
 
-#saveButton {
-  margin-left: 38px;
+.button {
+  /*margin-left: 38px;*/
   border-radius: 3px;
   margin-top: 16px;
   background: #56F89A;
@@ -176,3 +194,127 @@ font-size: 14px;
   font-size: 14px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
+
+/* Nova App Page*/
+
+#novaAppPage{
+  background: linear-gradient(180deg, rgba(86, 248, 154, 0.9) 27.57%, rgba(255, 0, 158, 0.9) 66.25%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#inicialLogo{
+  margin-top: 65%;
+  margin-bottom: 100%;
+}
+
+/* Log In Page */
+
+/*Este le da estilo a todo el div que compone esta vista*/
+.logIng {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  align-items: center;
+  margin-top: 40%;
+}
+/*Este le da estilo a los botnone*/
+.logIng button{
+  padding: 3px 25px 3px 25px;
+  border-radius: 3px;
+  margin-top: 25px;
+  background: #56F89A;
+  font-family: "Lufga", sans-serif;
+  border: 2px solid #56F89A;
+  font-size: 14px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+/*Este le da estilo a los botnone*/
+.bottonSection{
+  margin-top: 5%;
+}
+/*Este le da estilo al texto de terminos y condiciones*/
+.terms{
+  padding: 3px 25px 3px 25px;
+  margin-top: 45%;
+  font-family: "Lufga", sans-serif;
+  color: black;
+  font-size: 10px;
+  text-align: center;
+  padding-left: 58px;
+  padding-right: 58px;
+}
+
+.signUpBotton{
+  margin-left: 8px;
+}
+
+/* Sing In Page*/
+
+#signInContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40%;
+ background: #f9f9f9;
+
+}
+
+#bigSnipple{
+  /*margin-top: 100px;*/
+  width: 100px;
+  /*margin-bottom: 50px;*/
+  /*PARA ALINEAR EL CENTRO DEL GARABATO*/
+  margin-left: -30px;
+}
+
+#signInTitle{
+  margin-left: 0px;
+}
+
+form {
+  /* font-family: "Lufga", sans-serif; */
+  margin-top: 10px;
+  display: grid;
+  grid-gap: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.signInButton{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+/* SignUp Style */
+
+#signUpDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40%;
+  background: #f9f9f9;
+  }
+  
+  #signUpTitle {
+    margin: 0px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .signUpButton {
+    width: 110px;
+    height: 110px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  #signUpSnipple {
+    width: 100px;
+    margin-left: -30px
+  }
+  

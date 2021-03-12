@@ -1,6 +1,10 @@
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from './routes.js';
+
 export const login = (container) => {
   const html = `
- <div class="logIng">
+ 
+  <div class="logIng">
     <div>
       <img id="bigSnipple" src="resources/garabato.png" alt="logoDeLoging" data-action = "home">
     </div>
@@ -16,4 +20,9 @@ export const login = (container) => {
   `;
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
+
+  const signInBtn = document.getElementById('signIn');
+  signInBtn.addEventListener('click', () => {
+    onNavigate('/signIn');
+  })
 };
