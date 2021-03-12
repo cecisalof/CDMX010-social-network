@@ -9,3 +9,4 @@ routes;
 rootDiv;
 
 loadDependencies(firebase);
+console.log(firebase);

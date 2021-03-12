@@ -11,7 +11,6 @@ import { signIn } from './lib/signIn.js';
 import { signUp } from './lib/signUp.js';
 
 let firebase = null;
-
 export const loadDependencies = (firebaseFromApp) => {
   firebase = firebaseFromApp;
 };

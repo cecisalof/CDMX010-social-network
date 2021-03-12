@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { getData } from '../firebase.js';
+import {getData} from '../firebase.js';
 import { nav } from './components/nav.js';
 // eslint-disable-next-line import/no-cycle
 
