@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-/* export const auth = */ firebase.auth();
+export const auth = firebase.auth();
 // eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
 
