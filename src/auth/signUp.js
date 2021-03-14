@@ -2,7 +2,7 @@ export const signUp = (container) => {
   const html = `
   <div id="signUpDiv">
       <div>
-      <img id="signUpSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+      <img id="signUpSnipple" src="resources/garabato.png" alt="logo" class= "link">
         <h1 id="signUpTitle">Crear una cuenta</h1>
         <form>
             <input id="userName" type= "text" placeholder="Tu nombre completo"></input>

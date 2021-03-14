@@ -1,7 +1,7 @@
 export const signIn = (container) => {
   const html = `
       <div id="signInContainer">
-        <img id="bigSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+        <img id="bigSnipple" src="resources/garabato.png" alt="logo" class= "link">
         <h1 id="signInTitle">Iniciar sesión</h1>
         <form>
           <input id ='userEmail' type= "text" placeholder="Tu correo electrónico"></input>
