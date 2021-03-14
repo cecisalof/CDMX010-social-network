@@ -7,7 +7,7 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import { singUpWithEmailAndPassword } from './auth.js';
+import { signUpWithEmailAndPassword, signInWithEmailAndPassword } from './auth.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -105,6 +105,9 @@ const eventsController = (e) => {
       makingPost();
       break;
       // eslint-disable-next-line no-fallthrough
+    case 'signInUser':
+      signInWithEmailAndPassword();
+      break;
     case 'signIn':
       onNavigate('/signIn');
       break;
@@ -113,7 +116,7 @@ const eventsController = (e) => {
       onNavigate('/signUp');
       break;
     case 'signUpButton':
-      singUpWithEmailAndPassword();
+      signUpWithEmailAndPassword();
   }
 };
 

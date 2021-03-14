@@ -1,44 +1,56 @@
-import { userAuth } from './firebase.js';
+// import { userAuth } from './firebase.js';
+import { onNavigate } from './routes.js';
+import { auth } from './firebase.js';
 
 // // AUTH FROM FIREBASE
 
-export const singUpWithEmailAndPassword = () => {
+export const signUpWithEmailAndPassword = () => {
   const userName = document.getElementById("userName").value;
   const userEmail = document.getElementById("userEmail").value;
   const userPassword = document.getElementById("userPassword").value;
-  console.log("The user`s values are", userName, userEmail, userPassword);
+  const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  // const validate = expression.test(userEmail);
+  // console.log("The user`s values are", userName, userEmail, userPassword);
 
-  if (
-    !userName.value.trim() ||
-    !userEmail.value.trim() ||
-    !userPassword.value.trim()
-  ) {
+  const user = {
+    Name: userName.value,
+    Email: userEmail.value,
+    Password: userPassword.value,
+  };
+  if (userName.length === 0
+    || userEmail.length === 0
+    || userPassword.length === 0) {
     alert('Inputs vacío!');
-    return;
+  } else if (!expression.test(userEmail)) {
+    alert('No es un formato de correo válido!');
   }
 
-  userAuth(userEmail, userPassword)
-    .then(user => {
-      // Signed in
-      // ...
+  auth.createUserWithEmailAndPassword(userEmail, userPassword)
+    .then(() => {
+      alert('Bienvenido a novaApp!');
+      onNavigate('/home');
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      // ..
     });
 };
 
-// // SIGN-IN
-// firebase.auth().signInWithEmailAndPassword(email, password)
-//   .then((user) => {
-//     // Signed in
-//     // ...
-//   })
-//   .catch((error) => {
-//     let errorCode = error.code;
-//     let errorMessage = error.message;
-//   });
+// SIGN-IN
+export const signInWithEmailAndPassword = () => {
+  const userEmail = document.getElementById('userEmail').value;
+  const userPassword = document.getElementById('userPassword').value;
+
+  auth.signInWithEmailAndPassword(userEmail, userPassword)
+    .then((user) => {
+      onNavigate('/home');
+    })
+    .catch((error) => {
+      alert('El correo o la contraseña ingresados son inválidos');
+      let errorCode = error.code;
+      let errorMessage = error.message;
+    });
+};
 
 // // SIGN-OUT
 // firebase.auth().signOut().then(() => {
