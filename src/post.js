@@ -1,6 +1,6 @@
 import { nav } from './components/nav.js';
 
-export const post = (container) => {
+export const postPage = (container) => {
   const html = `
   ${nav}
   <div>
