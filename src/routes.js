@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home } from './home.js';
-import { login } from './login.js';
-import { post } from './post.js';
+import { home } from './views/home.js';
+import { login } from './views/login.js';
+import { postPage } from './views/post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import { singUpWithEmailAndPassword } from './auth.js';
+import { singUpWithEmailAndPassword } from './auth/auth.js';
 
 export const rootDiv = document.getElementById('root');
 
 let firebase;
 
 export const loadFirebase = (firebaseFromApp) => {
-  firebase = firebaseFromApp
-}
+  firebase = firebaseFromApp;
+};
 
 export const makingPost = () => {
   const titleCard = document.getElementById('title');
@@ -51,12 +51,10 @@ export const routes = {
   '/': novaApp,
   '/home': home,
   '/login': login,
-  '/post': post,
+  '/post': postPage,
   '/signIn': signIn,
   '/signUp': signUp,
 };
-
-
 
 export const onNavigate = (pathname) => {
   window.history.pushState(

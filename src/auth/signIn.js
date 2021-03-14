@@ -9,7 +9,6 @@ export const signIn = (container) => {
           <button class="button" data-action="home">Acceder</button>
         </form>
       </div>
-
       <div class="signInButton">
       <button class="button" data-action="signInWithGoogle">Iniciar sesión con Google</button>
       </div>

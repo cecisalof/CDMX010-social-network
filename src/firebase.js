@@ -1,6 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // eslint-disable-next-line import/no-cycle
-import { renderPost } from './lib/home.js';
+import { renderPost } from './views/home.js';
 
 const firebaseConfig = {
 
@@ -44,7 +44,6 @@ export const getData = () => {
 export const userAuth = (userEmail, userPassword) => {
   auth.createUserWithEmailAndPassword(userEmail, userPassword);
 };
-
 
 // // AUTH FROM FIREBASE
 // firebase.auth().createUserWithEmailAndPassword(email, password)
