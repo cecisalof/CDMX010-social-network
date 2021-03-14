@@ -17,6 +17,7 @@ export const signUpWithEmailAndPassword = () => {
     Email: userEmail.value,
     Password: userPassword.value,
   };
+
   if (userName.length === 0
     || userEmail.length === 0
     || userPassword.length === 0) {
@@ -24,7 +25,6 @@ export const signUpWithEmailAndPassword = () => {
   } else if (!expression.test(userEmail)) {
     alert('No es un formato de correo válido!');
   }
-
   auth.createUserWithEmailAndPassword(userEmail, userPassword)
     .then(() => {
       alert('Bienvenido a novaApp!');
@@ -52,9 +52,12 @@ export const signInWithEmailAndPassword = () => {
     });
 };
 
-// // SIGN-OUT
-// firebase.auth().signOut().then(() => {
-//   // Sign-out successful.
-// }).catch((error) => {
-//   // An error happened.
-// });
+// SIGN-OUT
+export const signOut = () => {
+  auth.signOut()
+    .then((user) => {
+      onNavigate('/');
+    }).catch((error) => {
+      alert('Un error ha ocurrido. Inténtalo de nuevo'); // Más adelante sería un error 404.
+    });
+}

@@ -7,7 +7,7 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import { signUpWithEmailAndPassword, signInWithEmailAndPassword } from './auth.js';
+import { signUpWithEmailAndPassword, signInWithEmailAndPassword, signOut } from './auth.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -117,6 +117,10 @@ const eventsController = (e) => {
       break;
     case 'signUpButton':
       signUpWithEmailAndPassword();
+      break;
+    case 'signOut':
+      signOut();
+      break;
   }
 };
 
