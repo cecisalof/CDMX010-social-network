@@ -43,7 +43,7 @@ export const signInWithEmailAndPassword = () => {
   const userEmail = document.getElementById('userEmail').value;
   const userPassword = document.getElementById('userPassword').value;
   const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  
+
   if (userEmail.length === 0
     || userPassword.length === 0) {
     alert('Inputs vacío!');
@@ -69,5 +69,36 @@ export const signOut = () => {
       onNavigate('/');
     }).catch((error) => {
       alert('Un error ha ocurrido. Inténtalo de nuevo'); // Más adelante sería un error 404.
+    });
+};
+
+export const signUpWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithRedirect(provider);
+
+  // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
+  auth.getRedirectResult()
+    .then((result) => {
+      if (result.credential) {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = credential.accessToken;
+        // ...
+        onNavigate('/home');
+      }
+      // The signed-in user info.
+      var user = result.user;
+    }).catch((error) => {
+      alert("si soy yo")
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
     });
 };

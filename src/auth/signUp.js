@@ -13,7 +13,7 @@ export const signUp = (container) => {
       </div>
       
       <div class="signUpButton">
-      <button class="button">Registrarse con Google</button>
+      <button data-action="signUpWithGoogle" class="button">Registrarse con Google</button>
       </div>
       </div>
       `;
