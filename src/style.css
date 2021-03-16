@@ -1,0 +1,310 @@
+@font-face {
+    font-family: "Lufga";
+    src: url(../assets/Lufga-Bold.otf);
+    }
+  
+  
+  body{
+    background: #f9f9f9;
+    font-family: "Lufga", sans-serif;
+  }
+  
+  
+  h1{
+    padding-top: 20px;
+    margin-left: 38px;
+    font-size: 20px;
+    margin-top: 33.4px;
+    /*margin-bottom: 13.4px;*/
+  }
+  
+  h2, h3, h6{
+    padding-top: 20px;
+      font-size: 20px;
+    margin-top: 33.4px;
+    /*margin-bottom: 13.4px;*/
+  }
+  
+  h2{
+    font-size: 16px;
+  }
+  
+  h3{
+    color: #9D9B9B;
+    font-size: 13px;
+    font-weight: 200;
+    padding-top: 0px;
+   
+  }
+  
+  h6{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding-top: 0px;
+    color: #FF009E;
+   
+  }
+  
+  textarea{
+    width: 281px;
+    height: 98px;
+    font-family: "Lufga", sans-serif;
+    font-size: 14px;
+    margin-top: 16px;
+    background-color: white;
+    border: none;
+    border-radius: 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  input[type="text"] {
+    font-family: "Lufga", sans-serif;
+  }
+  
+  
+  #snipple {
+    width: 50px;
+    height: 35px;
+    margin-left: 24px;
+    margin-top: 16px;
+  }
+  
+  /* #searchIcon{
+  position: absolute;
+  left: 75%;
+  right: 13.42%;
+  top: 14%;
+  bottom: 27.38%;
+  margin-top: -48px;
+  } */
+  
+  #userAvatar{
+  position: absolute;
+  width: 20px;
+  left: 85%;
+  right: 0%;
+  top: 0%;
+  bottom: 30.17%;
+  margin-top: 32px;
+  }
+  
+  /* #plusIcon {
+    width: 15px; 
+  } */
+  
+  #newPost{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 38px;
+  }
+  
+  #printData {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  
+  #cardContainer{
+    height: 160px;
+    width: 281px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: 38px;
+    margin-top: 40px;  
+    display: flex; 
+    flex-wrap: wrap;
+    
+  }
+  
+  #cardTitle {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 24px;
+    margin-right: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+   }
+  
+  #cardSubtitle {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  #renderBody {
+  padding-left: 24px;
+  margin-top: 14px;
+  padding-right: 24px;
+  font-size: 14px;
+  }
+  
+  /* #authorAvatar{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 293px;
+    top: 505px;
+  }
+  #readingTime{
+    width: 15PX;
+    height: 15px;
+    position: absolute;
+    float: ;
+    top: 595px;
+    left: 293px;
+  } */ 
+  
+  #title {
+    
+    border: none;
+    font-family: "Lufga", sans-serif;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    border-radius: 0.5em;
+  }
+  
+  #subtitle {
+    height: 50px;
+    /*background: #f9f9f9;*/
+  }
+  
+  #body {
+    margin-top: 16px;
+  }
+  
+  .button {
+    /*margin-left: 38px;*/
+    border-radius: 3px;
+    margin-top: 16px;
+    background: #56F89A;
+    font-family: "Lufga", sans-serif;
+    border: 1px solid #56F89A;
+    font-size: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Nova App Page*/
+  
+  #novaAppPage{
+    background: linear-gradient(180deg, rgba(86, 248, 154, 0.9) 27.57%, rgba(255, 0, 158, 0.9) 66.25%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #inicialLogo{
+    margin-top: 65%;
+    margin-bottom: 100%;
+  }
+  
+  /* Log In Page */
+  
+  /*Este le da estilo a todo el div que compone esta vista*/
+  .logIng {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    align-items: center;
+    margin-top: 50%;
+  }
+  /*Este le da estilo a los botnone*/
+  .logIng button{
+    padding: 3px 25px 3px 25px;
+    border-radius: 3px;
+    margin-top: 25px;
+    background: #56F89A;
+    font-family: "Lufga", sans-serif;
+    border: 2px solid #56F89A;
+    font-size: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+  /*Este le da estilo a los botnone*/
+  .bottonSection{
+    margin-top: 5%;
+  }
+  /*Este le da estilo al texto de terminos y condiciones*/
+  .terms{
+    padding: 3px 25px 3px 25px;
+    margin-top: 45%;
+    font-family: "Lufga", sans-serif;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+    padding-left: 58px;
+    padding-right: 58px;
+  }
+  
+  .signUpBotton{
+    margin-left: 8px;
+  }
+  
+  /* Sing In Page*/
+  
+  #signInContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50%;
+   background: #f9f9f9;
+  
+  }
+  
+  #bigSnipple{
+    /*margin-top: 100px;*/
+    width: 100px;
+    /*margin-bottom: 50px;*/
+    /*PARA ALINEAR EL CENTRO DEL GARABATO*/
+    margin-left: -30px;
+  }
+  
+  #signInTitle{
+    margin-left: 0px;
+  }
+  
+  form {
+    /* font-family: "Lufga", sans-serif; */
+    margin-top: 10px;
+    display: grid;
+    grid-gap: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .signInButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  
+  /* SignUp Style */
+  
+  #signUpDiv {
+    
+    padding: 0px;
+    }
+    
+    #signUpTitle {
+      margin: 0px;
+      text-align: center;
+      font-size: 20px;
+    }
+    
+    .signUpButton {
+      width: 110px;
+      height: 110px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    #signUpSnipple {
+      width: 100px;
+      margin-left: 110px;
+      margin-top: 50%;
+    }
