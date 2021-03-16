@@ -1,12 +1,12 @@
 export const signIn = (container) => {
   const html = `
       <div id="signInContainer">
-        <img id="bigSnipple" src="resources/garabato.png" alt="logo" class= "link" data-action = "home">
+        <img id="bigSnipple" src="resources/garabato.png" alt="logo" class= "link">
         <h1 id="signInTitle">Iniciar sesión</h1>
         <form>
-          <input type= "text" placeholder="Tu correo electrónico"></input>
-          <input type= "password" placeholder="Tu contraseña"></input>
-          <button class="button" data-action="home">Acceder</button>
+          <input id ='userEmail' type= "text" placeholder="Tu correo electrónico"></input>
+          <input id = "userPassword" type= "password" placeholder="Tu contraseña"></input>
+          <button class="button" data-action="signInUser">Acceder</button>
         </form>
       </div>
 

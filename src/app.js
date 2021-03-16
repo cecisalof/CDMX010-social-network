@@ -7,6 +7,3 @@ loadFirebase(firebase);
 const homeView = routes[window.location.pathname];
 homeView(rootDiv, firebase);
 
-
-
-
