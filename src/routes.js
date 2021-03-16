@@ -7,7 +7,13 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import { signUpWithEmailAndPassword, signInWithEmailAndPassword, signOut, signUpWithGoogle } from './auth.js';
+import {
+  signUpWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  signUpWithGoogle,
+}
+  from './auth.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -123,7 +129,36 @@ const eventsController = (e) => {
       break;
     case 'signUpWithGoogle':
       signUpWithGoogle();
+      break;
   }
 };
 
 addButtonEvents();
+/*
+const deletingPost = (click) => {
+  firebase.deletePost(click)
+    .
+};
+*/
+// ESTE ES EL CONTROLADOR DE POST:
+// const postController = (click, id) => {
+//   console.log(click, id);
+//   if (click === 'delete') {
+//     firebase.deletePost(id);
+//   }
+// };
+
+const addButtonEventsPost = () => {
+  const parentContainer = document.querySelectorAll('#root');
+  parentContainer.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = e.target.dataset.id;
+      const clickEvent = e.target.dataset.action;
+      // console.log('HOLO', clickEvent);
+      // postController(clickEvent, id);
+    });
+  });
+};
+
+addButtonEventsPost();
