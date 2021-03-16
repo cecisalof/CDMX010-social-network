@@ -1,5 +1,6 @@
 export const signUp = (container) => {
   const html = `
+
   <div id="signUpDiv">
       <div>
       <img id="signUpSnipple" src="resources/garabato.png" alt="logo" class= "link">
@@ -10,6 +11,7 @@ export const signUp = (container) => {
             <input id="userPassword" type= "password" placeholder="Tu contraseña"></input>
             <button class="button" data-action="signUpButton">Crear cuenta</button>
         </form>
+
       </div>
       
       <div class="signUpButton">

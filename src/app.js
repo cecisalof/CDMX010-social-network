@@ -6,3 +6,4 @@ import * as firebase from './firebase.js';
 loadFirebase(firebase);
 const homeView = routes[window.location.pathname];
 homeView(rootDiv, firebase);
+
