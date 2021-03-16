@@ -7,14 +7,18 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
+
 import { signUpWithEmailAndPassword, signInWithEmailAndPassword, signOut, signUpWithGoogle } from './auth.js';
+
 
 export const rootDiv = document.getElementById('root');
 
 let firebase;
+
 export const loadFirebase = (firebaseFromApp) => {
   firebase = firebaseFromApp;
 };
+
 
 export const makingPost = () => {
   const titleCard = document.getElementById('title');

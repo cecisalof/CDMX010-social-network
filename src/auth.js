@@ -4,9 +4,9 @@ import { auth } from './firebase.js';
 
 // // AUTH FROM FIREBASE
 export const signUpWithEmailAndPassword = () => {
-  const userName = document.getElementById("userName").value;
-  const userEmail = document.getElementById("userEmail").value;
-  const userPassword = document.getElementById("userPassword").value;
+  const userName = document.getElementById('userName').value;
+  const userEmail = document.getElementById('userEmail').value;
+  const userPassword = document.getElementById('userPassword').value;
   const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   // const validate = expression.test(userEmail);
   // console.log("The user`s values are", userName, userEmail, userPassword);
@@ -91,7 +91,7 @@ export const signUpWithGoogle = () => {
       // The signed-in user info.
       var user = result.user;
     }).catch((error) => {
-      alert("si soy yo")
+      alert('si soy yo')
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;

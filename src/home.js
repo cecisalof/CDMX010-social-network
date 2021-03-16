@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import { getData } from '../firebase.js';
-import { nav } from '../components/nav.js';
+
+import { nav } from './components/nav.js';
 
 export const renderPost = (param) => `
 <div>
@@ -14,11 +14,11 @@ export const renderPost = (param) => `
 </div>
 `;
 
-export const home = (container, firebase) => {
+export const home = (container, firebase, userName) => {
   const html = `
   <div id="app">
     ${nav}
-      <h1>¡Hola Elena!</h1>
+      <h1>¡Hola ${userName}!</h1>
       
     <div>
       <div id="newPost">

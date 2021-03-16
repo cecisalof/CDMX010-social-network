@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from './routes.js';
+
 export const login = (container) => {
   const html = `
  
@@ -17,5 +20,9 @@ export const login = (container) => {
   `;
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
+
+  const signInBtn = document.getElementById('signIn');
+  signInBtn.addEventListener('click', () => {
+    onNavigate('/signIn');
+  });
 };
-;
