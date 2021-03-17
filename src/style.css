@@ -308,3 +308,13 @@
       margin-left: 110px;
       margin-top: 50%;
     }
+
+
+    /* LIKE BUTTON */
+.likeIcon{
+  width: 20px;
+}
+
+.btn.btn-like {
+  display: flex;
+}

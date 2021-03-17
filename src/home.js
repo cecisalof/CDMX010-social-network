@@ -10,8 +10,21 @@ export const renderPost = (param) => `
     <h3 id="cardSubtitle">${param.Subtitle}</h3>
     <p id="renderBody">${param.Body}</p>
     <!--<img id="readingTime" class="icons" src="resources/clock.png" alt="readingTime">-->
-    </div>
+    
+
+    <!--<button class="btn-like">-->
+      <div class="container">
+        <i id="btn" class="far fa-heart"></i>
+      </div>
+      <!--<div class="btn-icon btn--icon-liked">-->
+      <!--  <i class="fas fa-heart"></i>-->
+      <!-- </div>-->
+      <!--</button>-->
+
 </div>
+</div>
+
+
 `;
 
 export const home = (container, firebase, userName) => {
