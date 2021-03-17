@@ -52,3 +52,33 @@ export const deletePost = (id) => {
       alert('Ups, ocurrio un error');
     });
 };
+
+// EDITAR POST
+
+
+// export const editPost = (id, Title, Subtitle, Body) => {
+//   document.getElementById('title').value = Title;
+//   document.getElementById('subtitle').value = Subtitle;
+//   document.getElementById('body').value = Body;
+//   const editButton = document.getElementById('btn');
+//   editButton.innerHTML = 'Editar';
+
+//   editButton.addEventListener('click', () => {
+//     const post = db.collection('newPost').doc(id);
+//     const newTitle = document.getElementById('title').value;
+//     const newSubtitle = document.getElementById('subtitle').value;
+//     const newBody = document.getElementById('body').value;
+
+//     post.update({
+//       Title: post.title,
+//       Subtitle: post.subtitle,
+//       Body: post.body,
+//     })
+//       .then((res) => {
+//         alert('Post eliminado correctamente');
+//         editButton.innerHTML = 'Publicar';
+//       }).catch((error) => {
+//         alert('Ups, ocurrio un error');
+//       });
+//   });
+// };

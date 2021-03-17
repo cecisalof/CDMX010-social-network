@@ -3,7 +3,7 @@ export const login = (container) => {
  
   <div class="logIng">
     <div>
-      <img id="bigSnipple" src="resources/garabato.png" alt="logoDeLoging" data-action = "home">
+      <img id="bigSnipple" src="resources/garabato.png" alt="logoDeLoging">
     </div>
     <div class="bottonSection">
       <button data-action ="signIn">Iniciar Sesión</button><br>

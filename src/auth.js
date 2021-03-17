@@ -75,7 +75,6 @@ export const signOut = () => {
 export const signUpWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider);
-
   // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
   auth.getRedirectResult()
     .then((result) => {
@@ -102,6 +101,7 @@ export const signUpWithGoogle = () => {
       // ...
     });
 };
+
 
 // // IS A VIEWER THAT CHECKS IF THE USER EXISTS
 // export const userViewer = auth.onAuthStateChanged(user => {
