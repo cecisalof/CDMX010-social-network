@@ -10,13 +10,13 @@ export const signUpWithEmailAndPassword = () => {
   const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   // const validate = expression.test(userEmail);
   // console.log("The user`s values are", userName, userEmail, userPassword);
-
+/*
   const user = {
     Name: userName.value,
     Email: userEmail.value,
     Password: userPassword.value,
   };
-
+*/
   if (userName.length === 0
     || userEmail.length === 0
     || userPassword.length === 0) {
@@ -26,7 +26,7 @@ export const signUpWithEmailAndPassword = () => {
   } else {
     auth.createUserWithEmailAndPassword(userEmail, userPassword)
       .then(() => {
-        alert('Bienvenido a novaApp!');
+        alert(`Bienvenida a novaApp! ${userName}`);
         onNavigate('/home');
       })
       .catch((error) => {
@@ -75,7 +75,6 @@ export const signOut = () => {
 export const signUpWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider);
-
   // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
   auth.getRedirectResult()
     .then((result) => {
@@ -102,6 +101,7 @@ export const signUpWithGoogle = () => {
       // ...
     });
 };
+
 
 // // IS A VIEWER THAT CHECKS IF THE USER EXISTS
 // export const userViewer = auth.onAuthStateChanged(user => {

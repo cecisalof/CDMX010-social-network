@@ -35,14 +35,50 @@ export const getData = () => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const dataBase = doc.data();
-        postContainer.innerHTML += renderPost(dataBase);
+        dataBase.id = doc.id; // CON ESTE ACCEDEMOS A LOS ID DE NUESTROS DATOS
+        const id = dataBase.id;
+        postContainer.innerHTML += renderPost(dataBase, id);
         // console.log(dataBase);
       });
     });
 };
 
-/*
-export const userAuth = (userEmail, userPassword) => {
-  auth.createUserWithEmailAndPassword(userEmail, userPassword);
+// BORRA LOS POST
+export const deletePost = (id) => {
+  db.collection('newPost').doc(id).delete()
+    .then((res) => {
+      alert('Post eliminado correctamente');
+    }).catch((error) => {
+      alert('Ups, ocurrio un error');
+    });
 };
-*/
+
+// EDITAR POST
+
+
+// export const editPost = (id, Title, Subtitle, Body) => {
+//   document.getElementById('title').value = Title;
+//   document.getElementById('subtitle').value = Subtitle;
+//   document.getElementById('body').value = Body;
+//   const editButton = document.getElementById('btn');
+//   editButton.innerHTML = 'Editar';
+
+//   editButton.addEventListener('click', () => {
+//     const post = db.collection('newPost').doc(id);
+//     const newTitle = document.getElementById('title').value;
+//     const newSubtitle = document.getElementById('subtitle').value;
+//     const newBody = document.getElementById('body').value;
+
+//     post.update({
+//       Title: post.title,
+//       Subtitle: post.subtitle,
+//       Body: post.body,
+//     })
+//       .then((res) => {
+//         alert('Post eliminado correctamente');
+//         editButton.innerHTML = 'Publicar';
+//       }).catch((error) => {
+//         alert('Ups, ocurrio un error');
+//       });
+//   });
+// };

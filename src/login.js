@@ -13,8 +13,7 @@ export const login = (container) => {
       <div class="terms">
         <p>Al iniciar sesión aceptas nuestros términos de servicio y estás al tanto de nuestro aviso de privacidad.</p>
       </div>
-    </div>
-    `;
+  `;
     // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
 };
