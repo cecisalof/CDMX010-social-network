@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 
 import { nav } from './components/nav.js';
-
+/*
 export const renderPost = (param) => `
 <div>
   <div id="cardContainer" class= "link">
@@ -13,7 +13,26 @@ export const renderPost = (param) => `
     </div>
 </div>
 `;
+*/
 
+export const renderPost = (param, id) => `
+<div id="cardContainer">
+    <div class="textPost">
+      <h2 id="cardTitle" data-action = "post"  >${param.Title}</h2>
+      <h3 id="cardSubtitle">${param.Subtitle}</h3>
+      <p id="renderBody">${param.Body}</p>
+      
+    </div>
+    <div id="iconHeart">
+      <img id= "like" class="icon" src="resources/Heart.png" alt="image" data-action="like" data-id ="${id}">
+      <p id="likesNumber">0</p>
+    </div>
+    <div class="icons">
+      <img class="icon" src="resources/Trash.png" alt="imagen" data-action="delete" data-id ="${id}">
+      <img class="icon" src="resources/Edit.png" alt="image" data-action="edit" data-id ="${id}">
+    </div>
+  </div>
+  `;
 export const home = (container, firebase, userName) => {
   const html = `
   <div id="app">

@@ -80,7 +80,6 @@ const addButtonEvents = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const click = e.target.dataset.action;
-      console.log(click);
       // eslint-disable-next-line no-use-before-define
       eventsController(click);
     });
@@ -134,31 +133,3 @@ const eventsController = (e) => {
 };
 
 addButtonEvents();
-/*
-const deletingPost = (click) => {
-  firebase.deletePost(click)
-    .
-};
-*/
-// ESTE ES EL CONTROLADOR DE POST:
-// const postController = (click, id) => {
-//   console.log(click, id);
-//   if (click === 'delete') {
-//     firebase.deletePost(id);
-//   }
-// };
-
-const addButtonEventsPost = () => {
-  const parentContainer = document.querySelectorAll('#root');
-  parentContainer.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = e.target.dataset.id;
-      const clickEvent = e.target.dataset.action;
-      // console.log('HOLO', clickEvent);
-      // postController(clickEvent, id);
-    });
-  });
-};
-
-addButtonEventsPost();

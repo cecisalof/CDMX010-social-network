@@ -35,14 +35,20 @@ export const getData = () => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const dataBase = doc.data();
-        postContainer.innerHTML += renderPost(dataBase);
+        dataBase.id = doc.id; // CON ESTE ACCEDEMOS A LOS ID DE NUESTROS DATOS
+        const id = dataBase.id;
+        postContainer.innerHTML += renderPost(dataBase, id);
         // console.log(dataBase);
       });
     });
 };
 
-/*
-export const userAuth = (userEmail, userPassword) => {
-  auth.createUserWithEmailAndPassword(userEmail, userPassword);
+// BORRA LOS POST
+export const deletePost = (id) => {
+  db.collection('newPost').doc(id).delete()
+    .then((res) => {
+      alert('Post eliminado correctamente');
+    }).catch((error) => {
+      alert('Ups, ocurrio un error');
+    });
 };
-*/
