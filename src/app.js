@@ -84,7 +84,7 @@ const likesFunction = (id) => {
 // CONTROLADOR::
 
 const postController = (click, id) => {
-  console.log(click, id);
+  // console.log(click, id);
   if (click === 'delete') {
     deletePostFunction(id);
   } if (click === 'like') {
@@ -99,7 +99,7 @@ const addButtonEventsPost = () => {
       e.preventDefault();
       const id = e.target.dataset.id;
       const clickEvent = e.target.dataset.action;
-      console.log('HOLO', clickEvent, id);
+      // console.log('HOLO', clickEvent, id);
       postController(clickEvent, id);
     });
   });
