@@ -14,8 +14,9 @@ import {
   signUpWithGoogle,
 }
   from './auth.js';
+import {deletePostFunction, postEditado, editPost, editingPost } from './app.js';
+
 // eslint-disable-next-line import/no-cycle
-import { editPost } from './app.js';
 
 export const rootDiv = document.getElementById('root');
 
@@ -29,9 +30,6 @@ export const makingPost = () => {
   const subtitleCard = document.getElementById('subtitle');
   const bodyCard = document.getElementById('body');
 
-  // postButton.addEventListener('click', (e) => {
-  //   e.preventDefault();
-
   const post = {
     title: titleCard.value,
     subtitle: subtitleCard.value,
@@ -42,16 +40,18 @@ export const makingPost = () => {
   if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
     alert('Input vacío!');
     return;
+  } if (editingPost === false) {
+    firebase.savePost(post)
+      .then((docRef) => {
+        console.log('Document written whith ID: ', docRef.id);
+        titleCard.value = '';
+        subtitleCard.value = '';
+        bodyCard.value = '';
+      })
+      .catch((error) => console.log(error));
+  } if (editingPost === true) {
+    editPost();
   }
-
-  firebase.savePost(post)
-    .then((docRef) => {
-      console.log('Document written whith ID: ', docRef.id);
-      titleCard.value = '';
-      subtitleCard.value = '';
-      bodyCard.value = '';
-    })
-    .catch((error) => console.log(error));
 };
 
 export const routes = {
@@ -83,6 +83,7 @@ const addButtonEvents = () => {
       e.preventDefault();
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
+      console.log(id);
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
     });
@@ -132,9 +133,15 @@ const eventsController = (e, id) => {
     case 'signUpWithGoogle':
       signUpWithGoogle();
       break;
+    case 'signInWithGoogle':
+      signUpWithGoogle();
+      break;
     case 'edit':
       editPost(id);
       break;
+    case 'delete':
+      deletePostFunction(id);
+    break;
   }
 };
 

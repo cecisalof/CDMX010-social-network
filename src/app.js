@@ -13,22 +13,21 @@ window.onpopstate = () => {
 };
 
 // DELETE POST FUNCTION
-const deletePostFunction = (id) => {
+export const deletePostFunction = (id) => {
   firebase.deletePost(id);
 };
 
 const currentPost = (id) => firebase.db.collection('newPost').doc(id).get();
-const postForm = document.getElementById('newPost');
-const editStatus = false;
+export let editingPost = false;
 
-const function2 = (id) => {
+export const postEditado = (id) => {
+
   const updatePost = firebase.db.collection('newPost').doc(id);
-  
-
   const title = document.getElementById('title').value;
   const subtitle = document.getElementById('subtitle').value;
   const body = document.getElementById('body').value;
-  
+  console.log(updatePost);
+  // editingPost = true;
   return updatePost.update({
     Title: title,
     Subtitle: subtitle,
@@ -38,26 +37,26 @@ const function2 = (id) => {
 };
 
 export function editPost(id) {
-  const postContainer = document.getElementById('printData');
   currentPost(id)
     .then((result) => {
+      editingPost = true;
+      // eslint-disable-next-line no-const-assign
       const infoData = result.data();
       document.getElementById('title').value = infoData.Title;
       document.getElementById('subtitle').value = infoData.Subtitle;
       document.getElementById('body').value = infoData.Body;
       const boton = document.getElementById('btn');
       boton.innerHTML = 'Editar';
-
       boton.addEventListener('click', () => {
-        postContainer.innerHTML = '';
-        function2(id)
+        postEditado(id)
           .then(() => {
             console.log('Updated!');
+            editingPost = false;
             boton.innerHTML = 'Publicar';
-            document.getElementById('nombre').value = '';
+            document.getElementById('title').value = '';
             document.getElementById('subtitle').value = '';
             document.getElementById('body').value = '';
-          }).catch((error) => {});
+          });
       });
     })
     .catch((error) => console.log(error));
@@ -81,28 +80,3 @@ const likesFunction = (id) => {
   likeCounter.innerHTML = ++likes;
 };
 */
-// CONTROLADOR::
-
-const postController = (click, id) => {
-  // console.log(click, id);
-  if (click === 'delete') {
-    deletePostFunction(id);
-  } if (click === 'like') {
-    // likesFunction(id);
-  }
-};
-
-const addButtonEventsPost = () => {
-  const parentContainer = document.querySelectorAll('#root');
-  parentContainer.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = e.target.dataset.id;
-      const clickEvent = e.target.dataset.action;
-      // console.log('HOLO', clickEvent, id);
-      postController(clickEvent, id);
-    });
-  });
-};
-
-addButtonEventsPost();
