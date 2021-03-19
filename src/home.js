@@ -51,7 +51,7 @@ export const home = (container, firebase, userName) => {
   const html = `
   <div id="app">
     ${nav}
-      <h1>¡Hola ${userName}!</h1>
+      <h1>¡Hola Elena!</h1>
       
     <div>
       <div id="newPost">

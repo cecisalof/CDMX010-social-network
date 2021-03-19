@@ -4,19 +4,19 @@ import { auth } from './firebase.js';
 
 // // AUTH FROM FIREBASE
 export const signUpWithEmailAndPassword = () => {
-  const userName = document.getElementById("userName").value;
-  const userEmail = document.getElementById("userEmail").value;
-  const userPassword = document.getElementById("userPassword").value;
+  const userName = document.getElementById('userName').value;
+  const userEmail = document.getElementById('userEmail').value;
+  const userPassword = document.getElementById('userPassword').value;
   const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   // const validate = expression.test(userEmail);
   // console.log("The user`s values are", userName, userEmail, userPassword);
-/*
-  const user = {
-    Name: userName.value,
-    Email: userEmail.value,
-    Password: userPassword.value,
-  };
-*/
+  /*
+    const user = {
+      Name: userName.value,
+      Email: userEmail.value,
+      Password: userPassword.value,
+    };
+  */
   if (userName.length === 0
     || userEmail.length === 0
     || userPassword.length === 0) {
@@ -39,7 +39,7 @@ export const signUpWithEmailAndPassword = () => {
 };
 
 // SIGN-IN
-export const signInWithEmailAndPassword = () => {
+export const signInWithEmailAndPassword = (user) => {
   const userEmail = document.getElementById('userEmail').value;
   const userPassword = document.getElementById('userPassword').value;
   const expression = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -74,37 +74,45 @@ export const signOut = () => {
 
 export const signUpWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithRedirect(provider);
-  // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
-  auth.getRedirectResult()
-    .then((result) => {
-      if (result.credential) {
-        /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
+  auth.signInWithPopup(provider)
+    // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
+    // auth.getRedirectResult()
+    .then(result => {
+      alert('todo bien con el redirect!');
+      // if (result.credential) {
+      //   /** @type {firebase.auth.OAuthCredential} */
+      //   let credential = result.credential;
 
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = credential.accessToken;
-        // ...
-        onNavigate('/home');
-      }
-      // The signed-in user info.
-      var user = result.user;
-    }).catch((error) => {
-      alert("si soy yo")
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
+      //   // This gives you a Google Access Token. You can use it to access the Google API.
+      //   let token = credential.accessToken;
       // ...
+      onNavigate('/home'); // revisar
+    }).catch(error => {
+      alert('error en el redirect!');
+      // // The signed-in user info.
+      // let user = result.user;
+
+      // // Handle Errors here.
+      // let errorCode = error.code;
+      // let errorMessage = error.message;
+      // // The email of the user's account used.
+      // let email = error.email;
+      // // The firebase.auth.AuthCredential type that was used.
+      // let credential = error.credential;
+      // // ...
     });
 };
 
+// export const userViewer = auth.onAuthStateChanged(firebaseUser => {
+//   if (firebaseUser) {
+//     console.log(firebaseUser);
+//   } else {
+//     console.log('no existe el usuario');
+//   }
+// });
 
 // // IS A VIEWER THAT CHECKS IF THE USER EXISTS
-// export const userViewer = auth.onAuthStateChanged(user => {
+// export const userViewer = auth.onAuthStateChanged(firebaseUser => {
 //   let uid = user.uid;
 //   if (user === uid) {
 //     console.log(user);

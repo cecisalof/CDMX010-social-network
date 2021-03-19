@@ -85,6 +85,7 @@ const addButtonEvents = () => {
       const id = e.target.dataset.id;
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
+      console.log(id);
     });
   });
 };

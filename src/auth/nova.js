@@ -12,7 +12,7 @@ export const novaApp = (container) => {
   const animate = () => {
     setTimeout(() => {
       onNavigate('/login');
-    }, 2000);
+    }, 3000);
   };
   animate();
 };
