@@ -12,6 +12,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   signUpWithGoogle,
+  signInWithGoogle,
 }
   from './auth.js';
 // eslint-disable-next-line import/no-cycle
@@ -132,6 +133,9 @@ const eventsController = (e, id) => {
       break;
     case 'signUpWithGoogle':
       signUpWithGoogle();
+      break;
+    case 'signInWithGoogle':
+      signInWithGoogle();
       break;
     case 'edit':
       editPost(id);

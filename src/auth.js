@@ -78,28 +78,29 @@ export const signUpWithGoogle = () => {
     // TRAER DATOS DE LA REDIRECCIÓN DE GOOGLE PARA ACREDITAR EL SIGN UP EN FIREBASE
     // auth.getRedirectResult()
     .then(result => {
-      alert('todo bien con el redirect!');
-      // if (result.credential) {
-      //   /** @type {firebase.auth.OAuthCredential} */
-      //   let credential = result.credential;
-
-      //   // This gives you a Google Access Token. You can use it to access the Google API.
-      //   let token = credential.accessToken;
-      // ...
-      onNavigate('/home'); // revisar
+      onNavigate('/home');
     }).catch(error => {
-      alert('error en el redirect!');
-      // // The signed-in user info.
-      // let user = result.user;
+      alert('Un error ha ocurrido. Inténtelo más tarde');
+    });
+};
 
-      // // Handle Errors here.
-      // let errorCode = error.code;
-      // let errorMessage = error.message;
-      // // The email of the user's account used.
-      // let email = error.email;
-      // // The firebase.auth.AuthCredential type that was used.
-      // let credential = error.credential;
-      // // ...
+export const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  // auth.signInWithRedirect(provider);
+  auth.getRedirectResult()
+    .then((result) => {
+      console.log('entra a la promesa de getRedirect');
+      onNavigate('/home');
+    }).catch((error) => {
+      console.log('da error en el get redirect!');
+      // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      // The email of the user's account used.
+      let email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      let credential = error.credential;
+      // ...
     });
 };
 

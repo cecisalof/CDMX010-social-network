@@ -10,7 +10,7 @@ export const signIn = (container) => {
           </form>
         </div>
         <div class="signInButton">
-        <button class="button" data-action="signInWithGoogle">Iniciar sesión con Google</button>
+        <button id="googleSignInButton" class="button" data-action="signInWithGoogle">Iniciar sesión con Google</button>
         </div>
       `;
     // eslint-disable-next-line no-param-reassign

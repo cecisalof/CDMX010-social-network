@@ -1,10 +1,10 @@
-@font-face {
+/* @font-face {
     font-family: "Lufga";
-    src: url(../assets/Lufga-Bold.otf);
+    src: url(../resources/Lufga-Bold.otf);
     }
+   */
   
-  
-  body{
+   body{
     background: #f9f9f9;
     font-family: "Lufga", sans-serif;
   }
@@ -104,44 +104,57 @@
   display: flex;
   flex-wrap: wrap;
   }
-  
+  /*
+  #cardContainer{
+    height: 160px;
+    width: 281px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: 38px;
+    margin-top: 40px;  
+    display: flex; 
+    flex-wrap: wrap;
+    
+  }
+  */
   /*Propuesta de Karina */
-#cardContainer{
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  display: flex;
-  flex: wrap;
-  flex-direction: column;
-  height: 180px;
-  width: 281px;
-  margin-left: 38px;
-  margin-top: 40px;
-}
-
-#iconHeart{
-  margin-top: 15px;
-  margin-left: 10px;
-}
-
-#likesNumber{
-  margin-top: -26px;
-  margin-left: 48px;
-}
-
-
-.icons{
-  margin-top: -35px;
-  margin-left: 185px;
-}
-
-.icon{
+  #cardContainer{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex: wrap;
+    flex-direction: column;
+    height: 180px;
+    width: 281px;
+    margin-left: 38px;
+    margin-top: 40px;
+  }
   
-  width: 22px;
-  height: 22px;
-  margin-left: 18px;
-
-}
+  #iconHeart{
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  
+  #likesNumber{
+    margin-top: -26px;
+    margin-left: 48px;
+  }
+  
+  
+  .icons{
+    margin-top: -35px;
+    margin-left: 185px;
+  }
+  
+  .icon{
+    
+    width: 22px;
+    height: 22px;
+    margin-left: 18px;
+  
+  }
   
   #cardTitle {
     width: 100%;
@@ -333,13 +346,7 @@
       margin-left: 110px;
       margin-top: 50%;
     }
-
-
-    /* LIKE BUTTON */
-.likeIcon{
-  width: 20px;
-}
-
-.btn.btn-like {
-  display: flex;
-}
+    
+  #signOut{
+  
+  }
