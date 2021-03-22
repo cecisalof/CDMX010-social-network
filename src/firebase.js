@@ -1,6 +1,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // eslint-disable-next-line import/no-cycle
 import { renderPost } from './home.js';
+// import { deleteConfirmation } from './PostController/deleteConfirmation.js';
 
 const firebaseConfig = {
 
@@ -46,15 +47,16 @@ export const getData = () => {
 // BORRA LOS POST
 export const deletePost = (id) => {
   db.collection('newPost').doc(id).delete()
-    .then((res) => {
+    .then(() => {
+      deleteConfirmation(id);
       alert('Post eliminado correctamente');
-    }).catch((error) => {
-      alert('Ups, ocurrio un error');
+    })
+    .catch((error) => {
+      alert('Ups, ocurrio un error!');
     });
 };
 
 // EDITAR POST
-
 
 // export const editPost = (id, Title, Subtitle, Body) => {
 //   document.getElementById('title').value = Title;

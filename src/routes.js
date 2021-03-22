@@ -16,9 +16,13 @@ import {
 }
   from './auth.js';
 // eslint-disable-next-line import/no-cycle
-import { editPost } from './app.js';
+
+// import { deletePost } from './firebase.js';
+import { deleteModal } from './PostController/postController.js';
+// import { deleteConfirmation } from './PostController/deleteConfirmation.js';
 
 export const rootDiv = document.getElementById('root');
+const modalContainer = document.getElementById('modalContainer');
 
 let firebase;
 export const loadFirebase = (firebaseFromApp) => {
@@ -87,10 +91,11 @@ const addButtonEvents = () => {
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
       console.log(id);
+      console.log(e.target);
     });
   });
 };
-
+const container = document.getElementById('printData');
 // Esta es la aplicación que genera el routing
 const eventsController = (e, id) => {
   // eslint-disable-next-line default-case
@@ -137,9 +142,13 @@ const eventsController = (e, id) => {
     case 'signInWithGoogle':
       signInWithGoogle();
       break;
-    case 'edit':
-      editPost(id);
+    case 'delete':
+      // deletePost(id);
+      deleteModal();
       break;
+    // case 'edit':
+    //   editPost(id);
+    //   break;
   }
 };
 
