@@ -1,14 +1,10 @@
 import { deleteConfirmation } from './deleteConfirmation.js';
-import { deletePost } from '../firebase.js';
 
 export const deleteModal = (id) => {
   const modalContainer = document.getElementById('modalContainer');
-  deleteConfirmation(modalContainer);
-
+  deleteConfirmation(modalContainer, id);
   const modal = document.querySelector('.modal');
   const closeButton = document.querySelector('.close-button');
-  // const confirm = document.getElementById('confirm');
-  // console.log(confirm);
 
   modal.classList.toggle('show-modal');
 
@@ -17,13 +13,6 @@ export const deleteModal = (id) => {
       modal.classList.toggle('show-modal');
     }
   };
-
-  // confirm.addEventListener('click', () => {
-  //   deletePost(id);
-  //   console.log(deletePost());
-  //   alert('Post ha sido eliminado!');
-  //   modal.classList.toggle('show-modal');
-  // });
 };
 
 // window.addEventListener('DOMContentLoaded', () => {

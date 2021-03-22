@@ -35,9 +35,11 @@ export const getData = () => {
     .onSnapshot((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
+        console.log(doc);
         const dataBase = doc.data();
-        dataBase.id = doc.id; // CON ESTE ACCEDEMOS A LOS ID DE NUESTROS DATOS
-        const id = dataBase.id;
+        console.log(doc.data());
+        dataBase.id = doc.id; // CON ESTE ACCEDEMOS A LOS ID DE NUESTROS POST
+        const id = dataBase.id; // AQUÍ arroja el ID del post
         postContainer.innerHTML += renderPost(dataBase, id);
         // console.log(dataBase);
       });

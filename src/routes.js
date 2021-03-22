@@ -48,8 +48,8 @@ export const makingPost = () => {
   }
 
   firebase.savePost(post)
-    .then((docRef) => {
-      console.log('Document written whith ID: ', docRef.id);
+    .then((doc) => {
+      console.log('Document written whith ID: ', doc.id);
       titleCard.value = '';
       subtitleCard.value = '';
       bodyCard.value = '';
@@ -87,8 +87,10 @@ const addButtonEvents = () => {
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
       if (e.target.dataset.action === 'confirm') {
-        firebase.deletePost(id);
-        // console.log('desde el escuchador de eventos', id);
+        const confirmId = e.target.dataset.id;
+        console.log(confirmId);
+        firebase.deletePost(confirmId);
+        console.log('desde el escuchador de eventos', id);
       }
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
@@ -97,6 +99,7 @@ const addButtonEvents = () => {
     });
   });
 };
+
 const container = document.getElementById('printData');
 // Esta es la aplicación que genera el routing
 const eventsController = (e, id) => {
