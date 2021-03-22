@@ -46,14 +46,15 @@ export const getData = () => {
 
 // BORRA LOS POST
 export const deletePost = (id) => {
+  console.log('We are inside deletePost');
   db.collection('newPost').doc(id).delete()
     .then(() => {
-      deleteConfirmation(id);
-      alert('Post eliminado correctamente');
+      console.log('Post was deleted in firebase console');
     })
     .catch((error) => {
-      alert('Ups, ocurrio un error!');
+      console.log('An error have ocurred!');
     });
+  console.log(id);
 };
 
 // EDITAR POST

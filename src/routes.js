@@ -15,7 +15,9 @@ import {
   signInWithGoogle,
 }
   from './auth.js';
-import { deleteModal } from './PostController/postController.js';
+import { deleteModal } from './PostController/modals.js';
+// import { deletePost } from './firebase.js';
+// import { deletePost } from './firebase.js';
 
 export const rootDiv = document.getElementById('root');
 const modalContainer = document.getElementById('modalContainer');
@@ -84,6 +86,10 @@ const addButtonEvents = () => {
       e.preventDefault();
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
+      if (e.target.dataset.action === 'confirm') {
+        firebase.deletePost(id);
+        // console.log('desde el escuchador de eventos', id);
+      }
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
       console.log(id);
@@ -115,7 +121,7 @@ const eventsController = (e, id) => {
     case 'saveButton':
       makingPost();
       break;
-      // eslint-disable-next-line no-fallthrough
+    // eslint-disable-next-line no-fallthrough
     case 'signInUser':
       signInWithEmailAndPassword();
       break;
@@ -140,8 +146,11 @@ const eventsController = (e, id) => {
       break;
     case 'delete':
       // deletePost(id);
-      deleteModal();
+      deleteModal(id);
       break;
+    // case 'confirm':
+    //   deletePost(id);
+    //   break;
     // case 'edit':
     //   editPost(id);
     //   break;

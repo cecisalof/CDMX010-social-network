@@ -1,17 +1,14 @@
 import { deleteConfirmation } from './deleteConfirmation.js';
+import { deletePost } from '../firebase.js';
 
-export const deleteModal = () => {
+export const deleteModal = (id) => {
   const modalContainer = document.getElementById('modalContainer');
-  console.log('in deleteModal function', modalContainer);
   deleteConfirmation(modalContainer);
 
   const modal = document.querySelector('.modal');
-  const trigger = document.querySelector('#trigger');
   const closeButton = document.querySelector('.close-button');
-
-  console.log(modal);
-  console.log(trigger);
-  console.log(closeButton);
+  // const confirm = document.getElementById('confirm');
+  // console.log(confirm);
 
   modal.classList.toggle('show-modal');
 
@@ -20,7 +17,25 @@ export const deleteModal = () => {
       modal.classList.toggle('show-modal');
     }
   };
+
+  // confirm.addEventListener('click', () => {
+  //   deletePost(id);
+  //   console.log(deletePost());
+  //   alert('Post ha sido eliminado!');
+  //   modal.classList.toggle('show-modal');
+  // });
 };
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   const modal = document.querySelector('.modal');
+//   const confirm = document.getElementById('confirm');
+//   confirm.addEventListener('click', () => {
+//     deletePost();
+//     console.log(deletePost());
+//     alert('Post ha sido eliminado!');
+//     modal.classList.toggle('show-modal');
+//   });
+// });
 
 // const currentPost = (id) => firebase.db.collection('newPost').doc(id).get(); 
 // mandar a firebase.js
