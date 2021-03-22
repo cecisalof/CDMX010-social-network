@@ -15,11 +15,7 @@ import {
   signInWithGoogle,
 }
   from './auth.js';
-// eslint-disable-next-line import/no-cycle
-
-// import { deletePost } from './firebase.js';
 import { deleteModal } from './PostController/postController.js';
-// import { deleteConfirmation } from './PostController/deleteConfirmation.js';
 
 export const rootDiv = document.getElementById('root');
 const modalContainer = document.getElementById('modalContainer');

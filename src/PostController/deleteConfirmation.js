@@ -1,5 +1,5 @@
 export const deleteConfirmation = (container) => {
-  // const modalContainer = document.getElementById('modalContainer');
+  const modalContainer = document.getElementById('modalContainer');
   // console.log('in deleteConfirmation file', modalContainer);
   const modalTemplate = ` 
        <div class="modal">
@@ -10,5 +10,5 @@ export const deleteConfirmation = (container) => {
     </div> 
       `;
 
-  container.innerHTML = modalTemplate;
+  modalContainer.innerHTML = modalTemplate;
 };

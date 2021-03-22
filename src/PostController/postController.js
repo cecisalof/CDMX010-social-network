@@ -1,28 +1,25 @@
 import { deleteConfirmation } from './deleteConfirmation.js';
-import { renderPost } from '../home.js';
 
 export const deleteModal = () => {
   const modalContainer = document.getElementById('modalContainer');
+  console.log('in deleteModal function', modalContainer);
   deleteConfirmation(modalContainer);
 
   const modal = document.querySelector('.modal');
-  // const trigger = document.querySelector('#trigger');
+  const trigger = document.querySelector('#trigger');
   const closeButton = document.querySelector('.close-button');
 
-  const showModal = () => {
-    modal.classList.toggle('show-modal');
-  };
+  console.log(modal);
+  console.log(trigger);
+  console.log(closeButton);
+
+  modal.classList.toggle('show-modal');
 
   window.onclick = (event) => {
-    if (event.target === modal) {
-      console.log(event.target);
-      showModal();
+    if (event.target === modal || event.target === closeButton) {
+      modal.classList.toggle('show-modal');
     }
   };
-
-  // trigger.addEventListener('click', showModal);
-  closeButton.addEventListener('click', showModal);
-  window.addEventListener('click', window.onclick);
 };
 
 // const currentPost = (id) => firebase.db.collection('newPost').doc(id).get(); 
