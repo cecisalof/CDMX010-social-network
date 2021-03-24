@@ -104,27 +104,24 @@ export const signInWithGoogle = () => {
     });
 };
 
-// export const userViewer = auth.onAuthStateChanged(firebaseUser => {
-//   if (firebaseUser) {
-//     console.log(firebaseUser);
-//   } else {
-//     console.log('no existe el usuario');
-//   }
-// });
-
-// // IS A VIEWER THAT CHECKS IF THE USER EXISTS
-// export const userViewer = auth.onAuthStateChanged(firebaseUser => {
-//   let uid = user.uid;
-//   if (user === uid) {
-//     console.log(user);
-//     console.log(uid);
-//     onNavigate('/home');
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/firebase.User
-//     // ...
-//   } else {
-//     console.log('no existe el usuario');
-//     // User is signed out
-//     // ...
-//   }
-// });
+// IS A VIEWER THAT CHECKS IF THE USER EXISTS
+export const userViewer = auth.onAuthStateChanged(user => {
+  // onNavigate('/');
+  if (user) {
+    console.log(user);
+    const animate = () => {
+      setTimeout(() => {
+        onNavigate('/home');
+      }, 3000);
+    };
+    animate();
+  } else {
+    console.log('no existe el usuario');
+    const animate = () => {
+      setTimeout(() => {
+        onNavigate('/login');
+      }, 3000);
+    };
+    animate();
+  }
+});

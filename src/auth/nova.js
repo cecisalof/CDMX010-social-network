@@ -6,7 +6,7 @@ export const novaApp = (container) => {
           <img id="inicialLogo" src="resources/novaAppImage.png" alt="Inicial logo" data-action="login">
         </div>
         `;
-    // eslint-disable-next-line no-param-reassign
+  // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
 
   const animate = () => {

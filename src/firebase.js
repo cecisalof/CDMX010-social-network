@@ -19,6 +19,17 @@ export const auth = firebase.auth();
 // eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
 
+// // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
+// // eslint-disable-next-line import/no-unresolved
+// const functions = require('firebase-functions');
+// // The Firebase Admin SDK to access Firestore.
+// // eslint-disable-next-line import/no-unresolved
+// const admin = require('firebase-admin');
+
+// admin.initializeApp();
+
+// export const currentPost = (id) => db.collection('newPost').doc(id).get();
+
 // GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS.
 export const savePost = (post) => db.collection('newPost')
   .add({
@@ -26,6 +37,7 @@ export const savePost = (post) => db.collection('newPost')
     Subtitle: post.subtitle,
     Body: post.body,
     Fecha: Date.now(),
+    Like: [],
   });
 
 // TRAE LA DATA DE LA BASE DE DATOS.
@@ -35,9 +47,9 @@ export const getData = () => {
     .onSnapshot((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
-        console.log(doc);
+        // console.log(doc);
         const dataBase = doc.data();
-        console.log(doc.data());
+        // console.log(doc.data());
         dataBase.id = doc.id; // CON ESTE ACCEDEMOS A LOS ID DE NUESTROS POST
         const id = dataBase.id; // AQUÍ arroja el ID del post
         postContainer.innerHTML += renderPost(dataBase, id);
@@ -48,7 +60,7 @@ export const getData = () => {
 
 // BORRA LOS POST
 export const deletePost = (id) => {
-  console.log('We are inside deletePost');
+  // console.log('We are inside deletePost');
   db.collection('newPost').doc(id).delete()
     .then(() => {
       console.log('Post was deleted in firebase console');
@@ -56,8 +68,91 @@ export const deletePost = (id) => {
     .catch((error) => {
       console.log('An error have ocurred!');
     });
-  console.log(id);
+  // console.log(id);
 };
+
+const currentPost = (id) => db.collection('newPost').doc(id).get();
+const postRef = (id) => db.collection('newPost').doc(id);
+
+export const likesCounter = (id) => {
+  const userId = auth.currentUser.uid;
+  console.log(userId);
+  // const currentPost = (id) => db.collection('newPost').doc(id).get();
+  currentPost(id)
+    .then((doc) => {
+      const postData = doc.data();
+      console.log(postData);
+      const likeArray = postData.Like;
+      console.log(likeArray);
+      const likeViewer = likeArray.includes(userId);
+      // likeArray.push(userId);
+      // console.log(likeArray.length);
+      // // const likeCounts = likeArray.length;
+      // // likeContainer.innerHTML = likeArray.length;
+
+      if (likeViewer === false) {
+        postRef(id).update({ Like: firebase.firestore.FieldValue.arrayUnion(userId) });
+      } else {
+        postRef(id).update({ Like: firebase.firestore.FieldValue.arrayRemove(userId) });
+      }
+    })
+    .catch((error) => {
+      console.log('An error has ocurred!');
+    });
+};
+
+
+
+  // .then((doc) => {
+  //   const userEmail = auth.currentUser.email; // Accedemos al correo de nuestro usuario
+  //   console.log(userEmail);
+  //   const likesArray = doc.data().Like; // accedes al array de likes
+  //   console.log(likesArray);
+  //   //         editButton.innerHTML = 'Publicar';
+  //   const cantLikes = document.getElementById('likesNumber'); // Este es el que va a ir cambiando
+  //   //       }).catch((error) => {
+  //   console.log(likesArray.Like);
+  //   const likeCounter = db.FieldValue.increment(1);
+  //   //         alert('Ups, ocurrio un error');
+  //   // const iterador = likesArray.includes(userEmail);
+  //   // //       });
+  //   // if (iterador === false) {
+  //   //   //   });
+  //   //   likesArray.push(userEmail);
+  //   //   // };
+  //   //   console.log(likesArray.length);
+  //   // }
+  //   cantLikes.innerHTML = likesArray.length;
+  //   console.log(likesArray);
+  // });
+// };
+
+
+
+// const updateLike = (id, email) => db.collection('newPost').doc(id).update({ Like: db.FieldValue.arrayUnion(email) });
+// const updateDislike = (id, email) => db.collection('newPost').doc(id).update({ Like: db.FieldValue.arrayRemove(email) });
+// export const likes = (id) => {
+//   currentPost(id)
+//     .then((doc) => {
+//       const userEmail = auth.currentUser.email; // Accedemos al correo de nuestro usuario
+//       // console.log(userEmail);
+//       const likesArray = doc.data().Like; // accedes al array de likes
+//       // console.log(likesArray);
+//       const cantLikes = document.getElementById('likesNumber'); // Este es el que va a ir cambiando
+//       // console.log(likesArray.Like);
+//       const iterador = likesArray.includes(userEmail);
+//       if (iterador === false) {
+//         // likesArray.unshift(userEmail);
+//         updateLike(id, userEmail);
+//         console.log(likesArray.length);
+//       } else {
+//         updateDislike(id, userEmail);
+//         console.log(likesArray.length);
+//       }
+//       cantLikes.innerHTML = likesArray.length;
+//       console.log(likesArray);
+//     });
+// };
 
 // EDITAR POST
 

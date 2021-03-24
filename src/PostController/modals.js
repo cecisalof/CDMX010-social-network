@@ -15,18 +15,7 @@ export const deleteModal = (id) => {
   };
 };
 
-// window.addEventListener('DOMContentLoaded', () => {
-//   const modal = document.querySelector('.modal');
-//   const confirm = document.getElementById('confirm');
-//   confirm.addEventListener('click', () => {
-//     deletePost();
-//     console.log(deletePost());
-//     alert('Post ha sido eliminado!');
-//     modal.classList.toggle('show-modal');
-//   });
-// });
-
-// const currentPost = (id) => firebase.db.collection('newPost').doc(id).get(); 
+// const currentPost = (id) => firebase.db.collection('newPost').doc(id).get();
 // mandar a firebase.js
 // // const postForm = document.getElementById('newPost'); // prescindir
 // // const editStatus = false; // incluir dentro de editPost

@@ -40,6 +40,7 @@ export const makingPost = () => {
     subtitle: subtitleCard.value,
     body: bodyCard.value,
     fecha: Date.now(),
+    Like: [],
   };
 
   if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
@@ -87,14 +88,18 @@ const addButtonEvents = () => {
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
       if (e.target.dataset.action === 'confirm') {
-        const confirmId = e.target.dataset.id;
-        console.log(confirmId);
-        firebase.deletePost(confirmId);
-        console.log('desde el escuchador de eventos', id);
+        // const confirmId = e.target.dataset.id;
+        // console.log(confirmId);
+        firebase.deletePost(id);
+        // console.log('desde el escuchador de eventos', id);
+      } else if (e.target.dataset.action === 'like') {
+        // const likeId = e.target.dataset.id;
+        // console.log(likeId);
+        firebase.likesCounter(id);
       }
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
-      console.log(id);
+      console.log('postID', id);
       console.log(e.target);
     });
   });
@@ -145,7 +150,7 @@ const eventsController = (e, id) => {
       signUpWithGoogle();
       break;
     case 'signInWithGoogle':
-      signInWithGoogle();
+      signUpWithGoogle();
       break;
     case 'delete':
       // deletePost(id);
@@ -156,6 +161,9 @@ const eventsController = (e, id) => {
     //   break;
     // case 'edit':
     //   editPost(id);
+    //   break;
+    // case 'like':
+    //   firebase.likesCounter(id);
     //   break;
   }
 };

@@ -126,7 +126,7 @@
     display: flex;
     flex: wrap;
     flex-direction: column;
-    height: 180px;
+    height: 100%;
     width: 281px;
     margin-left: 38px;
     margin-top: 40px;
@@ -146,6 +146,7 @@
   .icons{
     margin-top: -35px;
     margin-left: 185px;
+    margin-bottom: 20px;
   }
   
   .icon{
@@ -179,6 +180,7 @@
   margin-top: 14px;
   padding-right: 24px;
   font-size: 14px;
+  text-align: justify;
   }
   
   /* #authorAvatar{

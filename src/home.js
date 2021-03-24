@@ -11,7 +11,7 @@ export const renderPost = (param, id) => `
       </div>
       <div id="iconHeart">
           <img id= "like" class="icon" src="resources/Heart.png" alt="image" data-action="like" data-id ="${id}">
-          <p id="likesNumber">0</p>
+          <p id="likeCounter">${param.Like.length}</p>
       </div>
       <div class="icons">
           <img class="icon" id="trigger"src="resources/Trash.png" alt="delete-button" data-action="delete" data-id ="${id}">
