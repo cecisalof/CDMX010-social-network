@@ -9,10 +9,10 @@ export const novaApp = (container) => {
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
 
-  const animate = () => {
-    setTimeout(() => {
-      onNavigate('/login');
-    }, 3000);
-  };
-  animate();
+  // const animate = () => {
+  //   setTimeout(() => {
+  //     onNavigate('/login');
+  //   }, 3000);
+  // };
+  // animate();
 };

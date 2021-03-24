@@ -7,17 +7,7 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import {
-  signUpWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  signUpWithGoogle,
-  signInWithGoogle,
-}
-  from './auth.js';
 import { deleteModal } from './PostController/modals.js';
-// import { deletePost } from './firebase.js';
-// import { deletePost } from './firebase.js';
 
 export const rootDiv = document.getElementById('root');
 const modalContainer = document.getElementById('modalContainer');
@@ -131,7 +121,7 @@ const eventsController = (e, id) => {
       break;
     // eslint-disable-next-line no-fallthrough
     case 'signInUser':
-      signInWithEmailAndPassword();
+      firebase.signInWithEmailAndPassword();
       break;
     case 'signIn':
       onNavigate('/signIn');
@@ -141,16 +131,16 @@ const eventsController = (e, id) => {
       onNavigate('/signUp');
       break;
     case 'signUpButton':
-      signUpWithEmailAndPassword();
+      firebase.signUpWithEmailAndPassword();
       break;
     case 'signOut':
-      signOut();
+      firebase.signOut();
       break;
     case 'signUpWithGoogle':
-      signUpWithGoogle();
+      firebase.signUpWithGoogle();
       break;
     case 'signInWithGoogle':
-      signUpWithGoogle();
+      firebase.signUpWithGoogle();
       break;
     case 'delete':
       // deletePost(id);
