@@ -14,8 +14,10 @@
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "test": "jest --coverage",
-    "start": "serve src/"
+    "start": "serve src/",
+    "test:watch" : "jest --coverage --watch"
   },
+  
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
