@@ -7,7 +7,7 @@ export const login = (container) => {
       </div>
       <div class="bottonSection">
         <button data-action ="signIn">Iniciar Sesión</button><br>
-        <button class="signUpBotton"  data-action ="signUp">Registarse</button>
+        <button class="signUpBotton"  data-action ="signUp">Registrarse</button>
       </div>
       
       <div class="terms">

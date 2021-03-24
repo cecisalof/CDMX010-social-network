@@ -31,7 +31,7 @@
   
   h3{
     color: #9D9B9B;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 200;
     padding-top: 0px;
    
@@ -133,30 +133,35 @@
   }
   
   #iconHeart{
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    display: flex;
     margin-left: 10px;
   }
   
-  #likesNumber{
-    margin-top: -26px;
-    margin-left: 48px;
+  #likeCounter{
+    display: flex;
+    /* margin-top: -26px;
+    margin-left: 48px; */
   }
   
   
   .icons{
-    margin-top: -35px;
+    margin-top: -39px;
     margin-left: 185px;
     margin-bottom: 20px;
   }
   
   .icon{
-    
     width: 22px;
     height: 22px;
     margin-left: 18px;
   
   }
   
+  #like{
+  margin-top: 15px;
+  margin-right: 5px;
+  }
   #cardTitle {
     width: 100%;
     margin-bottom: 0px;
@@ -167,18 +172,19 @@
    }
   
   #cardSubtitle {
-    width: 100%;
-    margin-top: 0px;
+    width: 80%;
+    margin-top: 5px;
     margin-bottom: 0px;
-    margin-right: 0px;
+    /* margin-right: 0px; */
     padding-left: 24px;
     padding-right: 24px;
+    margin-right: 100px;
   }
   
   #renderBody {
   padding-left: 24px;
-  margin-top: 14px;
-  padding-right: 24px;
+  margin-top: 18px;
+  padding-right: 32px;
   font-size: 14px;
   text-align: justify;
   }
