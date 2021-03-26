@@ -1,5 +1,5 @@
 export const likeButton = () => {
-  const button = document.getElementById('btn');
+  const button = document.getElementById('likeButton');
   button.addEventListener('click', () => {
     if (button.classList.contains('far')) {
       button.classList.remove('far');

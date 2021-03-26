@@ -10,8 +10,10 @@ export const renderPost = (param, id) => `
           <p id="renderBody">${param.Body}</p>
       </div>
       <div id="iconHeart">
+          <button id="likeButton">
           <img id= "like" class="icon" src="resources/Heart.png" alt="image" data-action="like" data-id ="${id}">
           <p id="likeCounter">${param.Like.length}</p>
+          </button>
       </div>
       <div class="icons">
           <img class="icon" id="trigger"src="resources/Trash.png" alt="delete-button" data-action="delete" data-id ="${id}">

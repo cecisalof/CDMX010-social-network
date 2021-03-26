@@ -1,8 +1,11 @@
 // Test de interacción de el flujo de autentificación
 
 // import { login } from '../src/lib/login.js';
+import { TestScheduler } from '@jest/core';
 import { signIn } from '../src/auth/signIn.js';
 import { deleteConfirmation } from '../src/PostController/deleteConfirmation.js';
+import { deleteModal } from '../src/PostController/modals.js';
+
 // import { signUp } from '../src/lib/signUp.js';
 // import { eventsController } from '../src/routes.js';
 
@@ -30,13 +33,13 @@ describe('Testing delete confirmation modal template', () => {
   });
 
   it('should inicialize delePost() function from firebase.js file', () => {
-    const modalContainer = document.getElementById('modalContainer');
-    deleteConfirmation(modalContainer);
-    const confirmButton = document.getElementById('confirm');
     const postId = '123';
     const deletePost = jest.fn().mockImplementation(() => Promise.resolve());
     const firebase = { deletePost };
+    deleteModal(postId, firebase);
+    const confirmButton = document.getElementById('confirm');
     confirmButton.click();
-    expect(deletePost(postId)).toHaveBeenCalled('123');// CONSTANTE FALSA QUE CREARÉ ARRIBA.
+    expect(deletePost).toHaveBeenCalledWith(postId);// CONSTANTE FALSA QUE CREARÉ ARRIBA.
+    // verifica que la función mock fue invocda
   });
 });
