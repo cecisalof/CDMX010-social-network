@@ -75,6 +75,7 @@ export const deletePost = (id) => {
   // console.log(id);
 };
 
+// LIKE
 const currentPost = (id) => db.collection('newPost').doc(id).get();
 const postRef = (id) => db.collection('newPost').doc(id);
 
@@ -97,9 +98,64 @@ export const likesCounter = (id) => {
       }
     })
     .catch((error) => {
-      console.log('An error has ocurred!');
+      console.log('An error had ocurred!');
     });
 };
+
+// EDIT POST
+export const editPost = (id) => {
+  const editedTitle = document.getElementById('title').value;
+  const editedSubtitle = document.getElementById('subtitle').value;
+  const editedBody = document.getElementById('body').value;
+  currentPost(id)
+    .then((post) => {
+      const postData = post.data();
+      // console.log(postData);
+      postData.update({
+        Title: editedTitle,
+        Subtitle: editedSubtitle,
+        Body: editedBody,
+        Fecha: Date.now(),
+        Like: [],
+      });
+    })
+    .catch((error) => {
+      console.log('An error had ocurred!');
+    });
+  console.log(currentPost(id));
+};
+
+// export const editPost = (id, Title, Subtitle, Body) => {
+//   // document.getElementById('title').value = Title;
+//   // document.getElementById('subtitle').value = Subtitle;
+//   // document.getElementById('body').value = Body;
+//   // const editButton = document.getElementById('btn');
+//   // editButton.innerHTML = 'Editar';
+
+//     const post = db.collection('newPost').doc(id);
+//     const newTitle = document.getElementById('titleEdit').value;
+//     const newSubtitle = document.getElementById('subtitleEdit').value;
+//     const newBody = document.getElementById('bodyEdit').value;
+
+//     currentPost(id)
+//     .then((doc) => {
+//       const postData = doc.data();
+//       post.update({
+//         Title: post.title,
+//         Subtitle: post.subtitle,
+//         Body: post.body,
+//         Like: [],
+//       })
+//     })
+    
+//       .then((res) => {
+//         alert('Post eliminado correctamente');
+//         editButton.innerHTML = 'Publicar';
+//       }).catch((error) => {
+//         alert('Ups, ocurrio un error');
+//       });
+//   });
+// };
 
 // // AUTH FROM FIREBASE
 export const signUpWithEmailAndPassword = () => {
@@ -224,42 +280,3 @@ export const userViewer = auth.onAuthStateChanged(user => {
     animate();
   }
 });
-
-
-
-
-
-
-// // EDITAR POST
-
-// export const editPost = (id, Title, Subtitle, Body) => {
-//   // document.getElementById('title').value = Title;
-//   // document.getElementById('subtitle').value = Subtitle;
-//   // document.getElementById('body').value = Body;
-//   // const editButton = document.getElementById('btn');
-//   // editButton.innerHTML = 'Editar';
-
-//     const post = db.collection('newPost').doc(id);
-//     const newTitle = document.getElementById('titleEdit').value;
-//     const newSubtitle = document.getElementById('subtitleEdit').value;
-//     const newBody = document.getElementById('bodyEdit').value;
-
-//     currentPost(id)
-//     .then((doc) => {
-//       const postData = doc.data();
-//       post.update({
-//         Title: post.title,
-//         Subtitle: post.subtitle,
-//         Body: post.body,
-//         Like: [],
-//       })
-//     })
-    
-//       .then((res) => {
-//         alert('Post eliminado correctamente');
-//         editButton.innerHTML = 'Publicar';
-//       }).catch((error) => {
-//         alert('Ups, ocurrio un error');
-//       });
-//   });
-// };

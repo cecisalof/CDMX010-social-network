@@ -1,10 +1,11 @@
-import { deleteConfirmation } from './deleteConfirmation.js';
-// import { editForm } from './editPost.js';
+// import { editPost } from '../firebase.js';
+import { deleteModal } from './deleteModal.js';
+import { editModal } from './editModal.js';
 
-export const deleteModal = (id, firebase) => {
+export const deleteConfirmation = (id, firebase) => {
   const postId = id;
   const modalContainer = document.getElementById('modalContainer');
-  deleteConfirmation(modalContainer, id, firebase); // pasar firebase como parámetro
+  deleteModal(modalContainer, id, firebase); // pasar firebase como parámetro
   const modal = document.querySelector('.modal');
   const closeButton = document.querySelector('.close-button');
 
@@ -18,20 +19,34 @@ export const deleteModal = (id, firebase) => {
 
   const confirmButton = document.querySelector('#confirm');
   console.log('THIS IS CONFIRM BUTTON', confirmButton);
-  confirmButton.addEventListener('click', (e) => {
-    // e.preventDefault();
-    // const click = e.target.dataset.action;
-    // console.log('in the handler of confirmbutton', click);
-    // // const confirmId = e.target.dataset.id;
-    // console.log('inside deleteModal', id);
-    // if (click === 'confirm') {
-    //   const confirmId = e.target.dataset.id;
-    //   console.log('inside iconfirm conditional', confirmId);
+  confirmButton.addEventListener('click', () => {
     firebase.deletePost(postId);
     console.log('this ID comes inside de deletePost function in the component', postId);
   });
 };
 
+export const editConfirmation = (id, firebase) => {
+  const postId = id;
+  const modalContainer = document.getElementById('modalContainer');
+  editModal(modalContainer, id, firebase); // pasar firebase como parámetro
+  const modal = document.querySelector('.modal');
+  const closeButton = document.querySelector('.close-button');
+
+  modal.classList.toggle('show-modal');
+
+  window.onclick = (event) => {
+    if (event.target === modal || event.target === closeButton) {
+      modal.classList.toggle('show-modal');
+    }
+  };
+
+  const editButton = document.querySelector('#edit');
+  console.log('THIS IS EDIT BUTTON', editButton);
+  editButton.addEventListener('click', () => {
+    firebase.editPost(postId);
+    console.log('this ID comes inside the editPost function in the component', postId);
+  });
+};
 
 // export const editModal = (id) => {
 //   const editContainer = document.getElementById('modalContainer');

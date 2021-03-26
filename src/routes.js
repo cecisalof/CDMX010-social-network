@@ -7,7 +7,7 @@ import { postPage } from './post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
-import { deleteModal } from './PostController/modals.js';
+import { deleteConfirmation, editConfirmation } from './PostController/modals.js';
 
 export const rootDiv = document.getElementById('root');
 const modalContainer = document.getElementById('modalContainer');
@@ -145,14 +145,11 @@ const eventsController = (e, id) => {
       break;
     case 'delete':
       // deletePost(id);
-      deleteModal(id, firebase); // aqui necesitamos pasar firebase
+      deleteConfirmation(id, firebase); // aqui necesitamos pasar firebase
       break;
-    // case 'confirm':
-    //   deletePost(id);
-    //   break;
-    // case 'edit':
-    //   editPost(id);
-    //   break;
+    case 'edit':
+      editConfirmation(id, firebase);
+      break;
     case 'like':
       firebase.likesCounter(id);
       break;
