@@ -23,7 +23,7 @@ exports[`Testing delete confirmation modal template should render the modal in t
         <div class=\\"modal-content\\">
             <span class=\\"close-button\\">×</span>
             <p>Confirma que deseas eliminar este post</p>
-              <button class=\\"button\\" id=\\"confirm \\" data-action=\\"confirm\\" data-id=\\"undefined\\">Confirmar</button>
+              <button class=\\"button\\" id=\\"confirm\\" \\"data-action=\\"confirm\\">Confirmar</button>
               <button class=\\"button\\" id=\\"cancel\\" data-action=\\"cancel\\">Cancelar</button>
         </div>
     </div> 

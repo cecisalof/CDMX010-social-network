@@ -12,6 +12,7 @@ import { deleteModal } from './PostController/modals.js';
 export const rootDiv = document.getElementById('root');
 const modalContainer = document.getElementById('modalContainer');
 
+// aquí inyectamos la dependencia a este archivo (routes) y se la pasa a los componentes con onNavigate
 let firebase;
 export const loadFirebase = (firebaseFromApp) => {
   firebase = firebaseFromApp;
@@ -77,16 +78,16 @@ const addButtonEvents = () => {
       e.preventDefault();
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
-      if (e.target.dataset.action === 'confirm') {
-        // const confirmId = e.target.dataset.id;
-        // console.log(confirmId);
-        firebase.deletePost(id);
-        // console.log('desde el escuchador de eventos', id);
-      } else if (e.target.dataset.action === 'like') {
-        // const likeId = e.target.dataset.id;
-        // console.log(likeId);
-        firebase.likesCounter(id);
-      }
+      // if (e.target.dataset.action === 'confirm') {
+      //   // const confirmId = e.target.dataset.id;
+      //   // console.log(confirmId);
+      //   firebase.deletePost(id);
+      //   // console.log('desde el escuchador de eventos', id);
+      // } else if (e.target.dataset.action === 'like') {
+      //   // const likeId = e.target.dataset.id;
+      //   // console.log(likeId);
+      //   firebase.likesCounter(id);
+      // }
       // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
       console.log('postID', id);
@@ -95,7 +96,7 @@ const addButtonEvents = () => {
   });
 };
 
-const container = document.getElementById('printData');
+// const container = document.getElementById('printData');
 // Esta es la aplicación que genera el routing
 const eventsController = (e, id) => {
   // eslint-disable-next-line default-case
@@ -144,7 +145,7 @@ const eventsController = (e, id) => {
       break;
     case 'delete':
       // deletePost(id);
-      deleteModal(id);
+      deleteModal(id, firebase); // aqui necesitamos pasar firebase
       break;
     // case 'confirm':
     //   deletePost(id);
@@ -152,9 +153,9 @@ const eventsController = (e, id) => {
     // case 'edit':
     //   editPost(id);
     //   break;
-    // case 'like':
-    //   firebase.likesCounter(id);
-    //   break;
+    case 'like':
+      firebase.likesCounter(id);
+      break;
   }
 };
 

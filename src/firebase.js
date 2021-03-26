@@ -64,6 +64,7 @@ export const getData = () => {
 // BORRA LOS POST
 export const deletePost = (id) => {
   // console.log('We are inside deletePost');
+  console.log('form deletePost Function', id);
   db.collection('newPost').doc(id).delete()
     .then(() => {
       console.log('Post was deleted in firebase console');

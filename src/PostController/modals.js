@@ -1,9 +1,10 @@
 import { deleteConfirmation } from './deleteConfirmation.js';
-import { editForm } from './editPost.js';
+// import { editForm } from './editPost.js';
 
-export const deleteModal = (id) => {
+export const deleteModal = (id, firebase) => {
+  const postId = id;
   const modalContainer = document.getElementById('modalContainer');
-  deleteConfirmation(modalContainer, id);
+  deleteConfirmation(modalContainer, id, firebase); // pasar firebase como parámetro
   const modal = document.querySelector('.modal');
   const closeButton = document.querySelector('.close-button');
 
@@ -14,22 +15,38 @@ export const deleteModal = (id) => {
       modal.classList.toggle('show-modal');
     }
   };
+
+  const confirmButton = document.querySelector('#confirm');
+  console.log('THIS IS CONFIRM BUTTON', confirmButton);
+  confirmButton.addEventListener('click', (e) => {
+    // e.preventDefault();
+    // const click = e.target.dataset.action;
+    // console.log('in the handler of confirmbutton', click);
+    // // const confirmId = e.target.dataset.id;
+    // console.log('inside deleteModal', id);
+    // if (click === 'confirm') {
+    //   const confirmId = e.target.dataset.id;
+    //   console.log('inside iconfirm conditional', confirmId);
+    firebase.deletePost(postId);
+    console.log('this ID comes inside de deletePost function in the component', postId);
+  });
 };
 
-export const editModal = (id) => {
-  const editContainer = document.getElementById('modalContainer');
-  editForm(editContainer, id);
-  const modal = document.querySelector('.modal');
-  const closeButton = document.querySelector('.close-button');
 
-  modal.classList.toggle('show-modal');
+// export const editModal = (id) => {
+//   const editContainer = document.getElementById('modalContainer');
+//   editForm(editContainer, id);
+//   const modal = document.querySelector('.modal');
+//   const closeButton = document.querySelector('.close-button');
 
-  window.onclick = (event) => {
-    if (event.target === modal || event.target === closeButton) {
-      modal.classList.toggle('show-modal');
-    }
-  };
-};
+//   modal.classList.toggle('show-modal');
+
+//   window.onclick = (event) => {
+//     if (event.target === modal || event.target === closeButton) {
+//       modal.classList.toggle('show-modal');
+//     }
+//   };
+// };
 
 // const currentPost = (id) => firebase.db.collection('newPost').doc(id).get();
 // mandar a firebase.js

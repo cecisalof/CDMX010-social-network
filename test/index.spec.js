@@ -23,18 +23,20 @@ describe('Testing delete confirmation modal template', () => {
     document.body.innerHTML = '<div id="modalContainer"></div>';
   });
   it('should render the modal in the DOM', () => {
+    // bno importa que el id sea falso, el id en un string, puedo colocarl lo que sea y pasarselo a deleteConfirmation.
     const modalContainer = document.getElementById('modalContainer');
     deleteConfirmation(modalContainer);
     expect(modalContainer.innerHTML).toMatchSnapshot();
   });
-//   it('should delete de post in firebase', () => {
-//     const confirmButton = document.getElementById('confirm');
-//     let docRef = firestore.doc('newPost/doc');
-//     const deletePost = jest.fn().mockImplementation(() => Promise.resolve(docRef));
-//     confirmButton.click();
-//     docRef.delete().then(() => {
-//       console.log('Document successfully deleted.');
-//       expect(deletePost()).toMatchSnapshot();
-//     });
-//   });
+
+  it('should inicialize delePost() function from firebase.js file', () => {
+    const modalContainer = document.getElementById('modalContainer');
+    deleteConfirmation(modalContainer);
+    const confirmButton = document.getElementById('confirm');
+    const postId = '123';
+    const deletePost = jest.fn().mockImplementation(() => Promise.resolve());
+    const firebase = { deletePost };
+    confirmButton.click();
+    expect(deletePost(postId)).toHaveBeenCalled('123');// CONSTANTE FALSA QUE CREARÉ ARRIBA.
+  });
 });
