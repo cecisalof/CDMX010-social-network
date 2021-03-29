@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 
-import { nav } from './components/nav.js';
+import { nav } from '../components/nav.js';
 
 export const renderPost = (param, id) => `
   <div id="cardContainer">

@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
 // Este es el punto de entrada de tu aplicacion
 // eslint-disable-next-line import/no-cycle
-import { home } from './home.js';
-import { login } from './login.js';
-import { postPage } from './post.js';
+import { home } from './views/home.js';
+import { login } from './views/login.js';
+import { postPage } from './views/post.js';
 import { novaApp } from './auth/nova.js';
 import { signIn } from './auth/signIn.js';
 import { signUp } from './auth/signUp.js';
 import { deleteConfirmation, editConfirmation } from './PostController/modals.js';
 
 export const rootDiv = document.getElementById('root');
-const modalContainer = document.getElementById('modalContainer');
 
-// aquí inyectamos la dependencia a este archivo (routes) y se la pasa a los componentes con onNavigate
+// aquí inyectamos la dependencia a este archivo (routes)
+// y éste se la pasa a los componentes con onNavigate
 let firebase;
 export const loadFirebase = (firebaseFromApp) => {
   firebase = firebaseFromApp;
@@ -28,7 +28,7 @@ export const routes = {
 };
 
 export const onNavigate = (pathname) => {
-  window.history.pushState(
+  window.history.pushState( // crea y activa un registro en la sesión de historial del navegador.
     {},
     pathname,
     window.location.origin + pathname,
@@ -37,6 +37,13 @@ export const onNavigate = (pathname) => {
   const view = routes[pathname];
   view(rootDiv, firebase);
   // homeView(rootDiv);
+};
+
+// Se activa cuando cambia la entrada del historial actual a la de la última página
+// que visitó el usuario. Para renderizr el contenido del nuevo path
+window.onpopstate = () => {
+  const homeView = routes[window.location.pathname]; // to render the page
+  homeView(rootDiv, firebase);
 };
 
 // Esta es la aplicación que itera con los los targets donde se ejecuta la acción
@@ -54,7 +61,6 @@ const addButtonEvents = () => {
   });
 };
 
-// const container = document.getElementById('printData');
 // Esta es la aplicación que genera el routing
 const eventsController = (e, id) => {
   // eslint-disable-next-line default-case
@@ -63,29 +69,23 @@ const eventsController = (e, id) => {
       onNavigate('/');
       break;
     case 'home':
-      // eslint-disable-next-line no-unused-expressions
       onNavigate('/home');
       break;
-    // eslint-disable-next-line no-fallthrough
     case 'login':
       onNavigate('/login');
       break;
-    // eslint-disable-next-line no-fallthrough
     case 'post':
       onNavigate('/post');
       break;
-    // eslint-disable-next-line no-fallthrough
     case 'saveButton':
       firebase.makingPost();
       break;
-    // eslint-disable-next-line no-fallthrough
     case 'signInUser':
       firebase.signInWithEmailAndPassword();
       break;
     case 'signIn':
       onNavigate('/signIn');
       break;
-    // eslint-disable-next-line no-fallthrough
     case 'signUp':
       onNavigate('/signUp');
       break;
@@ -102,7 +102,6 @@ const eventsController = (e, id) => {
       firebase.signUpWithGoogle();
       break;
     case 'delete':
-      // deletePost(id);
       deleteConfirmation(id, firebase); // aqui necesitamos pasar firebase
       break;
     case 'edit':

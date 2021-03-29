@@ -1,4 +1,4 @@
-import { nav } from './components/nav.js';
+import { nav } from '../components/nav.js';
 
 export const postPage = (container) => {
   const html = `

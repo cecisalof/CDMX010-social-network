@@ -1,7 +1,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // eslint-disable-next-line import/no-cycle
-import { renderPost } from './home.js';
-import { onNavigate } from './routes.js';
+import { renderPost } from '../views/home.js';
+import { onNavigate } from '../routes.js';
 
 const firebaseConfig = {
 
@@ -120,9 +120,9 @@ export const likesCounter = (id) => {
 // EDIT POST
 export const editPost = (id) => {
   const postData = db.collection('newPost').doc(id);
-  let editedTitle = document.getElementById('titleEdit').value;
-  let editedSubtitle = document.getElementById('subtitleEdit').value;
-  let editedBody = document.getElementById('bodyEdit').value;
+  const editedTitle = document.getElementById('titleEdit').value;
+  const editedSubtitle = document.getElementById('subtitleEdit').value;
+  const editedBody = document.getElementById('bodyEdit').value;
   // currentPost(id)
   //   .then((post) => {
   postData.update({
@@ -171,8 +171,8 @@ export const signUpWithEmailAndPassword = () => {
       .catch((error) => {
         alert('Usuario ya registrado');
         onNavigate('/signIn');
-        let errorCode = error.code;
-        let errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
   }
 };
@@ -195,8 +195,8 @@ export const signInWithEmailAndPassword = (user) => {
       })
       .catch((error) => {
         alert('El correo o la contraseña ingresados son inválidos');
-        let errorCode = error.code;
-        let errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
   }
 };
@@ -222,26 +222,6 @@ export const signUpWithGoogle = () => {
       alert('Un error ha ocurrido. Inténtelo más tarde');
     });
 };
-
-// export const signInWithGoogle = () => {
-//   const provider = new firebase.auth.GoogleAuthProvider();
-//   // auth.signInWithRedirect(provider);
-//   auth.getRedirectResult()
-//     .then((result) => {
-//       console.log('entra a la promesa de getRedirect');
-//       onNavigate('/home');
-//     }).catch((error) => {
-//       console.log('da error en el get redirect!');
-//       // Handle Errors here.
-//       let errorCode = error.code;
-//       let errorMessage = error.message;
-//       // The email of the user's account used.
-//       let email = error.email;
-//       // The firebase.auth.AuthCredential type that was used.
-//       let credential = error.credential;
-//       // ...
-//     });
-// };
 
 // IS A VIEWER THAT CHECKS IF THE USER EXISTS
 export const userViewer = auth.onAuthStateChanged(user => {

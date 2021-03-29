@@ -59,7 +59,7 @@
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
   }
   
-  input[type="text"] {
+  input{
     font-family: "Lufga", sans-serif;
   }
   
@@ -104,20 +104,7 @@
   display: flex;
   flex-wrap: wrap;
   }
-  /*
-  #cardContainer{
-    height: 160px;
-    width: 281px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    margin-left: 38px;
-    margin-top: 40px;  
-    display: flex; 
-    flex-wrap: wrap;
-    
-  }
-  */
+
   /*Propuesta de Karina */
   #cardContainer{
     background: #FFFFFF;
@@ -133,17 +120,13 @@
   }
   
   #iconHeart{
-    /* margin-top: 15px; */
     display: flex;
     margin-left: 10px;
   }
   
   #likeCounter{
     display: flex;
-    /* margin-top: -26px;
-    margin-left: 48px; */
   }
-  
   
   .icons{
     margin-top: -39px;
@@ -162,6 +145,7 @@
   margin-top: 15px;
   margin-right: 5px;
   }
+
   #cardTitle {
     width: 85%;
     margin-bottom: 0px;
@@ -175,7 +159,6 @@
     width: 80%;
     margin-top: 5px;
     margin-bottom: 0px;
-    /* margin-right: 0px; */
     padding-left: 24px;
     padding-right: 24px;
     margin-right: 100px;
@@ -216,7 +199,6 @@
   
   #subtitle {
     height: 50px;
-    /*background: #f9f9f9;*/
   }
   
   #body {
@@ -224,7 +206,6 @@
   }
   
   .button {
-    /*margin-left: 38px;*/
     border-radius: 3px;
     margin-top: 16px;
     background: #56F89A;
@@ -259,7 +240,8 @@
     align-items: center;
     margin-top: 50%;
   }
-  /*Este le da estilo a los botnone*/
+
+  /*Este le da estilo a los botones*/
   .logIng button{
     padding: 3px 25px 3px 25px;
     border-radius: 3px;
@@ -270,10 +252,12 @@
     font-size: 14px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   }
-  /*Este le da estilo a los botnone*/
+
+  /*Este le da estilo a los botones*/
   .bottonSection{
     margin-top: 5%;
   }
+
   /*Este le da estilo al texto de terminos y condiciones*/
   .terms{
     padding: 3px 25px 3px 25px;
@@ -302,9 +286,7 @@
   }
   
   #bigSnipple{
-    /*margin-top: 100px;*/
     width: 100px;
-    /*margin-bottom: 50px;*/
     /*PARA ALINEAR EL CENTRO DEL GARABATO*/
     margin-left: -30px;
   }

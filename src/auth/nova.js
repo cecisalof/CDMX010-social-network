@@ -1,5 +1,3 @@
-import { onNavigate } from '../routes.js';
-
 export const novaApp = (container) => {
   const html = `
         <div id="novaAppPage">
@@ -8,11 +6,4 @@ export const novaApp = (container) => {
         `;
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = html;
-
-  // const animate = () => {
-  //   setTimeout(() => {
-  //     onNavigate('/login');
-  //   }, 3000);
-  // };
-  // animate();
 };
