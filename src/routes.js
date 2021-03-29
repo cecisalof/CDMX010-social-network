@@ -18,37 +18,6 @@ export const loadFirebase = (firebaseFromApp) => {
   firebase = firebaseFromApp;
 };
 
-export const makingPost = () => {
-  const titleCard = document.getElementById('title');
-  const subtitleCard = document.getElementById('subtitle');
-  const bodyCard = document.getElementById('body');
-
-  // postButton.addEventListener('click', (e) => {
-  //   e.preventDefault();
-
-  const post = {
-    title: titleCard.value,
-    subtitle: subtitleCard.value,
-    body: bodyCard.value,
-    fecha: Date.now(),
-    Like: [],
-  };
-
-  if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
-    alert('Input vacío!');
-    return;
-  }
-
-  firebase.savePost(post)
-    .then((doc) => {
-      console.log('Document written whith ID: ', doc.id);
-      titleCard.value = '';
-      subtitleCard.value = '';
-      bodyCard.value = '';
-    })
-    .catch((error) => console.log(error));
-};
-
 export const routes = {
   '/': novaApp,
   '/home': home,
@@ -78,17 +47,6 @@ const addButtonEvents = () => {
       e.preventDefault();
       const click = e.target.dataset.action;
       const id = e.target.dataset.id;
-      // if (e.target.dataset.action === 'confirm') {
-      //   // const confirmId = e.target.dataset.id;
-      //   // console.log(confirmId);
-      //   firebase.deletePost(id);
-      //   // console.log('desde el escuchador de eventos', id);
-      // } else if (e.target.dataset.action === 'like') {
-      //   // const likeId = e.target.dataset.id;
-      //   // console.log(likeId);
-      //   firebase.likesCounter(id);
-      // }
-      // eslint-disable-next-line no-use-before-define
       eventsController(click, id);
       console.log('postID', id);
       console.log(e.target);
@@ -118,7 +76,7 @@ const eventsController = (e, id) => {
       break;
     // eslint-disable-next-line no-fallthrough
     case 'saveButton':
-      makingPost();
+      firebase.makingPost();
       break;
     // eslint-disable-next-line no-fallthrough
     case 'signInUser':

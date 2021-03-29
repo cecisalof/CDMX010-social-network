@@ -29,8 +29,10 @@ export const editConfirmation = (id, firebase) => {
   const postId = id;
   const modalContainer = document.getElementById('modalContainer');
   editModal(modalContainer, id, firebase); // pasar firebase como parámetro
+  console.log(editModal);
   const modal = document.querySelector('.modal');
   const closeButton = document.querySelector('.close-button');
+  const editButton = document.querySelector('#edit');
 
   modal.classList.toggle('show-modal');
 
@@ -40,9 +42,9 @@ export const editConfirmation = (id, firebase) => {
     }
   };
 
-  const editButton = document.querySelector('#edit');
-  console.log('THIS IS EDIT BUTTON', editButton);
+  console.log('EDIT BUTTON', editButton);
   editButton.addEventListener('click', () => {
+    console.log('cliCK en edit button');
     firebase.editPost(postId);
     console.log('this ID comes inside the editPost function in the component', postId);
   });

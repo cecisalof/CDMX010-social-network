@@ -1,10 +1,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // eslint-disable-next-line import/no-cycle
 import { renderPost } from './home.js';
-// import { userAuth } from './firebase.js';
 import { onNavigate } from './routes.js';
-
-// import { deleteConfirmation } from './PostController/deleteConfirmation.js';
 
 const firebaseConfig = {
 
@@ -16,22 +13,11 @@ const firebaseConfig = {
   appId: '1:282489634860:web:97a4ad5b81716f2b0f5189',
   measurementId: 'G-N31JQDJTSM',
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
-// eslint-disable-next-line no-unused-vars
 export const db = firebase.firestore();
-
-// // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
-// // eslint-disable-next-line import/no-unresolved
-// const functions = require('firebase-functions');
-// // The Firebase Admin SDK to access Firestore.
-// // eslint-disable-next-line import/no-unresolved
-// const admin = require('firebase-admin');
-
-// admin.initializeApp();
-
-// export const currentPost = (id) => db.collection('newPost').doc(id).get();
 
 // GUARDA INFORMACIÓN DE USUARIIO EN LA BASE DE DATOS.
 export const savePost = (post) => db.collection('newPost')
@@ -59,6 +45,35 @@ export const getData = () => {
         // console.log(dataBase);
       });
     });
+};
+
+// CREATING A NEW POST IN FIREBASE
+export const makingPost = () => {
+  const titleCard = document.getElementById('title');
+  const subtitleCard = document.getElementById('subtitle');
+  const bodyCard = document.getElementById('body');
+
+  const post = {
+    title: titleCard.value,
+    subtitle: subtitleCard.value,
+    body: bodyCard.value,
+    fecha: Date.now(),
+    Like: [],
+  };
+
+  if (!titleCard.value.trim() || !subtitleCard.value.trim() || !bodyCard.value.trim()) {
+    alert('Input vacío!');
+    return;
+  }
+
+  savePost(post)
+    .then((doc) => {
+      console.log('Document written whith ID: ', doc.id);
+      titleCard.value = '';
+      subtitleCard.value = '';
+      bodyCard.value = '';
+    })
+    .catch((error) => console.log(error));
 };
 
 // BORRA LOS POST
@@ -104,58 +119,27 @@ export const likesCounter = (id) => {
 
 // EDIT POST
 export const editPost = (id) => {
-  const editedTitle = document.getElementById('title').value;
-  const editedSubtitle = document.getElementById('subtitle').value;
-  const editedBody = document.getElementById('body').value;
-  currentPost(id)
-    .then((post) => {
-      const postData = post.data();
-      // console.log(postData);
-      postData.update({
-        Title: editedTitle,
-        Subtitle: editedSubtitle,
-        Body: editedBody,
-        Fecha: Date.now(),
-        Like: [],
-      });
-    })
+  const postData = db.collection('newPost').doc(id);
+  let editedTitle = document.getElementById('titleEdit').value;
+  let editedSubtitle = document.getElementById('subtitleEdit').value;
+  let editedBody = document.getElementById('bodyEdit').value;
+  // currentPost(id)
+  //   .then((post) => {
+  postData.update({
+    Title: editedTitle,
+    Subtitle: editedSubtitle,
+    Body: editedBody,
+    Date: Date.now(),
+    Like: [],
+  }).then(() => {
+    console.log('Post was edited in firebase console');
+  })
     .catch((error) => {
-      console.log('An error had ocurred!');
+      console.log('An error have ocurred!');
     });
-  console.log(currentPost(id));
+
+  console.log(postData);
 };
-
-// export const editPost = (id, Title, Subtitle, Body) => {
-//   // document.getElementById('title').value = Title;
-//   // document.getElementById('subtitle').value = Subtitle;
-//   // document.getElementById('body').value = Body;
-//   // const editButton = document.getElementById('btn');
-//   // editButton.innerHTML = 'Editar';
-
-//     const post = db.collection('newPost').doc(id);
-//     const newTitle = document.getElementById('titleEdit').value;
-//     const newSubtitle = document.getElementById('subtitleEdit').value;
-//     const newBody = document.getElementById('bodyEdit').value;
-
-//     currentPost(id)
-//     .then((doc) => {
-//       const postData = doc.data();
-//       post.update({
-//         Title: post.title,
-//         Subtitle: post.subtitle,
-//         Body: post.body,
-//         Like: [],
-//       })
-//     })
-    
-//       .then((res) => {
-//         alert('Post eliminado correctamente');
-//         editButton.innerHTML = 'Publicar';
-//       }).catch((error) => {
-//         alert('Ups, ocurrio un error');
-//       });
-//   });
-// };
 
 // // AUTH FROM FIREBASE
 export const signUpWithEmailAndPassword = () => {
